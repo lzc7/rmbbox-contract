@@ -3,7 +3,6 @@
 .idea/
 .gradle
 *.keystoreå
-*.iml
 */target/
 lib/
 target/
