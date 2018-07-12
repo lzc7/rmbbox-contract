@@ -7,7 +7,6 @@
 */target/
 lib/
 target/
-log/
 .project
 */.classpath
 */.project
