@@ -1,0 +1,938 @@
+2018-07-10 10:28:30,127 INFO (StartupInfoLogger.java:48)- Starting App on note-zp-0001 with PID 7732 (E:\gittest\pushmsg\helloworld\rmbbox-contract-server\target\classes started by Administrator in E:\gittest\pushmsg\helloworld\rmbbox-contract-server)
+2018-07-10 10:28:30,207 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-07-10 10:28:31,424 INFO (Version.java:30)- HV000001: Hibernate Validator 5.3.6.Final
+2018-07-10 10:28:31,932 INFO (AbstractApplicationContext.java:583)- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@13d9b21f: startup date [Tue Jul 10 10:28:31 CST 2018]; root of context hierarchy
+2018-07-10 10:28:39,343 INFO (TomcatEmbeddedServletContainer.java:89)- Tomcat initialized with port(s): 7650 (http)
+2018-07-10 10:28:39,420 INFO (DirectJDKLog.java:179)- Starting service [Tomcat]
+2018-07-10 10:28:39,423 INFO (DirectJDKLog.java:179)- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-07-10 10:28:39,670 INFO (DirectJDKLog.java:179)- Initializing Spring embedded WebApplicationContext
+2018-07-10 10:28:39,671 INFO (EmbeddedWebApplicationContext.java:276)- Root WebApplicationContext: initialization completed in 7738 ms
+2018-07-10 10:28:39,891 INFO (ServletRegistrationBean.java:190)- Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-10 10:28:39,896 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-10 10:28:39,897 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-10 10:28:39,897 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-10 10:28:39,898 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-10 10:28:42,900 INFO (RequestMappingHandlerAdapter.java:534)- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@13d9b21f: startup date [Tue Jul 10 10:28:31 CST 2018]; root of context hierarchy
+2018-07-10 10:28:43,432 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/test]}" onto public void com.zipi.controller.ContractController.test()
+2018-07-10 10:28:43,440 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/appointment/contract/{appointmentId}]}" onto public void com.zipi.controller.ContractController.getAppointmentAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:28:43,441 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/forCompensator/{repaymentId}]}" onto public void com.zipi.controller.ContractController.getCompensatorAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:28:43,442 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/assignSale/contract/{assignmentId}]}" onto public void com.zipi.controller.ContractController.getAssignSaleAgreement(int,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:28:43,442 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/creditSale/contract/{creditId}]}" onto public void com.zipi.controller.ContractController.getCreditSaleAgreement(long,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:28:43,443 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/invest/contract/{investId}]}" onto public void com.zipi.controller.ContractController.getInvestAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:28:43,443 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/loan/contract/{loanId}]}" onto public void com.zipi.controller.ContractController.getLoanAgreementForMG(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:28:43,447 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-10 10:28:43,448 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:28:43,503 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 10:28:43,503 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 10:28:43,613 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 10:28:43,681 WARN (AbstractTemplateResolverConfiguration.java:60)- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-07-10 10:28:44,141 INFO (WebMvcAutoConfiguration.java:549)- Adding welcome page: class path resource [static/index.html]
+2018-07-10 10:28:44,615 INFO (MBeanExporter.java:431)- Registering beans for JMX exposure on startup
+2018-07-10 10:28:44,631 INFO (MBeanExporter.java:916)- Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-10 10:28:44,636 INFO (MBeanExporter.java:671)- Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-07-10 10:28:44,677 INFO (ScheduledAnnotationBeanPostProcessor.java:267)- No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-07-10 10:28:44,741 INFO (DirectJDKLog.java:179)- Initializing ProtocolHandler ["http-nio-7650"]
+2018-07-10 10:28:44,816 INFO (DirectJDKLog.java:179)- Starting ProtocolHandler ["http-nio-7650"]
+2018-07-10 10:28:44,855 INFO (DirectJDKLog.java:179)- Using a shared selector for servlet write/read
+2018-07-10 10:28:44,969 INFO (TomcatEmbeddedServletContainer.java:201)- Tomcat started on port(s): 7650 (http)
+2018-07-10 10:28:44,975 INFO (StartupInfoLogger.java:57)- Started App in 16.449 seconds (JVM running for 26.248)
+2018-07-10 10:29:22,194 INFO (DirectJDKLog.java:179)- A cookie header was received [1529910458,1530013901,1530064543; _qzja=1.1647278683.1525845002073.1530013901294.1530064543846.1530015221203.1530064543846..0.0.234.41; zg_31f03a4d142948ae9a3a435fe41f7f27=%7B%22sid%22%3A%201530076183427%2C%22updated%22%3A%201530076183427%2C%22info%22%3A%201529644945126%2C%22superProperty%22%3A%20%22%7B%7D%22%2C%22platform%22%3A%20%22%7B%7D%22%2C%22utm%22%3A%20%22%7B%7D%22%2C%22referrerDomain%22%3A%20%22%22%2C%22landHref%22%3A%20%22http%3A%2F%2Flocalhost%3A8087%2F%22%7D] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-07-10 10:29:22,203 INFO (DirectJDKLog.java:179)- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-10 10:29:22,204 INFO (FrameworkServlet.java:489)- FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-10 10:29:22,258 INFO (FrameworkServlet.java:508)- FrameworkServlet 'dispatcherServlet': initialization completed in 54 ms
+2018-07-10 10:45:13,472 INFO (StartupInfoLogger.java:48)- Starting App on note-zp-0001 with PID 7268 (E:\gittest\pushmsg\helloworld\rmbbox-contract-server\target\classes started by Administrator in E:\gittest\pushmsg\helloworld\rmbbox-contract-server)
+2018-07-10 10:45:13,479 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-07-10 10:45:13,744 INFO (Version.java:30)- HV000001: Hibernate Validator 5.3.6.Final
+2018-07-10 10:45:13,836 INFO (AbstractApplicationContext.java:583)- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4426bff1: startup date [Tue Jul 10 10:45:13 CST 2018]; root of context hierarchy
+2018-07-10 10:45:15,604 INFO (TomcatEmbeddedServletContainer.java:89)- Tomcat initialized with port(s): 7650 (http)
+2018-07-10 10:45:15,616 INFO (DirectJDKLog.java:179)- Starting service [Tomcat]
+2018-07-10 10:45:15,618 INFO (DirectJDKLog.java:179)- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-07-10 10:45:15,755 INFO (DirectJDKLog.java:179)- Initializing Spring embedded WebApplicationContext
+2018-07-10 10:45:15,756 INFO (EmbeddedWebApplicationContext.java:276)- Root WebApplicationContext: initialization completed in 1920 ms
+2018-07-10 10:45:15,908 INFO (ServletRegistrationBean.java:190)- Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-10 10:45:15,913 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-10 10:45:15,913 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-10 10:45:15,914 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-10 10:45:15,914 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-10 10:45:17,300 INFO (RequestMappingHandlerAdapter.java:534)- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4426bff1: startup date [Tue Jul 10 10:45:13 CST 2018]; root of context hierarchy
+2018-07-10 10:45:17,362 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/test]}" onto public void com.zipi.controller.ContractController.test()
+2018-07-10 10:45:17,365 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/appointment/contract/{appointmentId}]}" onto public void com.zipi.controller.ContractController.getAppointmentAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:45:17,366 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/forCompensator/{repaymentId}]}" onto public void com.zipi.controller.ContractController.getCompensatorAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:45:17,366 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/assignSale/contract/{assignmentId}]}" onto public void com.zipi.controller.ContractController.getAssignSaleAgreement(int,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:45:17,367 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/creditSale/contract/{creditId}]}" onto public void com.zipi.controller.ContractController.getCreditSaleAgreement(long,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:45:17,367 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/invest/contract/{investId}]}" onto public void com.zipi.controller.ContractController.getInvestAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:45:17,367 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/loan/contract/{loanId}]}" onto public void com.zipi.controller.ContractController.getLoanAgreementForMG(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:45:17,370 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-10 10:45:17,370 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:45:17,403 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 10:45:17,403 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 10:45:17,447 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 10:45:17,484 WARN (AbstractTemplateResolverConfiguration.java:60)- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-07-10 10:45:17,706 INFO (WebMvcAutoConfiguration.java:549)- Adding welcome page: class path resource [static/index.html]
+2018-07-10 10:45:18,037 INFO (MBeanExporter.java:431)- Registering beans for JMX exposure on startup
+2018-07-10 10:45:18,039 INFO (MBeanExporter.java:916)- Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-10 10:45:18,045 INFO (MBeanExporter.java:671)- Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-07-10 10:45:18,055 INFO (ScheduledAnnotationBeanPostProcessor.java:267)- No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-07-10 10:45:18,064 INFO (DirectJDKLog.java:179)- Initializing ProtocolHandler ["http-nio-7650"]
+2018-07-10 10:45:18,072 INFO (DirectJDKLog.java:179)- Starting ProtocolHandler ["http-nio-7650"]
+2018-07-10 10:45:18,083 INFO (DirectJDKLog.java:179)- Using a shared selector for servlet write/read
+2018-07-10 10:45:18,103 INFO (TomcatEmbeddedServletContainer.java:201)- Tomcat started on port(s): 7650 (http)
+2018-07-10 10:45:18,107 INFO (StartupInfoLogger.java:57)- Started App in 5.483 seconds (JVM running for 6.817)
+2018-07-10 10:47:32,073 INFO (DirectJDKLog.java:179)- A cookie header was received [1529910458,1530013901,1530064543; _qzja=1.1647278683.1525845002073.1530013901294.1530064543846.1530015221203.1530064543846..0.0.234.41; zg_31f03a4d142948ae9a3a435fe41f7f27=%7B%22sid%22%3A%201530076183427%2C%22updated%22%3A%201530076183427%2C%22info%22%3A%201529644945126%2C%22superProperty%22%3A%20%22%7B%7D%22%2C%22platform%22%3A%20%22%7B%7D%22%2C%22utm%22%3A%20%22%7B%7D%22%2C%22referrerDomain%22%3A%20%22%22%2C%22landHref%22%3A%20%22http%3A%2F%2Flocalhost%3A8087%2F%22%7D] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-07-10 10:47:32,082 INFO (DirectJDKLog.java:179)- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-10 10:47:32,082 INFO (FrameworkServlet.java:489)- FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-10 10:47:32,109 INFO (FrameworkServlet.java:508)- FrameworkServlet 'dispatcherServlet': initialization completed in 27 ms
+2018-07-10 10:59:13,142 INFO (StartupInfoLogger.java:48)- Starting App on note-zp-0001 with PID 7744 (E:\gittest\pushmsg\helloworld\rmbbox-contract-server\target\classes started by Administrator in E:\gittest\pushmsg\helloworld\rmbbox-contract-server)
+2018-07-10 10:59:13,146 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-07-10 10:59:13,467 INFO (AbstractApplicationContext.java:583)- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7502291e: startup date [Tue Jul 10 10:59:13 CST 2018]; root of context hierarchy
+2018-07-10 10:59:13,694 INFO (Version.java:30)- HV000001: Hibernate Validator 5.3.6.Final
+2018-07-10 10:59:15,032 INFO (TomcatEmbeddedServletContainer.java:89)- Tomcat initialized with port(s): 7650 (http)
+2018-07-10 10:59:15,041 INFO (DirectJDKLog.java:179)- Starting service [Tomcat]
+2018-07-10 10:59:15,042 INFO (DirectJDKLog.java:179)- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-07-10 10:59:15,148 INFO (DirectJDKLog.java:179)- Initializing Spring embedded WebApplicationContext
+2018-07-10 10:59:15,148 INFO (EmbeddedWebApplicationContext.java:276)- Root WebApplicationContext: initialization completed in 1681 ms
+2018-07-10 10:59:15,324 INFO (ServletRegistrationBean.java:190)- Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-10 10:59:15,328 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-10 10:59:15,329 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-10 10:59:15,329 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-10 10:59:15,330 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-10 10:59:16,562 INFO (RequestMappingHandlerAdapter.java:534)- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7502291e: startup date [Tue Jul 10 10:59:13 CST 2018]; root of context hierarchy
+2018-07-10 10:59:16,788 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/test]}" onto public void com.zipi.controller.ContractController.test()
+2018-07-10 10:59:16,791 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/appointment/contract/{appointmentId}]}" onto public void com.zipi.controller.ContractController.getAppointmentAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:59:16,792 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/forCompensator/{repaymentId}]}" onto public void com.zipi.controller.ContractController.getCompensatorAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:59:16,793 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/assignSale/contract/{assignmentId}]}" onto public void com.zipi.controller.ContractController.getAssignSaleAgreement(int,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:59:16,793 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/creditSale/contract/{creditId}]}" onto public void com.zipi.controller.ContractController.getCreditSaleAgreement(long,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:59:16,794 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/invest/contract/{investId}]}" onto public void com.zipi.controller.ContractController.getInvestAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:59:16,794 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/loan/contract/{loanId}]}" onto public void com.zipi.controller.ContractController.getLoanAgreementForMG(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:59:16,797 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-10 10:59:16,798 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-10 10:59:16,839 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 10:59:16,839 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 10:59:16,898 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 10:59:16,935 WARN (AbstractTemplateResolverConfiguration.java:60)- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-07-10 10:59:17,190 INFO (WebMvcAutoConfiguration.java:549)- Adding welcome page: class path resource [static/index.html]
+2018-07-10 10:59:17,530 INFO (MBeanExporter.java:431)- Registering beans for JMX exposure on startup
+2018-07-10 10:59:17,531 INFO (MBeanExporter.java:916)- Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-10 10:59:17,537 INFO (MBeanExporter.java:671)- Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-07-10 10:59:17,549 INFO (ScheduledAnnotationBeanPostProcessor.java:267)- No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-07-10 10:59:17,565 INFO (DirectJDKLog.java:179)- Initializing ProtocolHandler ["http-nio-7650"]
+2018-07-10 10:59:17,573 INFO (DirectJDKLog.java:179)- Starting ProtocolHandler ["http-nio-7650"]
+2018-07-10 10:59:17,584 INFO (DirectJDKLog.java:179)- Using a shared selector for servlet write/read
+2018-07-10 10:59:17,606 INFO (TomcatEmbeddedServletContainer.java:201)- Tomcat started on port(s): 7650 (http)
+2018-07-10 10:59:17,611 INFO (StartupInfoLogger.java:57)- Started App in 5.131 seconds (JVM running for 6.338)
+2018-07-10 11:00:05,446 INFO (DirectJDKLog.java:179)- A cookie header was received [1529910458,1530013901,1530064543; _qzja=1.1647278683.1525845002073.1530013901294.1530064543846.1530015221203.1530064543846..0.0.234.41; zg_31f03a4d142948ae9a3a435fe41f7f27=%7B%22sid%22%3A%201530076183427%2C%22updated%22%3A%201530076183427%2C%22info%22%3A%201529644945126%2C%22superProperty%22%3A%20%22%7B%7D%22%2C%22platform%22%3A%20%22%7B%7D%22%2C%22utm%22%3A%20%22%7B%7D%22%2C%22referrerDomain%22%3A%20%22%22%2C%22landHref%22%3A%20%22http%3A%2F%2Flocalhost%3A8087%2F%22%7D] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-07-10 11:00:05,454 INFO (DirectJDKLog.java:179)- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-10 11:00:05,455 INFO (FrameworkServlet.java:489)- FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-10 11:00:05,480 INFO (FrameworkServlet.java:508)- FrameworkServlet 'dispatcherServlet': initialization completed in 25 ms
+2018-07-10 15:52:29,742 INFO (StartupInfoLogger.java:48)- Starting App on note-zp-0001 with PID 7800 (E:\gittest\pushmsg\helloworld\rmbbox-contract-server\target\classes started by Administrator in E:\gittest\pushmsg\helloworld\rmbbox-contract-server)
+2018-07-10 15:52:29,747 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-07-10 15:52:30,095 INFO (AbstractApplicationContext.java:583)- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@29a0cdb: startup date [Tue Jul 10 15:52:30 CST 2018]; root of context hierarchy
+2018-07-10 15:52:30,337 INFO (Version.java:30)- HV000001: Hibernate Validator 5.3.6.Final
+2018-07-10 15:52:31,792 INFO (RepositoryConfigurationDelegate.java:165)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-10 15:52:33,678 INFO (TomcatEmbeddedServletContainer.java:89)- Tomcat initialized with port(s): 7650 (http)
+2018-07-10 15:52:33,687 INFO (DirectJDKLog.java:179)- Starting service [Tomcat]
+2018-07-10 15:52:33,689 INFO (DirectJDKLog.java:179)- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-07-10 15:52:33,792 INFO (DirectJDKLog.java:179)- Initializing Spring embedded WebApplicationContext
+2018-07-10 15:52:33,792 INFO (EmbeddedWebApplicationContext.java:276)- Root WebApplicationContext: initialization completed in 3698 ms
+2018-07-10 15:52:33,986 INFO (ServletRegistrationBean.java:190)- Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-10 15:52:33,991 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-10 15:52:33,992 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-10 15:52:33,992 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-10 15:52:33,993 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-10 15:52:35,657 INFO (RequestMappingHandlerAdapter.java:534)- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@29a0cdb: startup date [Tue Jul 10 15:52:30 CST 2018]; root of context hierarchy
+2018-07-10 15:52:35,727 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/test]}" onto public void com.zipi.controller.ContractController.test()
+2018-07-10 15:52:35,730 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/appointment/contract/{appointmentId}]}" onto public void com.zipi.controller.ContractController.getAppointmentAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 15:52:35,730 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/forCompensator/{repaymentId}]}" onto public void com.zipi.controller.ContractController.getCompensatorAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 15:52:35,731 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/assignSale/contract/{assignmentId}]}" onto public void com.zipi.controller.ContractController.getAssignSaleAgreement(int,javax.servlet.http.HttpServletResponse)
+2018-07-10 15:52:35,731 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/creditSale/contract/{creditId}]}" onto public void com.zipi.controller.ContractController.getCreditSaleAgreement(long,javax.servlet.http.HttpServletResponse)
+2018-07-10 15:52:35,731 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/invest/contract/{investId}]}" onto public void com.zipi.controller.ContractController.getInvestAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 15:52:35,732 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/loan/contract/{loanId}]}" onto public void com.zipi.controller.ContractController.getLoanAgreementForMG(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 15:52:35,734 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-10 15:52:35,735 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-10 15:52:35,769 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 15:52:35,770 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 15:52:35,817 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 15:52:35,870 WARN (AbstractTemplateResolverConfiguration.java:60)- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-07-10 15:52:36,109 INFO (WebMvcAutoConfiguration.java:549)- Adding welcome page: class path resource [static/index.html]
+2018-07-10 15:52:36,872 INFO (MBeanExporter.java:431)- Registering beans for JMX exposure on startup
+2018-07-10 15:52:36,873 INFO (MBeanExporter.java:916)- Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-10 15:52:36,879 INFO (MBeanExporter.java:671)- Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-07-10 15:52:36,890 INFO (ScheduledAnnotationBeanPostProcessor.java:267)- No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-07-10 15:52:36,901 INFO (DirectJDKLog.java:179)- Initializing ProtocolHandler ["http-nio-7650"]
+2018-07-10 15:52:36,909 INFO (DirectJDKLog.java:179)- Starting ProtocolHandler ["http-nio-7650"]
+2018-07-10 15:52:36,922 INFO (DirectJDKLog.java:179)- Using a shared selector for servlet write/read
+2018-07-10 15:52:36,943 INFO (TomcatEmbeddedServletContainer.java:201)- Tomcat started on port(s): 7650 (http)
+2018-07-10 15:52:36,947 INFO (StartupInfoLogger.java:57)- Started App in 7.889 seconds (JVM running for 9.589)
+2018-07-10 15:53:17,135 INFO (DirectJDKLog.java:179)- A cookie header was received [1529910458,1530013901,1530064543; _qzja=1.1647278683.1525845002073.1530013901294.1530064543846.1530015221203.1530064543846..0.0.234.41; zg_31f03a4d142948ae9a3a435fe41f7f27=%7B%22sid%22%3A%201530076183427%2C%22updated%22%3A%201530076183427%2C%22info%22%3A%201529644945126%2C%22superProperty%22%3A%20%22%7B%7D%22%2C%22platform%22%3A%20%22%7B%7D%22%2C%22utm%22%3A%20%22%7B%7D%22%2C%22referrerDomain%22%3A%20%22%22%2C%22landHref%22%3A%20%22http%3A%2F%2Flocalhost%3A8087%2F%22%7D] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-07-10 15:53:17,143 INFO (DirectJDKLog.java:179)- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-10 15:53:17,143 INFO (FrameworkServlet.java:489)- FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-10 15:53:17,168 INFO (FrameworkServlet.java:508)- FrameworkServlet 'dispatcherServlet': initialization completed in 25 ms
+2018-07-10 15:56:51,611 INFO (StartupInfoLogger.java:48)- Starting App on note-zp-0001 with PID 10072 (E:\gittest\pushmsg\helloworld\rmbbox-contract-server\target\classes started by Administrator in E:\gittest\pushmsg\helloworld\rmbbox-contract-server)
+2018-07-10 15:56:51,617 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-07-10 15:56:51,929 INFO (AbstractApplicationContext.java:583)- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7642df8f: startup date [Tue Jul 10 15:56:51 CST 2018]; root of context hierarchy
+2018-07-10 15:56:52,108 INFO (Version.java:30)- HV000001: Hibernate Validator 5.3.6.Final
+2018-07-10 15:56:52,960 INFO (RepositoryConfigurationDelegate.java:165)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-10 15:56:54,140 INFO (TomcatEmbeddedServletContainer.java:89)- Tomcat initialized with port(s): 7650 (http)
+2018-07-10 15:56:54,149 INFO (DirectJDKLog.java:179)- Starting service [Tomcat]
+2018-07-10 15:56:54,150 INFO (DirectJDKLog.java:179)- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-07-10 15:56:54,258 INFO (DirectJDKLog.java:179)- Initializing Spring embedded WebApplicationContext
+2018-07-10 15:56:54,258 INFO (EmbeddedWebApplicationContext.java:276)- Root WebApplicationContext: initialization completed in 2329 ms
+2018-07-10 15:56:54,438 INFO (ServletRegistrationBean.java:190)- Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-10 15:56:54,443 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-10 15:56:54,444 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-10 15:56:54,445 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-10 15:56:54,445 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-10 15:56:55,977 INFO (RequestMappingHandlerAdapter.java:534)- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7642df8f: startup date [Tue Jul 10 15:56:51 CST 2018]; root of context hierarchy
+2018-07-10 15:56:56,043 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/test]}" onto public void com.zipi.controller.ContractController.test()
+2018-07-10 15:56:56,046 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/appointment/contract/{appointmentId}]}" onto public void com.zipi.controller.ContractController.getAppointmentAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 15:56:56,047 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/forCompensator/{repaymentId}]}" onto public void com.zipi.controller.ContractController.getCompensatorAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 15:56:56,048 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/assignSale/contract/{assignmentId}]}" onto public void com.zipi.controller.ContractController.getAssignSaleAgreement(int,javax.servlet.http.HttpServletResponse)
+2018-07-10 15:56:56,048 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/creditSale/contract/{creditId}]}" onto public void com.zipi.controller.ContractController.getCreditSaleAgreement(long,javax.servlet.http.HttpServletResponse)
+2018-07-10 15:56:56,049 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/invest/contract/{investId}]}" onto public void com.zipi.controller.ContractController.getInvestAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 15:56:56,049 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/loan/contract/{loanId}]}" onto public void com.zipi.controller.ContractController.getLoanAgreementForMG(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 15:56:56,052 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-10 15:56:56,053 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-10 15:56:56,091 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 15:56:56,092 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 15:56:56,174 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 15:56:56,226 WARN (AbstractTemplateResolverConfiguration.java:60)- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-07-10 15:56:56,504 INFO (WebMvcAutoConfiguration.java:549)- Adding welcome page: class path resource [static/index.html]
+2018-07-10 15:56:57,001 INFO (MBeanExporter.java:431)- Registering beans for JMX exposure on startup
+2018-07-10 15:56:57,004 INFO (MBeanExporter.java:916)- Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-10 15:56:57,010 INFO (MBeanExporter.java:671)- Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-07-10 15:56:57,024 INFO (ScheduledAnnotationBeanPostProcessor.java:267)- No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-07-10 15:56:57,035 INFO (DirectJDKLog.java:179)- Initializing ProtocolHandler ["http-nio-7650"]
+2018-07-10 15:56:57,043 INFO (DirectJDKLog.java:179)- Starting ProtocolHandler ["http-nio-7650"]
+2018-07-10 15:56:57,056 INFO (DirectJDKLog.java:179)- Using a shared selector for servlet write/read
+2018-07-10 15:56:57,077 INFO (TomcatEmbeddedServletContainer.java:201)- Tomcat started on port(s): 7650 (http)
+2018-07-10 15:56:57,084 INFO (StartupInfoLogger.java:57)- Started App in 6.222 seconds (JVM running for 7.175)
+2018-07-10 15:57:37,437 INFO (DirectJDKLog.java:179)- A cookie header was received [1529910458,1530013901,1530064543; _qzja=1.1647278683.1525845002073.1530013901294.1530064543846.1530015221203.1530064543846..0.0.234.41; zg_31f03a4d142948ae9a3a435fe41f7f27=%7B%22sid%22%3A%201530076183427%2C%22updated%22%3A%201530076183427%2C%22info%22%3A%201529644945126%2C%22superProperty%22%3A%20%22%7B%7D%22%2C%22platform%22%3A%20%22%7B%7D%22%2C%22utm%22%3A%20%22%7B%7D%22%2C%22referrerDomain%22%3A%20%22%22%2C%22landHref%22%3A%20%22http%3A%2F%2Flocalhost%3A8087%2F%22%7D] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-07-10 15:57:37,446 INFO (DirectJDKLog.java:179)- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-10 15:57:37,446 INFO (FrameworkServlet.java:489)- FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-10 15:57:37,472 INFO (FrameworkServlet.java:508)- FrameworkServlet 'dispatcherServlet': initialization completed in 26 ms
+2018-07-10 16:24:06,292 INFO (StartupInfoLogger.java:48)- Starting App on note-zp-0001 with PID 7664 (E:\gittest\pushmsg\helloworld\rmbbox-contract-server\target\classes started by Administrator in E:\gittest\pushmsg\helloworld\rmbbox-contract-server)
+2018-07-10 16:24:06,296 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-07-10 16:24:06,477 INFO (Version.java:30)- HV000001: Hibernate Validator 5.3.6.Final
+2018-07-10 16:24:06,545 INFO (AbstractApplicationContext.java:583)- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@32193bea: startup date [Tue Jul 10 16:24:06 CST 2018]; root of context hierarchy
+2018-07-10 16:24:07,352 INFO (RepositoryConfigurationDelegate.java:165)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-10 16:24:08,511 INFO (TomcatEmbeddedServletContainer.java:89)- Tomcat initialized with port(s): 7650 (http)
+2018-07-10 16:24:08,520 INFO (DirectJDKLog.java:179)- Starting service [Tomcat]
+2018-07-10 16:24:08,522 INFO (DirectJDKLog.java:179)- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-07-10 16:24:08,628 INFO (DirectJDKLog.java:179)- Initializing Spring embedded WebApplicationContext
+2018-07-10 16:24:08,628 INFO (EmbeddedWebApplicationContext.java:276)- Root WebApplicationContext: initialization completed in 2083 ms
+2018-07-10 16:24:08,803 INFO (ServletRegistrationBean.java:190)- Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-10 16:24:08,808 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-10 16:24:08,809 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-10 16:24:08,809 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-10 16:24:08,809 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-10 16:24:10,274 INFO (RequestMappingHandlerAdapter.java:534)- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@32193bea: startup date [Tue Jul 10 16:24:06 CST 2018]; root of context hierarchy
+2018-07-10 16:24:10,343 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/test]}" onto public void com.zipi.controller.ContractController.test()
+2018-07-10 16:24:10,345 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/appointment/contract/{appointmentId}]}" onto public void com.zipi.controller.ContractController.getAppointmentAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:24:10,346 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/forCompensator/{repaymentId}]}" onto public void com.zipi.controller.ContractController.getCompensatorAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:24:10,346 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/assignSale/contract/{assignmentId}]}" onto public void com.zipi.controller.ContractController.getAssignSaleAgreement(int,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:24:10,346 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/creditSale/contract/{creditId}]}" onto public void com.zipi.controller.ContractController.getCreditSaleAgreement(long,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:24:10,346 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/invest/contract/{investId}]}" onto public void com.zipi.controller.ContractController.getInvestAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:24:10,347 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/loan/contract/{loanId}]}" onto public void com.zipi.controller.ContractController.getLoanAgreementForMG(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:24:10,349 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-10 16:24:10,350 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:24:10,387 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 16:24:10,387 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 16:24:10,439 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 16:24:10,476 WARN (AbstractTemplateResolverConfiguration.java:60)- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-07-10 16:24:10,736 INFO (WebMvcAutoConfiguration.java:549)- Adding welcome page: class path resource [static/index.html]
+2018-07-10 16:24:11,261 INFO (MBeanExporter.java:431)- Registering beans for JMX exposure on startup
+2018-07-10 16:24:11,264 INFO (MBeanExporter.java:916)- Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-10 16:24:11,270 INFO (MBeanExporter.java:671)- Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-07-10 16:24:11,281 INFO (ScheduledAnnotationBeanPostProcessor.java:267)- No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-07-10 16:24:11,295 INFO (DirectJDKLog.java:179)- Initializing ProtocolHandler ["http-nio-7650"]
+2018-07-10 16:24:11,304 INFO (DirectJDKLog.java:179)- Starting ProtocolHandler ["http-nio-7650"]
+2018-07-10 16:24:11,319 INFO (DirectJDKLog.java:179)- Using a shared selector for servlet write/read
+2018-07-10 16:24:11,341 INFO (TomcatEmbeddedServletContainer.java:201)- Tomcat started on port(s): 7650 (http)
+2018-07-10 16:24:11,347 INFO (StartupInfoLogger.java:57)- Started App in 5.521 seconds (JVM running for 6.81)
+2018-07-10 16:25:10,747 INFO (DirectJDKLog.java:179)- A cookie header was received [1529910458,1530013901,1530064543; _qzja=1.1647278683.1525845002073.1530013901294.1530064543846.1530015221203.1530064543846..0.0.234.41; zg_31f03a4d142948ae9a3a435fe41f7f27=%7B%22sid%22%3A%201530076183427%2C%22updated%22%3A%201530076183427%2C%22info%22%3A%201529644945126%2C%22superProperty%22%3A%20%22%7B%7D%22%2C%22platform%22%3A%20%22%7B%7D%22%2C%22utm%22%3A%20%22%7B%7D%22%2C%22referrerDomain%22%3A%20%22%22%2C%22landHref%22%3A%20%22http%3A%2F%2Flocalhost%3A8087%2F%22%7D] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-07-10 16:25:10,756 INFO (DirectJDKLog.java:179)- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-10 16:25:10,756 INFO (FrameworkServlet.java:489)- FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-10 16:25:10,782 INFO (FrameworkServlet.java:508)- FrameworkServlet 'dispatcherServlet': initialization completed in 25 ms
+2018-07-10 16:25:15,829 INFO (DruidDataSource.java:928)- {dataSource-1} inited
+2018-07-10 16:25:18,065 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select appointment_id,user_id,appointment_amount,frozen_amount,release_amount,match_amount,product_allow,rate_min,rate_max,status, cancel_time,match_time,create_time,days_min,days_max,match_flag,source,project_type,ip,channel,prop_id,prop_type from tb_rmbbox_loan_appointment where appointment_id = ? 
+2018-07-10 16:25:18,097 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 5BCED30C-6966-11E8-9731-99ECD5657B3A(String)
+2018-07-10 16:25:18,128 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:25:22,771 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select file_id,invest_id,file_path,file_name,file_type,create_time,file_period,flag_seal from tb_core_seal_flie WHERE ( invest_id = ? and file_type = ? and file_period = ? ) 
+2018-07-10 16:25:22,772 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 5BCED30C-6966-11E8-9731-99ECD5657B3A(String), AppointmentAgreement(String), 0(Integer)
+2018-07-10 16:25:22,775 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-07-10 16:25:29,369 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT a.appointment_id,a.appointment_amount,a.days_min,a.days_max,u.user_name,u.id_number,a.create_time FROM tb_rmbbox_loan_appointment a, tb_core_user u WHERE a.user_id = u.user_id AND a.appointment_id = ? AND u.user_id = ? limit 1 
+2018-07-10 16:25:29,372 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 5BCED30C-6966-11E8-9731-99ECD5657B3A(String), 53F82C38-3572-11E7-A96C-E61BD1C97C12(String)
+2018-07-10 16:25:29,376 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:25:32,552 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT * FROM tb_rmbbox_contract_template WHERE tmp_type = ? limit 1 
+2018-07-10 16:25:32,553 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: TEMPLET4APPOINTMENT(String)
+2018-07-10 16:25:32,587 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:25:33,639 INFO (SealAutoServiceImpl.java:240)- SealFile ok and save data to "NET_LOAN\AppointmentAgreement\0\2018\7\10\5BCED30C-6966-11E8-9731-99ECD5657B3A'
+2018-07-10 16:25:33,640 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT file_id,invest_id,file_path,file_name,file_type,create_time,file_period,flag_seal FROM tb_core_seal_flie WHERE 1=1 AND invest_id = ? AND file_type = ? AND file_period = ? ORDER BY create_time DESC 
+2018-07-10 16:25:33,641 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 5BCED30C-6966-11E8-9731-99ECD5657B3A(String), AppointmentAgreement(String), 0(Integer)
+2018-07-10 16:25:33,644 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-07-10 16:25:33,645 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT UPPER(UUID()) AS fileId 
+2018-07-10 16:25:33,645 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 
+2018-07-10 16:25:33,647 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:25:33,648 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: insert into tb_core_seal_flie (file_id,invest_id,file_path, file_name,file_type,create_time, file_period) values (?,?,?, ?,?,?, ?) 
+2018-07-10 16:25:33,657 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: CB314B2A-841A-11E8-9731-99ECD5657B3A(String), 5BCED30C-6966-11E8-9731-99ECD5657B3A(String), NET_LOAN\AppointmentAgreement\0\2018\7\10\5BCED30C-6966-11E8-9731-99ECD5657B3A(String), AppointmentAgreement-5BCED30C-6966-11E8-9731-99ECD5657B3A.pdf(String), AppointmentAgreement(String), 2018-07-10 16:25:33.58(Timestamp), 0(Integer)
+2018-07-10 16:25:33,661 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-07-10 16:26:53,174 INFO (StartupInfoLogger.java:48)- Starting App on note-zp-0001 with PID 848 (E:\gittest\pushmsg\helloworld\rmbbox-contract-server\target\classes started by Administrator in E:\gittest\pushmsg\helloworld\rmbbox-contract-server)
+2018-07-10 16:26:53,179 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-07-10 16:26:53,625 INFO (AbstractApplicationContext.java:583)- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7642df8f: startup date [Tue Jul 10 16:26:53 CST 2018]; root of context hierarchy
+2018-07-10 16:26:53,641 INFO (Version.java:30)- HV000001: Hibernate Validator 5.3.6.Final
+2018-07-10 16:26:54,446 INFO (RepositoryConfigurationDelegate.java:165)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-10 16:26:55,600 INFO (TomcatEmbeddedServletContainer.java:89)- Tomcat initialized with port(s): 7650 (http)
+2018-07-10 16:26:55,609 INFO (DirectJDKLog.java:179)- Starting service [Tomcat]
+2018-07-10 16:26:55,610 INFO (DirectJDKLog.java:179)- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-07-10 16:26:55,712 INFO (DirectJDKLog.java:179)- Initializing Spring embedded WebApplicationContext
+2018-07-10 16:26:55,713 INFO (EmbeddedWebApplicationContext.java:276)- Root WebApplicationContext: initialization completed in 2088 ms
+2018-07-10 16:26:55,877 INFO (ServletRegistrationBean.java:190)- Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-10 16:26:55,882 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-10 16:26:55,883 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-10 16:26:55,883 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-10 16:26:55,883 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-10 16:26:57,427 INFO (RequestMappingHandlerAdapter.java:534)- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7642df8f: startup date [Tue Jul 10 16:26:53 CST 2018]; root of context hierarchy
+2018-07-10 16:26:57,502 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/test]}" onto public void com.zipi.controller.ContractController.test()
+2018-07-10 16:26:57,506 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/appointment/contract/{appointmentId}]}" onto public void com.zipi.controller.ContractController.getAppointmentAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:26:57,506 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/forCompensator/{repaymentId}]}" onto public void com.zipi.controller.ContractController.getCompensatorAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:26:57,506 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/assignSale/contract/{assignmentId}]}" onto public void com.zipi.controller.ContractController.getAssignSaleAgreement(int,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:26:57,507 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/creditSale/contract/{creditId}]}" onto public void com.zipi.controller.ContractController.getCreditSaleAgreement(long,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:26:57,507 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/invest/contract/{investId}]}" onto public void com.zipi.controller.ContractController.getInvestAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:26:57,507 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/loan/contract/{loanId}]}" onto public void com.zipi.controller.ContractController.getLoanAgreementForMG(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:26:57,510 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-10 16:26:57,510 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:26:57,547 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 16:26:57,547 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 16:26:57,600 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 16:26:57,643 WARN (AbstractTemplateResolverConfiguration.java:60)- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-07-10 16:26:57,884 INFO (WebMvcAutoConfiguration.java:549)- Adding welcome page: class path resource [static/index.html]
+2018-07-10 16:26:58,424 INFO (MBeanExporter.java:431)- Registering beans for JMX exposure on startup
+2018-07-10 16:26:58,426 INFO (MBeanExporter.java:916)- Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-10 16:26:58,434 INFO (MBeanExporter.java:671)- Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-07-10 16:26:58,447 INFO (ScheduledAnnotationBeanPostProcessor.java:267)- No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-07-10 16:26:58,458 INFO (DirectJDKLog.java:179)- Initializing ProtocolHandler ["http-nio-7650"]
+2018-07-10 16:26:58,467 INFO (DirectJDKLog.java:179)- Starting ProtocolHandler ["http-nio-7650"]
+2018-07-10 16:26:58,479 INFO (DirectJDKLog.java:179)- Using a shared selector for servlet write/read
+2018-07-10 16:26:58,504 INFO (TomcatEmbeddedServletContainer.java:201)- Tomcat started on port(s): 7650 (http)
+2018-07-10 16:26:58,510 INFO (StartupInfoLogger.java:57)- Started App in 6.029 seconds (JVM running for 7.281)
+2018-07-10 16:28:21,396 INFO (DirectJDKLog.java:179)- A cookie header was received [1529910458,1530013901,1530064543; _qzja=1.1647278683.1525845002073.1530013901294.1530064543846.1530015221203.1530064543846..0.0.234.41; zg_31f03a4d142948ae9a3a435fe41f7f27=%7B%22sid%22%3A%201530076183427%2C%22updated%22%3A%201530076183427%2C%22info%22%3A%201529644945126%2C%22superProperty%22%3A%20%22%7B%7D%22%2C%22platform%22%3A%20%22%7B%7D%22%2C%22utm%22%3A%20%22%7B%7D%22%2C%22referrerDomain%22%3A%20%22%22%2C%22landHref%22%3A%20%22http%3A%2F%2Flocalhost%3A8087%2F%22%7D] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-07-10 16:28:21,403 INFO (DirectJDKLog.java:179)- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-10 16:28:21,404 INFO (FrameworkServlet.java:489)- FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-10 16:28:21,428 INFO (FrameworkServlet.java:508)- FrameworkServlet 'dispatcherServlet': initialization completed in 24 ms
+2018-07-10 16:28:24,439 INFO (DruidDataSource.java:928)- {dataSource-1} inited
+2018-07-10 16:28:24,975 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select appointment_id,user_id,appointment_amount,frozen_amount,release_amount,match_amount,product_allow,rate_min,rate_max,status, cancel_time,match_time,create_time,days_min,days_max,match_flag,source,project_type,ip,channel,prop_id,prop_type from tb_rmbbox_loan_appointment where appointment_id = ? 
+2018-07-10 16:28:25,000 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 5BCED30C-6966-11E8-9731-99ECD5657B3A(String)
+2018-07-10 16:28:25,034 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:28:25,084 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select file_id,invest_id,file_path,file_name,file_type,create_time,file_period,flag_seal from tb_core_seal_flie WHERE ( invest_id = ? and file_type = ? and file_period = ? ) 
+2018-07-10 16:28:25,085 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 5BCED30C-6966-11E8-9731-99ECD5657B3A(String), AppointmentAgreement(String), 0(Integer)
+2018-07-10 16:28:25,089 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:28:32,564 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT u.user_name AS userName, u.enterprise, u.company_name AS companyName, u.customer_no AS customerNo, u.user_mobile AS userMobile, u.id_number AS idNumber, u.user_id as userId FROM tb_rmbbox_loan_appointment a,tb_core_user u WHERE a.user_id=u.user_id AND a.appointment_id = ? limit 1 
+2018-07-10 16:28:32,565 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 5BCED30C-6966-11E8-9731-99ECD5657B3A(String)
+2018-07-10 16:28:32,570 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:28:32,570 INFO (SignatureFacadeServiceImpl.java:424)- userName：林先生，idNumber：341222199012253291,userMobile：18866666666，
+2018-07-10 16:28:32,571 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, email, emp_id, enabled, lock_type, enterprise, id_number, last_login_time, last_modified_by, login_name, user_mobile, user_name, need_change_pwd, passphrase, register_time, salt, register_source, referral_id, referral_realm,en_address,en_phone,en_nature,en_license_no,certificate_type, user_role,contact_name,company_name,tax_registration_number,institutional_credit_code,bank_license,organization_code, xw_status,contact_phone,unified_code,customer_no from tb_core_user where user_id = ? 
+2018-07-10 16:28:32,571 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 53F82C38-3572-11E7-A96C-E61BD1C97C12(String)
+2018-07-10 16:28:32,577 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:28:32,577 INFO (SignatureFacadeServiceImpl.java:426)- userId：53F82C38-3572-11E7-A96C-E61BD1C97C12，userName：林先生,
+2018-07-10 16:28:32,578 INFO (SignatureFacadeServiceImpl.java:435)- identType：0 ==
+2018-07-10 16:28:33,544 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select file_id,invest_id,file_path,file_name,file_type,create_time,file_period,flag_seal from tb_core_seal_flie where file_id = ? 
+2018-07-10 16:28:33,545 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: CB314B2A-841A-11E8-9731-99ECD5657B3A(String)
+2018-07-10 16:28:33,548 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:28:33,578 ERROR (ContractController.java:71)- 获得自动出借服务协议失败:
+org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.zipi.mapper.SignatureMapper.selectSignatureRecoredByFileId
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:225)
+	at org.apache.ibatis.binding.MapperMethod.<init>(MapperMethod.java:48)
+	at org.apache.ibatis.binding.MapperProxy.cachedMapperMethod(MapperProxy.java:65)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:58)
+	at com.sun.proxy.$Proxy73.selectSignatureRecoredByFileId(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:333)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy74.selectSignatureRecoredByFileId(Unknown Source)
+	at com.zipi.service.impl.SignatureServiceImpl.selectSignatureRecoredByFileId(SignatureServiceImpl.java:23)
+	at com.zipi.service.facade.impl.SignatureFacadeServiceImpl.uploadDocs(SignatureFacadeServiceImpl.java:87)
+	at com.zipi.service.facade.impl.SignatureFacadeServiceImpl.signatureComposite(SignatureFacadeServiceImpl.java:379)
+	at com.zipi.service.facade.impl.SignatureFacadeServiceImpl$$FastClassBySpringCGLIB$$a7a61af.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.zipi.service.facade.impl.SignatureFacadeServiceImpl$$EnhancerBySpringCGLIB$$f749c20.signatureComposite(<generated>)
+	at com.zipi.service.impl.SealAutoServiceImpl.getLoanAgreement(SealAutoServiceImpl.java:173)
+	at com.zipi.service.impl.SealAutoServiceImpl$$FastClassBySpringCGLIB$$3cf0facd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.zipi.service.impl.SealAutoServiceImpl$$EnhancerBySpringCGLIB$$217a0a3a.getLoanAgreement(<generated>)
+	at com.zipi.controller.ContractController.getAppointmentAgreement(ContractController.java:58)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:650)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2018-07-10 16:32:36,891 INFO (StartupInfoLogger.java:48)- Starting App on note-zp-0001 with PID 8516 (E:\gittest\pushmsg\helloworld\rmbbox-contract-server\target\classes started by Administrator in E:\gittest\pushmsg\helloworld\rmbbox-contract-server)
+2018-07-10 16:32:36,895 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-07-10 16:32:37,322 INFO (AbstractApplicationContext.java:583)- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7642df8f: startup date [Tue Jul 10 16:32:37 CST 2018]; root of context hierarchy
+2018-07-10 16:32:37,459 INFO (Version.java:30)- HV000001: Hibernate Validator 5.3.6.Final
+2018-07-10 16:32:38,227 INFO (RepositoryConfigurationDelegate.java:165)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-10 16:32:39,304 INFO (TomcatEmbeddedServletContainer.java:89)- Tomcat initialized with port(s): 7650 (http)
+2018-07-10 16:32:39,319 INFO (DirectJDKLog.java:179)- Starting service [Tomcat]
+2018-07-10 16:32:39,320 INFO (DirectJDKLog.java:179)- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-07-10 16:32:39,481 INFO (DirectJDKLog.java:179)- Initializing Spring embedded WebApplicationContext
+2018-07-10 16:32:39,482 INFO (EmbeddedWebApplicationContext.java:276)- Root WebApplicationContext: initialization completed in 2160 ms
+2018-07-10 16:32:39,690 INFO (ServletRegistrationBean.java:190)- Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-10 16:32:39,695 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-10 16:32:39,696 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-10 16:32:39,696 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-10 16:32:39,696 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-10 16:32:41,172 INFO (RequestMappingHandlerAdapter.java:534)- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7642df8f: startup date [Tue Jul 10 16:32:37 CST 2018]; root of context hierarchy
+2018-07-10 16:32:41,242 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/test]}" onto public void com.zipi.controller.ContractController.test()
+2018-07-10 16:32:41,245 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/appointment/contract/{appointmentId}]}" onto public void com.zipi.controller.ContractController.getAppointmentAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:32:41,246 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/forCompensator/{repaymentId}]}" onto public void com.zipi.controller.ContractController.getCompensatorAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:32:41,246 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/assignSale/contract/{assignmentId}]}" onto public void com.zipi.controller.ContractController.getAssignSaleAgreement(int,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:32:41,246 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/creditSale/contract/{creditId}]}" onto public void com.zipi.controller.ContractController.getCreditSaleAgreement(long,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:32:41,247 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/invest/contract/{investId}]}" onto public void com.zipi.controller.ContractController.getInvestAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:32:41,247 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/loan/contract/{loanId}]}" onto public void com.zipi.controller.ContractController.getLoanAgreementForMG(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:32:41,250 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-10 16:32:41,251 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:32:41,288 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 16:32:41,288 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 16:32:41,337 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 16:32:41,377 WARN (AbstractTemplateResolverConfiguration.java:60)- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-07-10 16:32:41,654 INFO (WebMvcAutoConfiguration.java:549)- Adding welcome page: class path resource [static/index.html]
+2018-07-10 16:32:42,133 INFO (MBeanExporter.java:431)- Registering beans for JMX exposure on startup
+2018-07-10 16:32:42,135 INFO (MBeanExporter.java:916)- Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-10 16:32:42,142 INFO (MBeanExporter.java:671)- Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-07-10 16:32:42,152 INFO (ScheduledAnnotationBeanPostProcessor.java:267)- No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-07-10 16:32:42,164 INFO (DirectJDKLog.java:179)- Initializing ProtocolHandler ["http-nio-7650"]
+2018-07-10 16:32:42,173 INFO (DirectJDKLog.java:179)- Starting ProtocolHandler ["http-nio-7650"]
+2018-07-10 16:32:42,185 INFO (DirectJDKLog.java:179)- Using a shared selector for servlet write/read
+2018-07-10 16:32:42,207 INFO (TomcatEmbeddedServletContainer.java:201)- Tomcat started on port(s): 7650 (http)
+2018-07-10 16:32:42,213 INFO (StartupInfoLogger.java:57)- Started App in 5.984 seconds (JVM running for 7.142)
+2018-07-10 16:33:32,261 INFO (DirectJDKLog.java:179)- A cookie header was received [1529910458,1530013901,1530064543; _qzja=1.1647278683.1525845002073.1530013901294.1530064543846.1530015221203.1530064543846..0.0.234.41; zg_31f03a4d142948ae9a3a435fe41f7f27=%7B%22sid%22%3A%201530076183427%2C%22updated%22%3A%201530076183427%2C%22info%22%3A%201529644945126%2C%22superProperty%22%3A%20%22%7B%7D%22%2C%22platform%22%3A%20%22%7B%7D%22%2C%22utm%22%3A%20%22%7B%7D%22%2C%22referrerDomain%22%3A%20%22%22%2C%22landHref%22%3A%20%22http%3A%2F%2Flocalhost%3A8087%2F%22%7D] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-07-10 16:33:32,270 INFO (DirectJDKLog.java:179)- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-10 16:33:32,271 INFO (FrameworkServlet.java:489)- FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-10 16:33:32,301 INFO (FrameworkServlet.java:508)- FrameworkServlet 'dispatcherServlet': initialization completed in 30 ms
+2018-07-10 16:33:36,483 INFO (DruidDataSource.java:928)- {dataSource-1} inited
+2018-07-10 16:33:36,996 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select appointment_id,user_id,appointment_amount,frozen_amount,release_amount,match_amount,product_allow,rate_min,rate_max,status, cancel_time,match_time,create_time,days_min,days_max,match_flag,source,project_type,ip,channel,prop_id,prop_type from tb_rmbbox_loan_appointment where appointment_id = ? 
+2018-07-10 16:33:37,020 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 5BCED30C-6966-11E8-9731-99ECD5657B3A(String)
+2018-07-10 16:33:37,052 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:33:37,099 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select file_id,invest_id,file_path,file_name,file_type,create_time,file_period,flag_seal from tb_core_seal_flie WHERE ( invest_id = ? and file_type = ? and file_period = ? ) 
+2018-07-10 16:33:37,100 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 5BCED30C-6966-11E8-9731-99ECD5657B3A(String), AppointmentAgreement(String), 0(Integer)
+2018-07-10 16:33:37,103 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:33:44,109 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT u.user_name AS userName, u.enterprise, u.company_name AS companyName, u.customer_no AS customerNo, u.user_mobile AS userMobile, u.id_number AS idNumber, u.user_id as userId FROM tb_rmbbox_loan_appointment a,tb_core_user u WHERE a.user_id=u.user_id AND a.appointment_id = ? limit 1 
+2018-07-10 16:33:44,110 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 5BCED30C-6966-11E8-9731-99ECD5657B3A(String)
+2018-07-10 16:33:44,114 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:33:44,115 INFO (SignatureFacadeServiceImpl.java:424)- userName：林先生，idNumber：341222199012253291,userMobile：18866666666，
+2018-07-10 16:33:44,116 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, email, emp_id, enabled, lock_type, enterprise, id_number, last_login_time, last_modified_by, login_name, user_mobile, user_name, need_change_pwd, passphrase, register_time, salt, register_source, referral_id, referral_realm,en_address,en_phone,en_nature,en_license_no,certificate_type, user_role,contact_name,company_name,tax_registration_number,institutional_credit_code,bank_license,organization_code, xw_status,contact_phone,unified_code,customer_no from tb_core_user where user_id = ? 
+2018-07-10 16:33:44,117 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 53F82C38-3572-11E7-A96C-E61BD1C97C12(String)
+2018-07-10 16:33:44,121 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:33:44,122 INFO (SignatureFacadeServiceImpl.java:426)- userId：53F82C38-3572-11E7-A96C-E61BD1C97C12，userName：林先生,
+2018-07-10 16:33:44,122 INFO (SignatureFacadeServiceImpl.java:435)- identType：0 ==
+2018-07-10 16:33:44,797 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select file_id,invest_id,file_path,file_name,file_type,create_time,file_period,flag_seal from tb_core_seal_flie where file_id = ? 
+2018-07-10 16:33:44,798 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: CB314B2A-841A-11E8-9731-99ECD5657B3A(String)
+2018-07-10 16:33:44,801 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:33:44,802 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT transaction_id,create_time,update_time,timestamp, description,trade_status,invest_id,contract_id,file_id,doc_title, sign_keyword,sealNo FROM tb_core_signature WHERE file_id = ? 
+2018-07-10 16:33:44,803 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: CB314B2A-841A-11E8-9731-99ECD5657B3A(String)
+2018-07-10 16:33:44,806 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-07-10 16:33:44,817 ERROR (ContractController.java:71)- 获得自动出借服务协议失败:
+java.lang.IllegalArgumentException: nullNET_LOAN\AppointmentAgreement\0\2018\7\10\5BCED30C-6966-11E8-9731-99ECD5657B3A\AppointmentAgreement-5BCED30C-6966-11E8-9731-99ECD5657B3A.pdf：认购协议文件未生成
+	at org.springframework.util.Assert.isTrue(Assert.java:92)
+	at com.zipi.service.facade.impl.SignatureFacadeServiceImpl.uploadDocs(SignatureFacadeServiceImpl.java:103)
+	at com.zipi.service.facade.impl.SignatureFacadeServiceImpl.signatureComposite(SignatureFacadeServiceImpl.java:379)
+	at com.zipi.service.facade.impl.SignatureFacadeServiceImpl$$FastClassBySpringCGLIB$$a7a61af.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.zipi.service.facade.impl.SignatureFacadeServiceImpl$$EnhancerBySpringCGLIB$$6bf66896.signatureComposite(<generated>)
+	at com.zipi.service.impl.SealAutoServiceImpl.getLoanAgreement(SealAutoServiceImpl.java:173)
+	at com.zipi.service.impl.SealAutoServiceImpl$$FastClassBySpringCGLIB$$3cf0facd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.zipi.service.impl.SealAutoServiceImpl$$EnhancerBySpringCGLIB$$7dfbd6b0.getLoanAgreement(<generated>)
+	at com.zipi.controller.ContractController.getAppointmentAgreement(ContractController.java:58)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:650)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2018-07-10 16:39:35,031 INFO (StartupInfoLogger.java:48)- Starting App on note-zp-0001 with PID 9300 (E:\gittest\pushmsg\helloworld\rmbbox-contract-server\target\classes started by Administrator in E:\gittest\pushmsg\helloworld\rmbbox-contract-server)
+2018-07-10 16:39:35,037 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-07-10 16:39:35,255 INFO (Version.java:30)- HV000001: Hibernate Validator 5.3.6.Final
+2018-07-10 16:39:35,341 INFO (AbstractApplicationContext.java:583)- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7642df8f: startup date [Tue Jul 10 16:39:35 CST 2018]; root of context hierarchy
+2018-07-10 16:39:36,196 INFO (RepositoryConfigurationDelegate.java:165)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-10 16:39:37,291 INFO (TomcatEmbeddedServletContainer.java:89)- Tomcat initialized with port(s): 7650 (http)
+2018-07-10 16:39:37,301 INFO (DirectJDKLog.java:179)- Starting service [Tomcat]
+2018-07-10 16:39:37,303 INFO (DirectJDKLog.java:179)- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-07-10 16:39:37,408 INFO (DirectJDKLog.java:179)- Initializing Spring embedded WebApplicationContext
+2018-07-10 16:39:37,408 INFO (EmbeddedWebApplicationContext.java:276)- Root WebApplicationContext: initialization completed in 2067 ms
+2018-07-10 16:39:37,616 INFO (ServletRegistrationBean.java:190)- Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-10 16:39:37,621 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-10 16:39:37,622 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-10 16:39:37,622 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-10 16:39:37,622 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-10 16:39:38,537 INFO (SignatureFacadeServiceImpl.java:467)- templateFile****is*******E:\data\sealfile\
+2018-07-10 16:39:39,144 INFO (RequestMappingHandlerAdapter.java:534)- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7642df8f: startup date [Tue Jul 10 16:39:35 CST 2018]; root of context hierarchy
+2018-07-10 16:39:39,213 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/test]}" onto public void com.zipi.controller.ContractController.test()
+2018-07-10 16:39:39,215 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/appointment/contract/{appointmentId}]}" onto public void com.zipi.controller.ContractController.getAppointmentAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:39:39,216 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/forCompensator/{repaymentId}]}" onto public void com.zipi.controller.ContractController.getCompensatorAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:39:39,216 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/assignSale/contract/{assignmentId}]}" onto public void com.zipi.controller.ContractController.getAssignSaleAgreement(int,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:39:39,216 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/creditSale/contract/{creditId}]}" onto public void com.zipi.controller.ContractController.getCreditSaleAgreement(long,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:39:39,217 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/invest/contract/{investId}]}" onto public void com.zipi.controller.ContractController.getInvestAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:39:39,217 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/loan/contract/{loanId}]}" onto public void com.zipi.controller.ContractController.getLoanAgreementForMG(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:39:39,219 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-10 16:39:39,220 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:39:39,255 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 16:39:39,255 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 16:39:39,308 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 16:39:39,374 WARN (AbstractTemplateResolverConfiguration.java:60)- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-07-10 16:39:39,674 INFO (WebMvcAutoConfiguration.java:549)- Adding welcome page: class path resource [static/index.html]
+2018-07-10 16:39:40,182 INFO (MBeanExporter.java:431)- Registering beans for JMX exposure on startup
+2018-07-10 16:39:40,184 INFO (MBeanExporter.java:916)- Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-10 16:39:40,191 INFO (MBeanExporter.java:671)- Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-07-10 16:39:40,202 INFO (ScheduledAnnotationBeanPostProcessor.java:267)- No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-07-10 16:39:40,214 INFO (DirectJDKLog.java:179)- Initializing ProtocolHandler ["http-nio-7650"]
+2018-07-10 16:39:40,223 INFO (DirectJDKLog.java:179)- Starting ProtocolHandler ["http-nio-7650"]
+2018-07-10 16:39:40,235 INFO (DirectJDKLog.java:179)- Using a shared selector for servlet write/read
+2018-07-10 16:39:40,256 INFO (TomcatEmbeddedServletContainer.java:201)- Tomcat started on port(s): 7650 (http)
+2018-07-10 16:39:40,261 INFO (StartupInfoLogger.java:57)- Started App in 6.041 seconds (JVM running for 7.077)
+2018-07-10 16:40:34,923 INFO (StartupInfoLogger.java:48)- Starting App on note-zp-0001 with PID 9496 (E:\gittest\pushmsg\helloworld\rmbbox-contract-server\target\classes started by Administrator in E:\gittest\pushmsg\helloworld\rmbbox-contract-server)
+2018-07-10 16:40:34,927 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-07-10 16:40:35,269 INFO (Version.java:30)- HV000001: Hibernate Validator 5.3.6.Final
+2018-07-10 16:40:35,350 INFO (AbstractApplicationContext.java:583)- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@29a0cdb: startup date [Tue Jul 10 16:40:35 CST 2018]; root of context hierarchy
+2018-07-10 16:40:36,277 INFO (RepositoryConfigurationDelegate.java:165)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-10 16:40:37,329 INFO (TomcatEmbeddedServletContainer.java:89)- Tomcat initialized with port(s): 7650 (http)
+2018-07-10 16:40:37,338 INFO (DirectJDKLog.java:179)- Starting service [Tomcat]
+2018-07-10 16:40:37,339 INFO (DirectJDKLog.java:179)- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-07-10 16:40:37,443 INFO (DirectJDKLog.java:179)- Initializing Spring embedded WebApplicationContext
+2018-07-10 16:40:37,443 INFO (EmbeddedWebApplicationContext.java:276)- Root WebApplicationContext: initialization completed in 2093 ms
+2018-07-10 16:40:37,656 INFO (ServletRegistrationBean.java:190)- Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-10 16:40:37,661 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-10 16:40:37,662 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-10 16:40:37,662 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-10 16:40:37,662 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-10 16:40:38,598 INFO (SignatureFacadeServiceImpl.java:467)- templateFile****is*******E:\data\sealfile\
+2018-07-10 16:40:39,229 INFO (RequestMappingHandlerAdapter.java:534)- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@29a0cdb: startup date [Tue Jul 10 16:40:35 CST 2018]; root of context hierarchy
+2018-07-10 16:40:39,297 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/test]}" onto public void com.zipi.controller.ContractController.test()
+2018-07-10 16:40:39,300 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/appointment/contract/{appointmentId}]}" onto public void com.zipi.controller.ContractController.getAppointmentAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:40:39,300 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/forCompensator/{repaymentId}]}" onto public void com.zipi.controller.ContractController.getCompensatorAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:40:39,301 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/assignSale/contract/{assignmentId}]}" onto public void com.zipi.controller.ContractController.getAssignSaleAgreement(int,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:40:39,301 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/creditSale/contract/{creditId}]}" onto public void com.zipi.controller.ContractController.getCreditSaleAgreement(long,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:40:39,301 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/invest/contract/{investId}]}" onto public void com.zipi.controller.ContractController.getInvestAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:40:39,302 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/loan/contract/{loanId}]}" onto public void com.zipi.controller.ContractController.getLoanAgreementForMG(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:40:39,305 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-10 16:40:39,306 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-10 16:40:39,342 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 16:40:39,342 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 16:40:39,391 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 16:40:39,446 WARN (AbstractTemplateResolverConfiguration.java:60)- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-07-10 16:40:39,696 INFO (WebMvcAutoConfiguration.java:549)- Adding welcome page: class path resource [static/index.html]
+2018-07-10 16:40:40,173 INFO (MBeanExporter.java:431)- Registering beans for JMX exposure on startup
+2018-07-10 16:40:40,175 INFO (MBeanExporter.java:916)- Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-10 16:40:40,181 INFO (MBeanExporter.java:671)- Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-07-10 16:40:40,192 INFO (ScheduledAnnotationBeanPostProcessor.java:267)- No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-07-10 16:40:40,204 INFO (DirectJDKLog.java:179)- Initializing ProtocolHandler ["http-nio-7650"]
+2018-07-10 16:40:40,214 INFO (DirectJDKLog.java:179)- Starting ProtocolHandler ["http-nio-7650"]
+2018-07-10 16:40:40,230 INFO (DirectJDKLog.java:179)- Using a shared selector for servlet write/read
+2018-07-10 16:40:40,252 INFO (TomcatEmbeddedServletContainer.java:201)- Tomcat started on port(s): 7650 (http)
+2018-07-10 16:40:40,257 INFO (StartupInfoLogger.java:57)- Started App in 6.012 seconds (JVM running for 7.006)
+2018-07-10 16:42:35,117 INFO (DirectJDKLog.java:179)- A cookie header was received [1529910458,1530013901,1530064543; _qzja=1.1647278683.1525845002073.1530013901294.1530064543846.1530015221203.1530064543846..0.0.234.41; zg_31f03a4d142948ae9a3a435fe41f7f27=%7B%22sid%22%3A%201530076183427%2C%22updated%22%3A%201530076183427%2C%22info%22%3A%201529644945126%2C%22superProperty%22%3A%20%22%7B%7D%22%2C%22platform%22%3A%20%22%7B%7D%22%2C%22utm%22%3A%20%22%7B%7D%22%2C%22referrerDomain%22%3A%20%22%22%2C%22landHref%22%3A%20%22http%3A%2F%2Flocalhost%3A8087%2F%22%7D] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-07-10 16:42:35,127 INFO (DirectJDKLog.java:179)- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-10 16:42:35,127 INFO (FrameworkServlet.java:489)- FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-10 16:42:35,154 INFO (FrameworkServlet.java:508)- FrameworkServlet 'dispatcherServlet': initialization completed in 27 ms
+2018-07-10 16:42:37,940 INFO (DruidDataSource.java:928)- {dataSource-1} inited
+2018-07-10 16:42:38,454 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select appointment_id,user_id,appointment_amount,frozen_amount,release_amount,match_amount,product_allow,rate_min,rate_max,status, cancel_time,match_time,create_time,days_min,days_max,match_flag,source,project_type,ip,channel,prop_id,prop_type from tb_rmbbox_loan_appointment where appointment_id = ? 
+2018-07-10 16:42:38,478 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 5BCED30C-6966-11E8-9731-99ECD5657B3A(String)
+2018-07-10 16:42:38,508 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:42:38,556 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select file_id,invest_id,file_path,file_name,file_type,create_time,file_period,flag_seal from tb_core_seal_flie WHERE ( invest_id = ? and file_type = ? and file_period = ? ) 
+2018-07-10 16:42:38,557 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 5BCED30C-6966-11E8-9731-99ECD5657B3A(String), AppointmentAgreement(String), 0(Integer)
+2018-07-10 16:42:38,560 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:42:48,076 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT u.user_name AS userName, u.enterprise, u.company_name AS companyName, u.customer_no AS customerNo, u.user_mobile AS userMobile, u.id_number AS idNumber, u.user_id as userId FROM tb_rmbbox_loan_appointment a,tb_core_user u WHERE a.user_id=u.user_id AND a.appointment_id = ? limit 1 
+2018-07-10 16:42:48,077 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 5BCED30C-6966-11E8-9731-99ECD5657B3A(String)
+2018-07-10 16:42:48,082 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:42:48,083 INFO (SignatureFacadeServiceImpl.java:424)- userName：林先生，idNumber：341222199012253291,userMobile：18866666666，
+2018-07-10 16:42:48,083 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, email, emp_id, enabled, lock_type, enterprise, id_number, last_login_time, last_modified_by, login_name, user_mobile, user_name, need_change_pwd, passphrase, register_time, salt, register_source, referral_id, referral_realm,en_address,en_phone,en_nature,en_license_no,certificate_type, user_role,contact_name,company_name,tax_registration_number,institutional_credit_code,bank_license,organization_code, xw_status,contact_phone,unified_code,customer_no from tb_core_user where user_id = ? 
+2018-07-10 16:42:48,084 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 53F82C38-3572-11E7-A96C-E61BD1C97C12(String)
+2018-07-10 16:42:48,089 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:42:48,090 INFO (SignatureFacadeServiceImpl.java:426)- userId：53F82C38-3572-11E7-A96C-E61BD1C97C12，userName：林先生,
+2018-07-10 16:42:48,090 INFO (SignatureFacadeServiceImpl.java:435)- identType：0 ==
+2018-07-10 16:42:48,846 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select file_id,invest_id,file_path,file_name,file_type,create_time,file_period,flag_seal from tb_core_seal_flie where file_id = ? 
+2018-07-10 16:42:48,847 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: CB314B2A-841A-11E8-9731-99ECD5657B3A(String)
+2018-07-10 16:42:48,850 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:42:48,851 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT transaction_id,create_time,update_time,timestamp, description,trade_status,invest_id,contract_id,file_id,doc_title, sign_keyword,sealNo FROM tb_core_signature WHERE file_id = ? 
+2018-07-10 16:42:48,852 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: CB314B2A-841A-11E8-9731-99ECD5657B3A(String)
+2018-07-10 16:42:48,854 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-07-10 16:43:14,578 INFO (SignatureFacadeServiceImpl.java:110)- 协议上传法大大结果：{"code":"1000","msg":"操作成功","result":"success"}
+2018-07-10 16:43:14,581 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT UPPER(UUID()) AS transactionId 
+2018-07-10 16:43:14,582 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 
+2018-07-10 16:43:14,587 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 16:43:14,589 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: insert into tb_core_signature ( transaction_id, create_time, update_time, timestamp, description, trade_status, invest_id, contract_id, file_id, doc_title, sign_keyword, sealNo ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2018-07-10 16:43:14,596 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 438F29C8-841D-11E8-9731-99ECD5657B3A(String), 2018-07-10 16:43:14.58(Timestamp), 2018-07-10 16:43:14.58(Timestamp), 20180710164314(String), 签章(String), INITIALIZED(String), 5BCED30C-6966-11E8-9731-99ECD5657B3A(String), CB314B2A841A11E8973199ECD5657B3A(String), CB314B2A-841A-11E8-9731-99ECD5657B3A(String), 出借咨询与服务协议(String), 乙方签章处(String), 1(Integer)
+2018-07-10 16:43:14,603 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-07-10 16:43:14,604 INFO (SignatureFacadeServiceImpl.java:132)- 协议fild_id：CB314B2A-841A-11E8-9731-99ECD5657B3A上传成功
+2018-07-10 16:43:14,605 INFO (SignatureFacadeServiceImpl.java:154)- 协议file_id：CB314B2A-841A-11E8-9731-99ECD5657B3A签章上送参数：客户类型2，合同编号CB314B2A841A11E8973199ECD5657B3A，客户编号D6F96955ACC1082B
+2018-07-10 16:43:15,724 INFO (SignatureFacadeServiceImpl.java:161)- 协议签章返回结果：{"code":"1000","download_url":"https:\/\/testapi.fadada.com:8443\/api\/\/getdocs.action?app_id=400220&timestamp=20180710164306&v=2.0&msg_digest=REIwRTlFRTY0MTNFRDc4QTczQkFCNzEzNTFCRjhBNDE0ODMzQThFMQ==&send_app_id=null&transaction_id=a4d7ebb4-46db-4937-8d82-d57e7b22f17d","msg":"文档签署成功","result":"success","viewpdf_url":"https:\/\/testapi.fadada.com:8443\/api\/\/viewdocs.action?app_id=400220&timestamp=20180710164306&v=2.0&msg_digest=REIwRTlFRTY0MTNFRDc4QTczQkFCNzEzNTFCRjhBNDE0ODMzQThFMQ==&send_app_id=null&transaction_id=a4d7ebb4-46db-4937-8d82-d57e7b22f17d"}
+2018-07-10 16:43:15,727 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: UPDATE tb_core_signature SET update_time = ?, timestamp = ?, sign_keyword = ?, sealNo = CASE WHEN sealNo = 4 THEN sealNo ELSE sealNo + 1 END WHERE transaction_id = ? AND trade_status = ? AND sealNo = ? AND sealNo <= 4 
+2018-07-10 16:43:15,730 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2018-07-10 16:43:14.605(Timestamp), 20180710164314(String), 乙方签章处(String), 438F29C8-841D-11E8-9731-99ECD5657B3A(String), INITIALIZED(String), 1(Integer)
+2018-07-10 16:43:15,736 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-07-10 16:43:15,738 INFO (SignatureFacadeServiceImpl.java:154)- 协议file_id：CB314B2A-841A-11E8-9731-99ECD5657B3A签章上送参数：客户类型1，合同编号CB314B2A841A11E8973199ECD5657B3A，客户编号D79927A330F2A860AF3310DCD184ABC6
+2018-07-10 16:43:16,590 INFO (SignatureFacadeServiceImpl.java:161)- 协议签章返回结果：{"code":"1000","download_url":"https:\/\/testapi.fadada.com:8443\/api\/\/getdocs.action?app_id=400220&timestamp=20180710164307&v=2.0&msg_digest=MEFERjFCQzI3MENGMjMzQ0QzOUFEQ0NDQzNDQjA3NDBFOUNDRjM5Qw==&send_app_id=null&transaction_id=750cbd53-3a1b-4387-8f3f-8120e83e38fd","msg":"文档签署成功","result":"success","viewpdf_url":"https:\/\/testapi.fadada.com:8443\/api\/\/viewdocs.action?app_id=400220&timestamp=20180710164307&v=2.0&msg_digest=MEFERjFCQzI3MENGMjMzQ0QzOUFEQ0NDQzNDQjA3NDBFOUNDRjM5Qw==&send_app_id=null&transaction_id=750cbd53-3a1b-4387-8f3f-8120e83e38fd"}
+2018-07-10 16:43:16,615 ERROR (ContractController.java:71)- 获得自动出借服务协议失败:
+org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.lang.IllegalArgumentException: invalid comparison: com.zipi.enums.core.FundRecordStatus and java.lang.String
+### Cause: java.lang.IllegalArgumentException: invalid comparison: com.zipi.enums.core.FundRecordStatus and java.lang.String
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:77)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy68.update(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:294)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy73.updateSignatureStatus(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:333)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy74.updateSignatureStatus(Unknown Source)
+	at com.zipi.service.impl.SignatureServiceImpl.updateSignatureStatus(SignatureServiceImpl.java:29)
+	at com.zipi.service.facade.impl.SignatureFacadeServiceImpl.signatureDocs(SignatureFacadeServiceImpl.java:168)
+	at com.zipi.service.facade.impl.SignatureFacadeServiceImpl.signatureComposite(SignatureFacadeServiceImpl.java:382)
+	at com.zipi.service.facade.impl.SignatureFacadeServiceImpl$$FastClassBySpringCGLIB$$a7a61af.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.zipi.service.facade.impl.SignatureFacadeServiceImpl$$EnhancerBySpringCGLIB$$f5d5b2b5.signatureComposite(<generated>)
+	at com.zipi.service.impl.SealAutoServiceImpl.getLoanAgreement(SealAutoServiceImpl.java:173)
+	at com.zipi.service.impl.SealAutoServiceImpl$$FastClassBySpringCGLIB$$3cf0facd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.zipi.service.impl.SealAutoServiceImpl$$EnhancerBySpringCGLIB$$7db20cf.getLoanAgreement(<generated>)
+	at com.zipi.controller.ContractController.getAppointmentAgreement(ContractController.java:58)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:650)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.lang.IllegalArgumentException: invalid comparison: com.zipi.enums.core.FundRecordStatus and java.lang.String
+### Cause: java.lang.IllegalArgumentException: invalid comparison: com.zipi.enums.core.FundRecordStatus and java.lang.String
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:200)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 96 common frames omitted
+Caused by: java.lang.IllegalArgumentException: invalid comparison: com.zipi.enums.core.FundRecordStatus and java.lang.String
+	at org.apache.ibatis.ognl.OgnlOps.compareWithConversion(OgnlOps.java:93)
+	at org.apache.ibatis.ognl.OgnlOps.isEqual(OgnlOps.java:143)
+	at org.apache.ibatis.ognl.OgnlOps.equal(OgnlOps.java:802)
+	at org.apache.ibatis.ognl.ASTNotEq.getValueBody(ASTNotEq.java:53)
+	at org.apache.ibatis.ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212)
+	at org.apache.ibatis.ognl.SimpleNode.getValue(SimpleNode.java:258)
+	at org.apache.ibatis.ognl.ASTAnd.getValueBody(ASTAnd.java:61)
+	at org.apache.ibatis.ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212)
+	at org.apache.ibatis.ognl.SimpleNode.getValue(SimpleNode.java:258)
+	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:470)
+	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:434)
+	at org.apache.ibatis.scripting.xmltags.OgnlCache.getValue(OgnlCache.java:44)
+	at org.apache.ibatis.scripting.xmltags.ExpressionEvaluator.evaluateBoolean(ExpressionEvaluator.java:32)
+	at org.apache.ibatis.scripting.xmltags.IfSqlNode.apply(IfSqlNode.java:34)
+	at org.apache.ibatis.scripting.xmltags.MixedSqlNode.apply(MixedSqlNode.java:33)
+	at org.apache.ibatis.scripting.xmltags.DynamicSqlSource.getBoundSql(DynamicSqlSource.java:41)
+	at org.apache.ibatis.mapping.MappedStatement.getBoundSql(MappedStatement.java:292)
+	at org.apache.ibatis.executor.statement.BaseStatementHandler.<init>(BaseStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.<init>(PreparedStatementHandler.java:40)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.<init>(RoutingStatementHandler.java:46)
+	at org.apache.ibatis.session.Configuration.newStatementHandler(Configuration.java:558)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:48)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	... 101 common frames omitted
+2018-07-10 17:08:41,938 INFO (StartupInfoLogger.java:48)- Starting App on note-zp-0001 with PID 8704 (E:\gittest\pushmsg\helloworld\rmbbox-contract-server\target\classes started by Administrator in E:\gittest\pushmsg\helloworld\rmbbox-contract-server)
+2018-07-10 17:08:41,942 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-07-10 17:08:42,319 INFO (Version.java:30)- HV000001: Hibernate Validator 5.3.6.Final
+2018-07-10 17:08:42,417 INFO (AbstractApplicationContext.java:583)- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7642df8f: startup date [Tue Jul 10 17:08:42 CST 2018]; root of context hierarchy
+2018-07-10 17:08:43,362 INFO (RepositoryConfigurationDelegate.java:165)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-10 17:08:44,511 INFO (TomcatEmbeddedServletContainer.java:89)- Tomcat initialized with port(s): 7650 (http)
+2018-07-10 17:08:44,521 INFO (DirectJDKLog.java:179)- Starting service [Tomcat]
+2018-07-10 17:08:44,522 INFO (DirectJDKLog.java:179)- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-07-10 17:08:44,624 INFO (DirectJDKLog.java:179)- Initializing Spring embedded WebApplicationContext
+2018-07-10 17:08:44,625 INFO (EmbeddedWebApplicationContext.java:276)- Root WebApplicationContext: initialization completed in 2208 ms
+2018-07-10 17:08:44,811 INFO (ServletRegistrationBean.java:190)- Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-10 17:08:44,816 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-10 17:08:44,817 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-10 17:08:44,817 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-10 17:08:44,817 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-10 17:08:45,796 INFO (SignatureFacadeServiceImpl.java:467)- templateFile****is*******E:\data\sealfile\
+2018-07-10 17:08:46,377 INFO (RequestMappingHandlerAdapter.java:534)- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7642df8f: startup date [Tue Jul 10 17:08:42 CST 2018]; root of context hierarchy
+2018-07-10 17:08:46,442 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/test]}" onto public void com.zipi.controller.ContractController.test()
+2018-07-10 17:08:46,446 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/appointment/contract/{appointmentId}]}" onto public void com.zipi.controller.ContractController.getAppointmentAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 17:08:46,446 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/forCompensator/{repaymentId}]}" onto public void com.zipi.controller.ContractController.getCompensatorAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 17:08:46,447 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/assignSale/contract/{assignmentId}]}" onto public void com.zipi.controller.ContractController.getAssignSaleAgreement(int,javax.servlet.http.HttpServletResponse)
+2018-07-10 17:08:46,447 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/creditSale/contract/{creditId}]}" onto public void com.zipi.controller.ContractController.getCreditSaleAgreement(long,javax.servlet.http.HttpServletResponse)
+2018-07-10 17:08:46,447 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/invest/contract/{investId}]}" onto public void com.zipi.controller.ContractController.getInvestAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 17:08:46,448 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/loan/contract/{loanId}]}" onto public void com.zipi.controller.ContractController.getLoanAgreementForMG(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-10 17:08:46,451 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-10 17:08:46,451 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-10 17:08:46,491 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 17:08:46,491 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 17:08:46,540 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-10 17:08:46,583 WARN (AbstractTemplateResolverConfiguration.java:60)- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-07-10 17:08:46,854 INFO (WebMvcAutoConfiguration.java:549)- Adding welcome page: class path resource [static/index.html]
+2018-07-10 17:08:47,350 INFO (MBeanExporter.java:431)- Registering beans for JMX exposure on startup
+2018-07-10 17:08:47,354 INFO (MBeanExporter.java:916)- Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-10 17:08:47,365 INFO (MBeanExporter.java:671)- Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-07-10 17:08:47,381 INFO (ScheduledAnnotationBeanPostProcessor.java:267)- No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-07-10 17:08:47,398 INFO (DirectJDKLog.java:179)- Initializing ProtocolHandler ["http-nio-7650"]
+2018-07-10 17:08:47,410 INFO (DirectJDKLog.java:179)- Starting ProtocolHandler ["http-nio-7650"]
+2018-07-10 17:08:47,425 INFO (DirectJDKLog.java:179)- Using a shared selector for servlet write/read
+2018-07-10 17:08:47,452 INFO (TomcatEmbeddedServletContainer.java:201)- Tomcat started on port(s): 7650 (http)
+2018-07-10 17:08:47,460 INFO (StartupInfoLogger.java:57)- Started App in 6.211 seconds (JVM running for 7.397)
+2018-07-10 17:09:39,865 INFO (DirectJDKLog.java:179)- A cookie header was received [1529910458,1530013901,1530064543; _qzja=1.1647278683.1525845002073.1530013901294.1530064543846.1530015221203.1530064543846..0.0.234.41; zg_31f03a4d142948ae9a3a435fe41f7f27=%7B%22sid%22%3A%201530076183427%2C%22updated%22%3A%201530076183427%2C%22info%22%3A%201529644945126%2C%22superProperty%22%3A%20%22%7B%7D%22%2C%22platform%22%3A%20%22%7B%7D%22%2C%22utm%22%3A%20%22%7B%7D%22%2C%22referrerDomain%22%3A%20%22%22%2C%22landHref%22%3A%20%22http%3A%2F%2Flocalhost%3A8087%2F%22%7D] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-07-10 17:09:39,874 INFO (DirectJDKLog.java:179)- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-10 17:09:39,874 INFO (FrameworkServlet.java:489)- FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-10 17:09:39,904 INFO (FrameworkServlet.java:508)- FrameworkServlet 'dispatcherServlet': initialization completed in 29 ms
+2018-07-10 17:09:42,212 INFO (DruidDataSource.java:928)- {dataSource-1} inited
+2018-07-10 17:09:42,743 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select appointment_id,user_id,appointment_amount,frozen_amount,release_amount,match_amount,product_allow,rate_min,rate_max,status, cancel_time,match_time,create_time,days_min,days_max,match_flag,source,project_type,ip,channel,prop_id,prop_type from tb_rmbbox_loan_appointment where appointment_id = ? 
+2018-07-10 17:09:42,769 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 5BCED30C-6966-11E8-9731-99ECD5657B3A(String)
+2018-07-10 17:09:42,800 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 17:09:42,848 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select file_id,invest_id,file_path,file_name,file_type,create_time,file_period,flag_seal from tb_core_seal_flie WHERE ( invest_id = ? and file_type = ? and file_period = ? ) 
+2018-07-10 17:09:42,849 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 5BCED30C-6966-11E8-9731-99ECD5657B3A(String), AppointmentAgreement(String), 0(Integer)
+2018-07-10 17:09:42,852 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 17:09:44,589 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT u.user_name AS userName, u.enterprise, u.company_name AS companyName, u.customer_no AS customerNo, u.user_mobile AS userMobile, u.id_number AS idNumber, u.user_id as userId FROM tb_rmbbox_loan_appointment a,tb_core_user u WHERE a.user_id=u.user_id AND a.appointment_id = ? limit 1 
+2018-07-10 17:09:44,591 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 5BCED30C-6966-11E8-9731-99ECD5657B3A(String)
+2018-07-10 17:09:44,598 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 17:09:44,600 INFO (SignatureFacadeServiceImpl.java:424)- userName：林先生，idNumber：341222199012253291,userMobile：18866666666，
+2018-07-10 17:09:44,600 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select user_id, email, emp_id, enabled, lock_type, enterprise, id_number, last_login_time, last_modified_by, login_name, user_mobile, user_name, need_change_pwd, passphrase, register_time, salt, register_source, referral_id, referral_realm,en_address,en_phone,en_nature,en_license_no,certificate_type, user_role,contact_name,company_name,tax_registration_number,institutional_credit_code,bank_license,organization_code, xw_status,contact_phone,unified_code,customer_no from tb_core_user where user_id = ? 
+2018-07-10 17:09:44,602 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 53F82C38-3572-11E7-A96C-E61BD1C97C12(String)
+2018-07-10 17:09:44,612 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 17:09:44,613 INFO (SignatureFacadeServiceImpl.java:426)- userId：53F82C38-3572-11E7-A96C-E61BD1C97C12，userName：林先生,
+2018-07-10 17:09:44,613 INFO (SignatureFacadeServiceImpl.java:435)- identType：0 ==
+2018-07-10 17:09:45,380 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: select file_id,invest_id,file_path,file_name,file_type,create_time,file_period,flag_seal from tb_core_seal_flie where file_id = ? 
+2018-07-10 17:09:45,380 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: CB314B2A-841A-11E8-9731-99ECD5657B3A(String)
+2018-07-10 17:09:45,384 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 17:09:45,385 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT transaction_id,create_time,update_time,timestamp, description,trade_status,invest_id,contract_id,file_id,doc_title, sign_keyword,sealNo FROM tb_core_signature WHERE file_id = ? 
+2018-07-10 17:09:45,386 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: CB314B2A-841A-11E8-9731-99ECD5657B3A(String)
+2018-07-10 17:09:45,389 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 0
+2018-07-10 17:10:07,378 INFO (SignatureFacadeServiceImpl.java:110)- 协议上传法大大结果：{"code":"2002","msg":"合同编号重复，此编号已存在。","result":"error"}
+2018-07-10 17:10:07,380 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT UPPER(UUID()) AS transactionId 
+2018-07-10 17:10:07,381 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 
+2018-07-10 17:10:07,385 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 17:10:07,387 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: insert into tb_core_signature ( transaction_id, create_time, update_time, timestamp, description, trade_status, invest_id, contract_id, file_id, doc_title, sign_keyword, sealNo ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2018-07-10 17:10:07,393 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 04DC1DAE-8421-11E8-9731-99ECD5657B3A(String), 2018-07-10 17:10:07.379(Timestamp), 2018-07-10 17:10:07.379(Timestamp), 20180710171007(String), 签章(String), INITIALIZED(String), 5BCED30C-6966-11E8-9731-99ECD5657B3A(String), CB314B2A841A11E8973199ECD5657B3A(String), CB314B2A-841A-11E8-9731-99ECD5657B3A(String), 出借咨询与服务协议(String), 乙方签章处(String), 1(Integer)
+2018-07-10 17:10:07,398 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-07-10 17:10:07,399 INFO (SignatureFacadeServiceImpl.java:132)- 协议fild_id：CB314B2A-841A-11E8-9731-99ECD5657B3A上传成功
+2018-07-10 17:10:07,400 INFO (SignatureFacadeServiceImpl.java:154)- 协议file_id：CB314B2A-841A-11E8-9731-99ECD5657B3A签章上送参数：客户类型2，合同编号CB314B2A841A11E8973199ECD5657B3A，客户编号D6F96955ACC1082B
+2018-07-10 17:10:08,416 INFO (SignatureFacadeServiceImpl.java:161)- 协议签章返回结果：{"code":"1000","download_url":"https:\/\/testapi.fadada.com:8443\/api\/\/getdocs.action?app_id=400220&timestamp=20180710170959&v=2.0&msg_digest=RDBCM0MwRDI5NEMxRDA5NDI2NzhEQUREQzlGMjhGREFBQUMwRTQwMg==&send_app_id=null&transaction_id=854b8211-83c0-4390-85bb-952f2b60d30a","msg":"文档签署成功","result":"success","viewpdf_url":"https:\/\/testapi.fadada.com:8443\/api\/\/viewdocs.action?app_id=400220&timestamp=20180710170959&v=2.0&msg_digest=RDBCM0MwRDI5NEMxRDA5NDI2NzhEQUREQzlGMjhGREFBQUMwRTQwMg==&send_app_id=null&transaction_id=854b8211-83c0-4390-85bb-952f2b60d30a"}
+2018-07-10 17:10:08,418 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: UPDATE tb_core_signature SET update_time = ?, timestamp = ?, sign_keyword = ?, sealNo = CASE WHEN sealNo = 4 THEN sealNo ELSE sealNo + 1 END WHERE transaction_id = ? AND trade_status = ? AND sealNo = ? AND sealNo <= 4 
+2018-07-10 17:10:08,420 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2018-07-10 17:10:07.4(Timestamp), 20180710171007(String), 乙方签章处(String), 04DC1DAE-8421-11E8-9731-99ECD5657B3A(String), INITIALIZED(String), 1(Integer)
+2018-07-10 17:10:08,426 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-07-10 17:10:08,428 INFO (SignatureFacadeServiceImpl.java:154)- 协议file_id：CB314B2A-841A-11E8-9731-99ECD5657B3A签章上送参数：客户类型1，合同编号CB314B2A841A11E8973199ECD5657B3A，客户编号792FDD1EEF638DED457810CAF9B7D068
+2018-07-10 17:10:09,357 INFO (SignatureFacadeServiceImpl.java:161)- 协议签章返回结果：{"code":"1000","download_url":"https:\/\/testapi.fadada.com:8443\/api\/\/getdocs.action?app_id=400220&timestamp=20180710171000&v=2.0&msg_digest=OEM5QjcyQTNDNTZDRTFDNEUyRThBNUEzNTc0MTVEMUJFMDQ1QzBFOA==&send_app_id=null&transaction_id=cbbd888e-43f6-4a7a-ae42-1a4ae9444029","msg":"文档签署成功","result":"success","viewpdf_url":"https:\/\/testapi.fadada.com:8443\/api\/\/viewdocs.action?app_id=400220&timestamp=20180710171000&v=2.0&msg_digest=OEM5QjcyQTNDNTZDRTFDNEUyRThBNUEzNTc0MTVEMUJFMDQ1QzBFOA==&send_app_id=null&transaction_id=cbbd888e-43f6-4a7a-ae42-1a4ae9444029"}
+2018-07-10 17:10:14,919 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: UPDATE tb_core_signature SET update_time = ?, timestamp = ?, trade_status = ?, sign_keyword = ?, sealNo = CASE WHEN sealNo = 4 THEN sealNo ELSE sealNo + 1 END WHERE transaction_id = ? AND trade_status = ? AND sealNo = ? AND sealNo <= 4 
+2018-07-10 17:10:14,921 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 2018-07-10 17:10:08.427(Timestamp), 20180710171008(String), SUCCESSFUL(String), 甲方签章处(String), 04DC1DAE-8421-11E8-9731-99ECD5657B3A(String), INITIALIZED(String), 2(Integer)
+2018-07-10 17:10:14,926 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-07-10 17:10:14,928 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT transaction_id,create_time,update_time,timestamp, description,trade_status,invest_id,contract_id,file_id,doc_title, sign_keyword,sealNo FROM tb_core_signature WHERE file_id = ? 
+2018-07-10 17:10:14,929 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: CB314B2A-841A-11E8-9731-99ECD5657B3A(String)
+2018-07-10 17:10:14,934 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-07-10 17:10:14,936 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: UPDATE tb_core_seal_flie SET flag_seal = TRUE WHERE file_id = ? AND flag_seal = FALSE 
+2018-07-10 17:10:14,938 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: CB314B2A-841A-11E8-9731-99ECD5657B3A(String)
+2018-07-10 17:10:14,942 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2018-07-10 17:10:26,291 INFO (SignatureFacadeServiceImpl.java:213)- 协议file_id：CB314B2A-841A-11E8-9731-99ECD5657B3A签章下载成功，目录E:\data\sealfile\NET_LOAN\AppointmentAgreement\0\2018\7\10\5BCED30C-6966-11E8-9731-99ECD5657B3A\AppointmentAgreement-5BCED30C-6966-11E8-9731-99ECD5657B3A.pdf
+2018-07-10 17:10:26,649 INFO (SignatureFacadeServiceImpl.java:252)- 合同归档成功

@@ -1,0 +1,1178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zipi.mapper.RmbInvestMapper">
+
+    <resultMap id="BaseResultMap" type="com.zipi.entity.RmbInvest">
+        <id column="invest_id" property="investId" jdbcType="VARCHAR"/>
+        <result column="invest_amount" property="investAmount" jdbcType="DECIMAL"/>
+        <result column="loan_id" property="loanId" jdbcType="VARCHAR"/>
+        <result column="loan_rate" property="loanRate" jdbcType="INTEGER"/>
+        <result column="repayment_type" property="repaymentType" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+        <result column="submit_time" property="submitTime" jdbcType="TIMESTAMP"/>
+        <result column="user_id" property="userId" jdbcType="VARCHAR"/>
+        <result column="order_id" property="orderId" jdbcType="VARCHAR"/>
+        <result column="days" property="days" jdbcType="INTEGER"/>
+        <result column="months" property="months" jdbcType="INTEGER"/>
+        <result column="years" property="years" jdbcType="INTEGER"/>
+        <result column="purpose" property="purpose" jdbcType="VARCHAR"/>
+        <result column="out_times" property="outTimes" jdbcType="VARCHAR"/>
+        <result column="invest_way" property="investWay" jdbcType="INTEGER"/>
+        <result column="interest_amount" property="interestAmount" jdbcType="DECIMAL"/>
+        <result column="prop_id" property="propId" jdbcType="VARCHAR"/>
+        <result column="prop_type" property="propType" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+    <resultMap id="TopInvestMap" type="com.zipi.entity.RmbInvest">
+        <id column="invest_id" property="investId"/>
+        <result column="invest_amount" property="investAmount"/>
+        <result column="submit_time" property="submitTime"/>
+        <result column="loan_rate" property="loanRate"/>
+        <result column="purpose" property="purpose"/>
+        <result column="loan_id" property="loanId"/>
+        <result column="settled_time" property="settledTime"/>
+        <result column="order_id" property="orderId"/>
+        <result column="request_id" property="requestId"/>
+        <result column="loanPeriod" property="loanPeriod"/>
+        <result column="amount_interest"  property="amountInterest"/>
+        <result column="repay_method" property="repayMethod"/>
+        <association property="user" column="user_id" javaType="CoreUser">
+            <id property="userId" column="user_id"/>
+            <result property="userName" column="user_name"/>
+            <result property="loginName" column="login_name"/>
+            <result property="idNumber" column="id_number"/>
+        </association>
+    </resultMap>
+
+    <sql id="BaseSql">
+        invest_id, invest_amount, loan_id, loan_rate, repayment_type, status, submit_time,
+        user_id, order_id, days, months, years, purpose, client, rule_id, invest_way, interest_amount, prop_id, prop_type
+    </sql>
+
+    <select id="selectByInvestId" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select * from tb_rmbbox_invest where invest_id = #{invest_id}
+    </select>
+
+    <select id="sumInvestedAmountByLoanId" resultType="java.math.BigDecimal" parameterType="java.lang.String">
+        select coalesce(SUM(`invest_amount`),0)
+        from tb_rmbbox_invest
+        where loan_id = #{loanId,jdbcType=VARCHAR}
+      </select>
+
+    <insert id="insert" parameterType="com.zipi.entity.RmbInvest">
+        <selectKey resultType="java.lang.String" order="BEFORE" keyProperty="investId" keyColumn="invest_id">
+            SELECT UPPER(UUID()) AS investId
+        </selectKey>
+        insert into tb_rmbbox_invest (invest_id, invest_amount, loan_id,
+        loan_rate, repayment_type, status,
+        submit_time, user_id, order_id,
+        days, months, years,
+        purpose,client,rule_id,invest_way,interest_amount,prop_id,prop_type)
+        values (#{investId}, #{investAmount,jdbcType=DECIMAL}, #{loanId,jdbcType=VARCHAR},
+        #{loanRate,jdbcType=INTEGER}, #{repaymentType,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},
+        #{submitTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=VARCHAR}, #{orderId,jdbcType=VARCHAR},
+        #{days,jdbcType=INTEGER}, #{months,jdbcType=INTEGER}, #{years,jdbcType=INTEGER},
+        #{purpose,jdbcType=VARCHAR},#{client,jdbcType=VARCHAR},#{ruleId,jdbcType=VARCHAR}, #{investWay,jdbcType=INTEGER},#{interestAmount,jdbcType=DECIMAL},#{propId,jdbcType=VARCHAR},
+        #{propType,jdbcType=VARCHAR})
+    </insert>
+
+
+    <update id="update" parameterType="com.zipi.entity.RmbInvest">
+        update tb_rmbbox_invest
+        <set>
+            <if test="investAmount != null">
+                invest_amount = #{investAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="loanId != null">
+                loan_id = #{loanId,jdbcType=VARCHAR},
+            </if>
+            <if test="loanRate != null">
+                loan_rate = #{loanRate,jdbcType=INTEGER},
+            </if>
+            <if test="repaymentType != null">
+                repayment_type = #{repaymentType,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="submitTime != null">
+                submit_time = #{submitTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="orderId != null">
+                order_id = #{orderId,jdbcType=VARCHAR},
+            </if>
+            <if test="days != null">
+                days = #{days,jdbcType=INTEGER},
+            </if>
+            <if test="months != null">
+                months = #{months,jdbcType=INTEGER},
+            </if>
+            <if test="years != null">
+                years = #{years,jdbcType=INTEGER},
+            </if>
+            <if test="purpose != null">
+                purpose = #{purpose,jdbcType=VARCHAR},
+            </if>
+            <if test="interestAmount != null">
+                interest_amount = #{interestAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="propId != null">
+                prop_id = #{propId,jdbcType=VARCHAR},
+            </if>
+            <if test="propType != null">
+                prop_type = #{propType,jdbcType=VARCHAR}
+            </if>
+        </set>
+        where invest_id = #{investId,jdbcType=VARCHAR}
+    </update>
+
+    <select id="getRmbInvestsByLoanIdAndInvestStatus" resultMap="BaseResultMap"
+            parameterType="java.util.HashMap">
+        SELECT i.*
+        FROM tb_rmbbox_invest i
+        WHERE i.loan_id = #{loanId}
+        AND i.status IN
+        <foreach collection="statusList" open="(" close=")" index=""
+                 item="status" separator=",">
+            #{status}
+        </foreach>
+        ORDER BY i.submit_time DESC
+    </select>
+
+
+    <select id="getInvestListByUserId" resultMap="BaseResultMap">
+        select * from tb_rmbbox_invest where user_id = #{userId} and invest_amount>=0.01 order by submit_time desc
+        <if test="pageInfo!=null">
+            limit #{pageInfo.startRow},#{pageInfo.pageSize}
+        </if>
+    </select>
+
+
+
+
+    <select id="countRmbInvestRecordsByLoanIdAndStatus" resultType="int">
+        select
+        count(*)
+        from tb_rmbbox_invest ri
+        where ri.loan_id = #{loanId}
+        and ri.status in
+        <foreach collection="investStatuses" open="(" close=")" index="" item="status" separator=",">
+            #{status}
+        </foreach>
+        ORDER BY ri.submit_time DESC
+    </select>
+    <select id="countRmbInvestUsersByLoanIdAndStatus" resultType="int">
+        select
+        count(ri.user_id)
+        from tb_rmbbox_invest ri
+        where ri.loan_id = #{loanId}
+        and ri.status in
+        <foreach collection="investStatuses" open="(" close=")" index="" item="status" separator=",">
+            #{status}
+        </foreach>
+    </select>
+
+    <select id="sumByLoanAndStatus" resultType="java.math.BigDecimal" parameterType="java.util.HashMap">
+        select coalesce(sum(invest_amount),0)
+        from tb_rmbbox_invest
+        where loan_id = #{loanId}
+        and status in
+        <foreach collection="statusList" open="(" close=")" index="" item="item" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+
+    
+    <select id="countBbtInvestRecords" resultType="int">
+        select sum(b.countInfo) from (select
+       	count(*) as countInfo
+        from
+        tb_rmbbox_invest ri,
+        tb_core_user cu,
+        tb_rmbbox_loan rl
+        where
+        ri.user_id = cu.user_id
+        AND ri.loan_id = rl.loan_id
+        <if test="startDate != null and endDate != null">
+            and (ri.submit_time between #{startDate} and #{endDate})
+        </if>
+        <if test="loginName != null and loginName != ''">
+            and cu.login_name like binary concat('%', #{loginName, jdbcType=VARCHAR}, '%')
+        </if>union select
+        count(*) as countInfo 
+        FROM
+        tb_uplan_invest ui,
+        tb_core_user cu1,
+        tb_uplan u
+        WHERE
+        ui.user_id = cu1.user_id
+        AND ui.plan_id = u.plan_id
+        <if test="startDate != null and endDate != null">
+            and (ui.submit_time between #{startDate} and #{endDate})
+        </if>
+        <if test="loginName != null and loginName != ''">
+            and cu1.login_name like binary concat('%', #{loginName, jdbcType=VARCHAR}, '%')
+        </if>
+        ) as b
+    </select>
+    
+
+    <select id="countRmbInvestRecords" resultType="int">
+        select
+        count(*)
+        from
+        tb_rmbbox_invest ri,
+        tb_core_user cu,
+        tb_rmbbox_loan rl
+        where
+        ri.user_id = cu.user_id
+        AND ri.loan_id = rl.loan_id
+        <if test="startDate != null and endDate != null">
+            and (ri.submit_time between #{startDate} and #{endDate})
+        </if>
+        <if test="loginName != null and loginName != ''">
+            and cu.login_name like binary concat('%', #{loginName, jdbcType=VARCHAR}, '%')
+        </if>
+    </select>
+    
+    <select id="listInvestsByLoanIdAndInvestStatus" resultMap="BaseResultMap">
+        select
+        <include refid="BaseSql"/>
+        from tb_rmbbox_invest ri
+        where ri.loan_id = #{loanId}
+        and ri.status in
+        <foreach collection="statuses" open="(" separator="," close=")" index="" item="status">
+            #{status}
+        </foreach>
+        order by submit_time desc
+    </select>
+
+    <select id="selectByUserAndStatusAndTime" resultMap="BaseResultMap">
+        select i.*,
+        	   l.out_times
+          from tb_rmbbox_invest i, tb_rmbbox_loan l
+         where i.loan_id = l.loan_id
+           and i.user_id = #{userId}
+          <if test="status!=null">
+              and l.status = #{status}
+          </if>
+           <if test=" startDate!=null || endDate!=null">
+               and i.submit_time between #{startDate} and #{endDate}
+           </if>
+          ORDER BY i.submit_time  DESC
+         limit #{start},#{end}
+    </select>
+
+
+    <select id="countByUserAndStatusAndTime" resultType="int">
+        select count(*) from tb_rmbbox_invest i, tb_rmbbox_loan l 
+         where i.loan_id = l.loan_id
+           and i.user_id = #{userId}
+            <if test="status!=null">
+                and l.status = #{status}
+            </if>
+           <if test=" startDate!=null || endDate!=null">
+              and i.submit_time between #{startDate} and #{endDate}
+           </if>
+    </select>
+    <!-- fhj  现金列表统计 -->
+    <select id="countByUserAndStatus" resultType="int">
+        select count(*)
+        from tb_rmbbox_invest i
+        where i.user_id = #{userId}
+        <if test="statusList != null">
+            and i.status in
+            <foreach collection="statusList" open="(" close=")" index=""
+                     item="status" separator=",">
+                #{status}
+            </foreach>
+
+        </if>
+    </select>
+    <select id="sumMarketAllInvestMoneyByStatus" resultType="java.math.BigDecimal">
+        select coalesce(SUM(`invest_amount`),0)
+        from tb_rmbbox_invest
+        <where>
+            <if test="statusList != null">
+                 status in
+                <foreach collection="statusList" open="(" separator="," close=")" index="" item="status">
+                    #{status}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+    <select id="countInvestRecords" resultType="java.lang.Integer">
+        select count(*)
+        from tb_rmbbox_invest i
+        left join tb_core_user u on i.user_id = u.user_id
+        left join tb_rmbbox_loan l on i.loan_id = l.loan_id
+        <where>
+            <if test="startDate!=null and endDate!=null">
+                and (i.submit_time between #{startDate} and #{endDate})
+            </if>
+            <if test="search!=null and search!=''">
+                and (u.login_name like binary concat('%', #{search, jdbcType=VARCHAR},
+                '%')
+                or l.loan_title like binary concat('%', #{search, jdbcType=VARCHAR}, '%')
+                or u.user_name like binary concat('%', #{search, jdbcType=VARCHAR}, '%'))
+            </if>
+        </where>
+    </select>
+    <select id="getInvestById" resultMap="BaseResultMap"
+            parameterType="string">
+		SELECT *
+		FROM tb_rmbbox_invest
+		WHERE  invest_id =#{investId}
+	</select>
+
+    <select id="listTopInvest" parameterType="java.util.HashMap" resultMap="TopInvestMap">
+        SELECT FLOOR(RAND() * 100000000) AS ID, I.user_id, U.login_name,
+        SUM(I.invest_amount) AMOUNT
+        FROM tb_rmbbox_invest I, tb_core_user U
+        WHERE I.user_id = U.user_id
+        AND I.status IN
+        <foreach collection="statusList" open="(" close=")" index=""
+                 item="item" separator=",">
+            #{item}
+        </foreach>
+        GROUP BY I.user_id, U.login_name
+        ORDER BY SUM(I.invest_amount) DESC
+        LIMIT
+        #{topSize}
+    </select>
+
+
+
+
+    <select id="countByLoanAndStatus" resultType="int"
+            parameterType="java.util.HashMap">
+        select count(*)
+        from tb_rmbbox_invest
+        where loan_id = #{loanId}
+        and status in
+        <foreach collection="statusList" open="(" close=")" index=""
+                 item="item" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="listByUserAndSubmitTime" resultMap="BaseResultMap">
+        select * from tb_rmbbox_invest where user_id = #{userId} and submit_time between #{from} and #{to}
+         order by submit_time desc
+    </select>
+    <select id="listByUserIdAndStatusForApp" resultType="java.util.Map">
+        SELECT
+            ri.invest_amount as investAmount,
+            date_format(ri.submit_time, '%Y-%m-%d') as submitTime,
+            ri.status as status,
+            ri.loan_rate as rate,
+            ri.loan_id as loanId,
+            rl.loan_title as loanTitle,
+            rl.loan_amount as loanAmount,
+            ri.years as years,
+            ri.months as months,
+        ri.days as days,
+        ri.invest_id as investId,
+        rl.repay_method repayMethod
+        FROM
+            tb_rmbbox_invest ri,
+            tb_rmbbox_loan rl
+        WHERE
+            ri.loan_id = rl.loan_id
+            and ri.user_id = #{userId}
+            <if test="statusList != null">
+                and ri.status in
+                <foreach collection="statusList" open="(" close=")" index="" item="status" separator=",">
+                    #{status}
+                </foreach>
+            </if>
+        order by ri.submit_time desc
+        <if test="pageInfo != null">
+            LIMIT #{pageInfo.startRow},#{pageInfo.pageSize}
+        </if>
+    </select>
+    <select id="countByUserIdAndStatusForApp" resultType="java.lang.Integer">
+        SELECT
+        count(*)
+        FROM
+        tb_rmbbox_invest ri,
+        tb_rmbbox_loan rl
+        WHERE
+        ri.loan_id = rl.loan_id
+        and ri.user_id = #{userId}
+        <if test="statusList != null">
+            and ri.status in
+            <foreach collection="statusList" open="(" close=")" index="" item="status" separator=",">
+                #{status}
+            </foreach>
+        </if>
+    </select>
+
+    <select id="sumInvestByUserAndStatus" resultType="java.math.BigDecimal">
+        SELECT
+        coalesce(SUM(`invest_amount`),0)
+        FROM
+        tb_rmbbox_invest
+        <where>
+            <if test="userId !=null and userId !=''">
+                and user_id = #{userId}
+            </if>
+
+            <if test="statusList != null">
+                and status in
+                <foreach collection="statusList" open="(" close=")" index="" item="status" separator=",">
+                    #{status}
+                </foreach>
+            </if>
+
+            <if test="startDate != null and endDate != null">
+                and (submit_time between #{startDate} and #{endDate})
+            </if>
+        </where>
+    </select>
+
+    <select id="countInvestByUserId" resultType="java.lang.Integer">
+        SELECT count(*)
+        from tb_rmbbox_invest
+        where user_id = #{userId}
+        and status in ('FROZEN', 'FINISHED', 'SETTLED', 'CLEARED')
+    </select>
+    
+    <select id="queryInvestBbtAndUplan" resultType="java.util.Map">
+		SELECT
+			t.login_name AS loginName,
+			t.user_mobile AS userMobile,
+			sum(r.amount) AS amount,
+			min(r.record_time) as recordTime
+		FROM
+			tb_core_user t,
+			tb_core_user_fund_record r
+		WHERE
+			t.user_id = r.user_id
+		AND r.operation_type = 'INVEST'
+		AND r.trade_status = 'SUCCESSFUL'
+		AND r.operation_status = 'FREEZE'
+		AND (r.record_time BETWEEN #{startDate} and #{endDate})
+		GROUP BY
+			t.user_id
+		ORDER BY
+			amount DESC, recordTime asc
+		<if test='pageInfo'>
+			limit #{pageInfo.startRow},#{pageInfo.pageSize}
+		</if>
+    </select>
+    
+    <select id="countInvestBbtAndUplan" resultType="int">
+    SELECT count(*) FROM 
+    (
+		SELECT
+			t.login_name,
+			t.user_mobile,
+			sum(r.amount) AS amount
+		FROM
+			tb_core_user t,
+			tb_core_user_fund_record r
+		WHERE
+			t.user_id = r.user_id
+		AND r.operation_type = 'INVEST'
+		AND r.trade_status = 'SUCCESSFUL'
+		AND r.operation_status = 'FREEZE'
+		AND (r.record_time BETWEEN #{startDate} and #{endDate})
+		GROUP BY t.user_id
+	) AS p
+	</select>
+    
+    <select id="listInvestByReferral" resultType="java.util.Map">
+		SELECT
+			u.login_name AS loginName,
+			sum(r.amount) AS amount
+		FROM
+			tb_core_user t,
+			tb_core_user u,
+			tb_core_user_fund_record r
+		WHERE
+			t.referral_id = u.user_id
+		AND t.user_id = r.user_id
+		AND r.operation_type = 'INVEST'
+		AND r.trade_status = 'SUCCESSFUL'
+		AND r.operation_status = 'FREEZE'
+		AND (r.record_time BETWEEN #{startDate} and #{endDate})
+		GROUP BY t.referral_id
+		ORDER BY amount DESC
+		<if test='pageInfo'>
+			limit #{pageInfo.startRow},#{pageInfo.pageSize}
+		</if>
+    </select>
+    
+    <select id="listRegisterByReferral" resultType="java.util.Map">
+		SELECT
+			u.login_name as loginName,
+			count(*) as count
+		FROM
+			tb_core_user t,
+			tb_core_user u
+		WHERE
+			t.referral_id = u.user_id
+		AND (t.register_time BETWEEN #{startDate} and #{endDate})
+		GROUP BY
+			t.referral_id
+		ORDER BY
+			count(*) DESC
+		<if test='pageInfo'>
+			limit #{pageInfo.startRow},#{pageInfo.pageSize}
+		</if>
+    </select>
+    <select id="countInvestAll" resultType="int">
+	    SELECT
+			count(*)
+		FROM
+			tb_core_user_fund_record
+		WHERE
+			operation_type = 'INVEST'
+		AND trade_status = 'SUCCESSFUL'
+		AND (operation_status = 'FREEZE' or operation_status='OUT')
+		AND user_id = #{userId}
+	</select>
+	<select id="countInvestmentWithout" resultType="int">
+	    SELECT COUNT(*) FROM tb_core_user_fund_record WHERE 1=1 
+		AND operation_type = 'INVEST' 
+		AND trade_status = 'SUCCESSFUL' 
+		AND (operation_status = 'FREEZE' OR operation_status='OUT') 
+		AND user_id = #{userId} 
+		<![CDATA[AND product <> #{product}]]>
+	</select>
+	<select id="listForDouble11SignUp" resultType="java.util.Map">
+		SELECT
+			t.login_name AS loginName,
+			t.user_mobile AS userMobile,
+			(select IFNULL(sum(amount), 0) from tb_core_user_fund_record where user_id =t.user_id AND operation_type = 'INVEST' 
+				AND trade_status = 'SUCCESSFUL' AND operation_status = 'FREEZE' 
+				AND (record_time BETWEEN #{startDate} and #{endDate})) as amount
+		FROM
+			tb_core_user t,
+			tb_lucky_activity_record ar
+		WHERE
+			ar.user_id = t.user_id
+		and ar.activity_type = #{type}
+		ORDER BY
+			amount desc, create_time asc
+		<if test='pageInfo'>
+			limit #{pageInfo.startRow},#{pageInfo.pageSize}
+		</if>
+    </select>
+     <select id="investMoeyByDate" resultType="java.math.BigDecimal">
+       select
+        IFNULL(sum(ri.invest_amount), 0)+IFNULL(h.amount, 0) AS amount
+        from
+        tb_rmbbox_invest ri,
+        tb_core_user cu,
+        (
+        select
+        IFNULL(sum(ui.amount), 0) AS amount
+        FROM
+        tb_uplan_invest ui,
+        tb_core_user cu1
+        WHERE
+        ui.user_id = cu1.user_id
+        <if test="startDate != null and endDate != null">
+        AND (DATE_FORMAT(ui.submit_time, '%Y-%m-%d') BETWEEN DATE_FORMAT(#{startDate}, '%Y-%m-%d') AND DATE_FORMAT(#{endDate}, '%Y-%m-%d'))
+        </if>
+        <if test="userId != null and userId != ''">
+            and cu1.user_id = #{userId}
+        </if>
+        ) h
+        where
+        ri.user_id = cu.user_id
+        <if test="startDate != null and endDate != null">
+         AND (DATE_FORMAT(ri.submit_time, '%Y-%m-%d') BETWEEN DATE_FORMAT(#{startDate}, '%Y-%m-%d') AND DATE_FORMAT(#{endDate}, '%Y-%m-%d'))
+        </if>
+        <if test="userId != null and userId != ''">
+            and cu.user_id = #{userId}
+        </if>
+
+    </select>
+    <select id="thanksGivingInvestList" resultType="java.util.Map">
+		SELECT 
+	    a.totalAmount AS amount,
+	    a.recordTime,
+	    u.login_name AS loginName,
+	    u.user_mobile AS userMobile
+	FROM
+	    (SELECT IFNULL(SUM(f.amount), 0) AS totalAmount,
+	            MAX(f.record_time) AS recordTime,
+	            f.user_id
+	    FROM tb_core_user_fund_record f
+	    WHERE 	f.operation_type = 'INVEST'
+	            AND f.trade_status = 'SUCCESSFUL'
+	            AND f.operation_status = 'FREEZE'
+	            AND f.product NOT IN ('CURRENT_DEPOSIT' , 'FIXED_DEPOSIT_1')
+	            AND (f.record_time BETWEEN #{startDate} and #{endDate})
+	    GROUP BY f.user_id) a, tb_core_user u
+	WHERE
+	    a.user_id = u.user_id
+        <if test="lowerAmount != null">
+            <![CDATA[  and a.totalAmount >= #{lowerAmount}  ]]>
+        </if>
+	    <if test='upperAmount !=null '>
+			<![CDATA[ and a.totalAmount < #{upperAmount} ]]>
+		</if>
+	ORDER BY amount DESC , recordTime ASC
+	<if test='pageInfo'>
+		limit #{pageInfo.startRow},#{pageInfo.pageSize}
+	</if>
+    </select>
+
+
+
+
+    <select id="countRaiseList" resultType="int">
+        SELECT
+            count(*)
+        FROM
+            tb_rmbbox_invest ri,
+            tb_rmbbox_loan rl
+        WHERE
+            ri.loan_id = rl.loan_id
+            and ri.user_id = #{userId}
+            and ri.status = #{status}
+    </select>
+
+
+
+    <select id="countClearedInvestList" resultType="int">
+select count(*) from
+(
+  /*uplan已还清*/
+  SELECT
+        ui.invest_id AS investId/*,
+        u.plan_product_type AS productType,
+        ifnull(null,'uplan') AS pType,
+        u.plan_product_name AS productName,
+        ui.submit_time AS investTime,
+        ui.amount AS amount,
+        u.plan_amount AS productAmount,
+        timestampdiff(day, u.plan_invest_end_date, u.plan_repayment_date) AS loanPeriod,
+        ui.plan_rate AS rate,
+        ui.repayment_type AS repayType,
+        (select sum(uplan_income_amount) from tb_uplan_income i where ui.invest_id = i.invest_id) AS repayAmount,
+        date_format(u.plan_repayment_date, '%Y-%m-%d') AS repayDate*/
+  FROM
+        tb_uplan_invest ui,tb_uplan u
+  WHERE
+        ui.plan_id = u.plan_id and
+        ui.user_id = #{userId} and
+        ui.status = 'REPAYED'
+
+union
+/*claim已还清*/
+  select
+        i.invest_id AS investId/*,
+        p.product_type AS productType,
+        ifnull(null,'claim') AS pType,
+        p.product_name AS productName,
+        i.submit_time AS investTime,
+        i.amount AS amount,
+        p.amount AS productAmount,
+        p.closure_period AS loanPeriod,
+        p.fixed_rate+p.fixed_rate_add AS rate,
+        p.plan_repayment_type AS repayType,
+        (select  IFNULL(sum(y.receivable_amount),0)  from tb_claim_repay_apply y where y.invest_id = i.invest_id and y.apply_status='SUCCESSFUL') AS repayAmount,
+        date_format(i.deposit_due_date, '%Y-%m-%d') AS repayDate*/
+  from
+        tb_claim_invest i,
+        tb_claim_product p
+  WHERE
+        i.product_id = p.product_id and
+        i.principal_invest_id ='' and
+        i.product_type in
+        <foreach collection="list" open="(" close=")" index="" item="item" separator=",">
+            #{item}
+        </foreach>
+        and
+        i.user_id = #{userId} and
+        i.flag_invest_clear = #{flag}
+
+<!-- union
+/*直投已还清*/
+    SELECT
+        ri.invest_id AS investId/*,
+        null AS productType,
+        ifnull(null,'invest') AS pType,
+        rl.loan_title AS productName,
+        date_format(ri.submit_time, '%Y-%m-%d') AS investTime,
+        ri.invest_amount AS amount,
+        rl.loan_amount AS productAmount,
+        ri.years*12+ri.months AS loanPeriod,
+        ri.loan_rate AS rate,
+        rl.repay_method AS repayType,
+        (select sum(repay_amount) from tb_rmbbox_invest_repayment ir where ir.invest_id = ri.invest_id) AS repayAmount,
+        date_format(rl.cleared_time, '%Y-%m-%d') AS repayDate,
+        rl.days AS days*/
+    FROM
+        tb_rmbbox_invest ri,
+        tb_rmbbox_loan rl
+    WHERE
+        ri.loan_id = rl.loan_id and
+        ri.user_id = #{userId} and
+        rl.status = 'CLEARED' -->
+    ) r
+    </select>
+
+
+    <select id="countInvestList" resultType="int">
+/*uplan理财中*/
+select
+  count(*)
+from
+    (SELECT
+        ui.invest_id AS investId/*,
+        u.plan_product_type AS productType,
+        ifnull(null,'uplan') AS pType,
+        u.plan_product_name AS productName,
+        ui.submit_time AS investTime,
+        ui.amount AS amount,
+        u.plan_amount AS productAmount,
+        timestampdiff(day, ui.count_rate_date, u.plan_repayment_date) AS loanPeriod,
+        ui.plan_rate AS rate,
+        ui.repayment_type AS repayType*/
+    FROM
+        tb_uplan_invest ui,tb_uplan u
+    WHERE
+        ui.plan_id = u.plan_id and
+        ui.user_id = #{userId} and
+        ui.status in('MATCHED','REPAYING','REMATCHING')
+union
+/*claim理财中*/
+    select
+        i.invest_id AS investId/*,
+        p.product_type AS productType,
+        ifnull(null,'claim') AS pType,
+        p.product_name AS productName,
+        i.submit_time AS investTime,
+        i.amount AS amount,
+        p.amount AS productAmount,
+        p.closure_period AS loanPeriod,
+        p.fixed_rate+p.fixed_rate_add AS rate,
+        p.plan_repayment_type AS repayType*/
+    from
+        tb_claim_invest i,
+        tb_claim_product p
+    WHERE
+        i.product_id = p.product_id and
+        i.principal_invest_id ='' and
+        i.product_type in
+        <foreach collection="list" open="(" close=")" index="" item="item" separator=",">
+            #{item}
+        </foreach>
+        and
+        user_id = #{userId} and
+        i.flag_invest_clear = #{flag}
+<!-- union
+/*直投理财中*/
+    SELECT
+        ri.invest_id AS investId/*,
+        null AS productType,
+        ifnull(null,'invest') AS pType,
+        rl.loan_title AS productName,
+        date_format(ri.submit_time, '%Y-%m-%d') AS investTime,
+        ri.invest_amount AS amount,
+        rl.loan_amount AS productAmount,
+        ri.years*12+ri.months AS loanPeriod,
+        ri.loan_rate AS rate,
+        rl.repay_method AS repayType,
+        rl.days AS days*/
+    FROM
+        tb_rmbbox_invest ri,
+        tb_rmbbox_loan rl
+    WHERE
+        ri.loan_id = rl.loan_id and
+        ri.user_id = #{userId} and
+        rl.status = 'SETTLED' -->
+) r
+
+    </select>
+
+    <select id="getRefInvestList" resultType="java.util.Map">
+        SELECT
+            refu.user_name as loginName,
+            refu.user_mobile as userMobile,
+            count(*) as count,
+            max(t1.record_time) AS lastInvestTime
+        FROM
+            tb_core_user u,
+            tb_core_user refu,
+            tb_core_user_fund_record t1
+        WHERE
+            u.user_id = t1.user_id
+            AND refu.user_id = u.referral_id
+            AND t1.direct_type = 'FundInvest'
+            AND t1.trade_status = 'SUCCESSFUL'
+            AND t1.operation_status = 'FREEZE'
+            AND t1.first_invest = TRUE
+            <if test="minAmount != null">
+              AND t1.amount >= #{minAmount}
+            </if>
+            AND (t1.record_time BETWEEN #{startDate} AND #{endDate})
+            GROUP BY
+            refu.user_id
+            ORDER BY
+            count DESC,
+            lastInvestTime ASC
+            <if test='pageInfo'>
+                limit #{pageInfo.startRow}, #{pageInfo.pageSize}
+            </if>
+    </select>
+
+    <select id="getInvestAmountById" resultType="java.math.BigDecimal">
+    select ifnull(sum(amount),0) as investAmount FROM
+        (
+            select ifnull(cur_amount,0) as amount
+            from tb_claim_invest_current
+            where user_id = #{userId}
+		UNION
+            select ifnull(sum(amount),0) as amount
+            from tb_claim_invest
+            where
+            flag_invest_clear = FALSE
+            and product_type != 'CURRENT_DEPOSIT'
+            and user_id = #{userId}
+        UNION
+            select ifnull(sum(amount),0) as amount
+            from tb_uplan_invest
+            where user_id = #{userId}
+            and status in ('MATCHED','REPAYING','REMATCHING')
+        UNION
+            select ifnull(sum(invest_amount),0) as amount
+            from tb_rmbbox_invest
+            where user_id = #{userId}
+            and status in ('FINISHED','SETTLED')) r
+    </select>
+
+    <select id="getTotalDueIn" resultType="java.math.BigDecimal">
+        select ifnull(sum(amount),0) as investAmount from
+(SELECT
+	ri.invest_amount as amount
+FROM
+	tb_rmbbox_invest ri,
+	tb_rmbbox_loan rl
+WHERE
+	ri.loan_id = rl.loan_id
+	and ri.user_id = #{userId}  
+	and ri.status = 'FINISHED'
+
+union all
+SELECT
+        ui.amount AS amount
+    FROM
+        tb_uplan_invest ui,tb_uplan u
+    WHERE
+        ui.plan_id = u.plan_id and
+        ui.user_id = #{userId} and
+        ui.status in('MATCHED','REPAYING','REMATCHING')
+union all
+/*claim理财中*/
+    select
+        i.amount AS amount
+    from
+        tb_claim_invest i,
+        tb_claim_product p
+    WHERE
+        i.product_id = p.product_id and
+        i.principal_invest_id ='' and
+        i.product_type in
+       ('FIXED_DEPOSIT_1','FIXED_DEPOSIT_3','FIXED_DEPOSIT_6','FIXED_DEPOSIT_9','MONTH_WIN','RECYCLE_INTEREST')
+        and
+        user_id = #{userId} and
+        i.flag_invest_clear = false
+union all
+/*直投理财中*/
+    SELECT
+        ri.invest_amount AS amount
+    FROM
+        tb_rmbbox_invest ri,
+        tb_rmbbox_loan rl
+    WHERE
+        ri.loan_id = rl.loan_id and
+        ri.user_id = #{userId} and
+        rl.status = 'SETTLED'
+) r
+    </select>
+
+    <select id="statisticInvestAmount" resultMap="BaseResultMap">
+        select sum(invest_amount) as invest_amount, status from tb_rmbbox_invest
+        where user_id=#{userId} and status in('FROZEN','CLEARED','SETTLED','FINISHED') group by status;
+    </select>
+    
+    <select id="countInvestAllExceptCurrentDeposit" resultType="int">
+	    SELECT
+			count(*)
+		FROM
+			tb_core_user_fund_record
+		WHERE
+			operation_type = 'INVEST'
+		AND trade_status = 'SUCCESSFUL'
+		AND operation_status = 'FREEZE'
+		AND user_id = #{userId}
+		and product !='CURRENT_DEPOSIT'
+	</select>
+
+    <update id="updateInvestStatusWhenLastPeriods">
+        UPDATE
+            tb_rmbbox_invest
+        SET
+            status = 'CLEARED'
+        WHERE
+            invest_id = #{investId} and status <![CDATA[<>]]> 'CLEARED'
+    </update>
+    <select id="queryOneInvestorIdByLoanId" resultType="String">
+        SELECT user_id
+		FROM tb_rmbbox_invest
+		WHERE  loan_id =#{loanId} limit 1
+    </select>
+
+    <select id="waitRepayCouponInterestList" resultType="java.util.Map">
+        SELECT
+            r.id,
+            i.invest_id,
+            i.interest_amount,
+            i.user_id,
+            r.amount_raise
+        FROM
+            tb_rmbbox_invest i
+        INNER JOIN tb_rmbbox_invest_repayment r ON i.invest_id = r.invest_id
+        WHERE
+            i.loan_id = #{loanId} AND r.current_period = #{currentPeriod}
+    </select>
+
+    <select id="queryInterestAmount" resultType="java.math.BigDecimal">
+        select
+            SUM(interest_amount)
+        FROM
+            tb_rmbbox_invest
+        WHERE
+            user_id = #{userId}
+        AND status = 'SETTLED'
+        AND interest_amount is not NULL AND interest_amount > 0
+    </select>
+
+    <select id="getInvestByOrderId" resultMap="BaseResultMap">
+        SELECT <include refid="BaseSql"/> FROM tb_rmbbox_invest WHERE order_id = #{orderId}
+    </select>
+
+    <select id="getFirstInvestLoanRecord" resultMap="BaseResultMap">
+        select <include refid="BaseSql"/> FROM tb_rmbbox_invest WHERE loan_id = #{loanId} order by submit_time desc
+    </select>
+    
+    <update id="updateRaiseAmount">
+        UPDATE
+            tb_rmbbox_invest
+        SET
+            interest_amount = #{raiseAmount}
+        WHERE
+            invest_id = #{investId}
+    </update>
+
+    <!--
+    <select id="queryCountCreditInvest" resultType="java.lang.Integer">
+        select count(i.invest_id) from tb_rmbbox_invest i, tb_rmbbox_loan l
+             where i.loan_id = l.loan_id  and i.user_id = #{userId} and l.status = #{status}
+             ORDER BY i.submit_time  DESC
+
+    </select>
+
+    <select id="queryListCreditInvest" resultType="java.util.Map">
+        select
+            i.invest_id investId,
+            i.invest_amount investAmount,
+            i.loan_rate loanRate,
+            i.years,i.months,i.days,
+            l.loan_title title
+        from tb_rmbbox_invest i, tb_rmbbox_loan l
+        where i.loan_id = l.loan_id  and i.user_id = #{userId} and l.status = #{status}
+        ORDER BY i.submit_time  DESC
+        <if test="pageInfo != null">
+            limit #{pageInfo.startRow},#{pageInfo.pageSize}
+        </if>
+
+    </select>
+    -->
+
+     <select id="queryCountCreditInvest" resultType="java.lang.Integer">
+         SELECT COUNT(i3.investId) from (
+             SELECT ii.* from
+                 (SELECT i.invest_id investId,i.invest_amount investAmount,l.years,l.months,l.days,
+                 i.submit_time,i.loan_rate loanRate,l.loan_title title
+                 from tb_rmbbox_invest i,tb_rmbbox_loan l,tb_rmbbox_loan_request re
+                 where i.loan_id = l.loan_id and l.request_id = re.request_id and re.loan_property != 1 and i.repayment_type != 'EqualInstallment'
+                 and i.invest_amount >= 1000 and i.user_id = #{userId}
+                 and i.status = 'SETTLED'
+                 ) ii,
+
+                 (SELECT invest_id as invesId,sum(subscribe_amount) as sumAmount
+                 from tb_rmbbox_credit_sale where user_id = #{userId}
+                 and status not in ('FAILED','CANCELED') GROUP BY invest_id
+                 ) cc
+             where  cc.invesId = ii.investId  and ii.investAmount - cc.sumAmount >= 1000
+
+             UNION ALL
+
+             SELECT i2.* from
+                 (SELECT i.invest_id investId,i.invest_amount investAmount,l.years,l.months,l.days,
+                 i.submit_time,i.loan_rate loanRate,l.loan_title title
+                 from tb_rmbbox_invest i,tb_rmbbox_loan l,tb_rmbbox_loan_request re
+                 where i.loan_id = l.loan_id and l.request_id = re.request_id and re.loan_property != 1 and i.repayment_type != 'EqualInstallment'
+                 and i.invest_amount >= 1000 and i.user_id = #{userId}
+                 and i.status = 'SETTLED'
+                 ) i2
+                 where i2.investId not in (
+                     SELECT invest_id
+                     from tb_rmbbox_credit_sale where user_id = #{userId}
+                     and status not in ('FAILED','CANCELED') GROUP BY invest_id
+                     )
+         ) i3
+
+     </select>
+
+     <select id="queryListCreditInvest" resultType="java.util.Map">
+         SELECT ii.* from
+             (SELECT i.invest_id investId,i.invest_amount investAmount,l.years,l.months,l.days,
+             i.submit_time,i.loan_rate loanRate,l.loan_title title
+             from tb_rmbbox_invest i,tb_rmbbox_loan l,tb_rmbbox_loan_request re
+             where i.loan_id = l.loan_id and l.request_id = re.request_id and re.loan_property != 1 and i.repayment_type != 'EqualInstallment'
+             and i.invest_amount >= 1000 and i.user_id = #{userId}
+             and i.status = 'SETTLED'
+             ) ii,
+
+             (SELECT invest_id as invesId,sum(subscribe_amount) as sumAmount
+             from tb_rmbbox_credit_sale where user_id = #{userId}
+             and status not in ('FAILED','CANCELED') GROUP BY invest_id
+             ) cc
+         where  cc.invesId = ii.investId  and ii.investAmount - cc.sumAmount >= 1000
+
+         UNION ALL
+
+         SELECT i2.* from
+             (SELECT i.invest_id investId,i.invest_amount investAmount,l.years,l.months,l.days,
+             i.submit_time,i.loan_rate loanRate,l.loan_title title
+             from tb_rmbbox_invest i,tb_rmbbox_loan l,tb_rmbbox_loan_request re
+             where i.loan_id = l.loan_id and l.request_id = re.request_id and re.loan_property != 1 and i.repayment_type != 'EqualInstallment'
+             and i.invest_amount >= 1000 and i.user_id = #{userId}
+             and i.status = 'SETTLED'
+             ) i2
+             where i2.investId not in (
+                 SELECT invest_id
+                 from tb_rmbbox_credit_sale where user_id = #{userId}
+                 and status not in ('FAILED','CANCELED') GROUP BY invest_id
+                 )
+         ORDER BY submit_time
+         <if test="pageInfo != null">
+             limit #{pageInfo.startRow},#{pageInfo.pageSize}
+         </if>
+     </select>
+
+    <update id="updateInvestStatusWhenInvestPreCancel">
+        UPDATE
+        tb_rmbbox_invest
+        SET
+        status = 'FAILED'
+        WHERE
+        invest_id = #{investId} and status <![CDATA[<>]]> 'CLEARED'
+    </update>
+
+    <select id="queryListCreditInvestByUserId" resultType="java.util.Map">
+        SELECT i.invest_id investId,i.invest_amount investAmount,l.years,l.months,l.days,
+             i.submit_time,i.loan_rate loanRate,l.loan_title title,l.settled_time setTime,
+             i.repayment_type type
+             from tb_rmbbox_invest i,tb_rmbbox_loan l,tb_rmbbox_loan_request re
+             where i.loan_id = l.loan_id and l.request_id = re.request_id
+             and re.loan_property != 1
+             and i.invest_amount >= 1000 and i.user_id = #{userId}
+             and i.status = 'SETTLED'
+    </select>
+
+    <select id="selectClearedByUserAndTime" resultMap="BaseResultMap">
+
+        SELECT
+        ii.*,
+        l.out_times
+        from tb_rmbbox_invest ii,tb_rmbbox_loan l,
+            (
+                SELECT MAX(r.repay_time) repay_time ,i.invest_id from tb_rmbbox_invest_repayment r,tb_rmbbox_invest i
+                where r.invest_id = i.invest_id and
+                i.user_id = #{userId} and i.status = 'CLEARED'
+                GROUP BY r.invest_id
+            ) rr
+        where ii.loan_id = l.loan_id
+        and rr.invest_id = ii.invest_id
+        <if test=" startDate!=null || endDate!=null">
+            and ii.submit_time between #{startDate} and #{endDate}
+        </if>
+        ORDER BY rr.repay_time desc
+        limit #{start},#{end}
+    </select>
+    
+    <!--=======================-->
+    <select id="getInvestInfoByInvetId" resultType="com.zipi.entity.RmbInvest">
+        SELECT ri.loan_id loanId,rlr.request_type requestType,ri.user_id userId
+        FROM tb_rmbbox_invest ri,tb_rmbbox_loan rl,tb_rmbbox_loan_request rlr
+        WHERE ri.loan_id=rl.loan_id
+        AND rlr.request_id=rl.request_id
+        AND ri.invest_id=#{investId}
+    </select>
+
+    <select id="selectInvestByInvestIdAndUserId" resultMap="TopInvestMap">
+        SELECT
+        ri.invest_amount,
+        ri.loan_rate,
+        ri.purpose,
+        ri.submit_time,
+        ri.loan_id,
+        rl.settled_time,
+        rl.request_id,
+        rl.repay_method,
+        ri.order_id,
+        cu.user_name,
+        cu.login_name,
+        cu.id_number,
+        rl.months,
+        CONCAT((ri.years * 12 + ri.months) * 30 + ri.days,"天") AS loanPeriod,
+        (SELECT SUM(ir.amount_interest) FROM tb_rmbbox_invest_repayment ir WHERE  invest_id=ri.invest_id) AS amount_interest
+        FROM tb_rmbbox_invest ri,tb_rmbbox_loan rl,tb_core_user cu
+        WHERE ri.loan_id=rl.loan_id
+        AND ri.user_id=cu.user_id
+        AND ri.user_id=#{userId}
+        AND ri.invest_id=#{investId}
+    </select>
+
+    <select id="selectInvestByLoanId" resultType="com.zipi.entity.RmbInvest">
+        SELECT
+        cu.user_name userName,
+        cu.id_number idNumber,
+        ri.invest_amount investAmount,
+        ri.submit_time submitTime
+        FROM tb_rmbbox_invest ri,tb_core_user cu
+        WHERE ri.user_id=cu.user_id
+        AND ri.loan_id=#{loanId}
+    </select>
+
+    <select id="selectEnterpriseInfoByLoanId" resultType="com.zipi.entity.CoreUser">
+        SELECT
+        cu.user_name AS userName,
+        cu.enterprise,
+        cu.company_name AS companyName,
+        cu.customer_no AS customerNo,
+        cu.user_mobile AS userMobile,
+        cu.id_number AS idNumber,
+        cu.user_id as userId
+        FROM tb_rmbbox_loan rl,tb_rmbbox_loan_request rlr,tb_core_user cu
+        WHERE rl.request_id=rlr.request_id
+        AND rlr.user_id=cu.user_id
+        AND rl.loan_id=#{loanId}
+    </select>
+ </mapper>

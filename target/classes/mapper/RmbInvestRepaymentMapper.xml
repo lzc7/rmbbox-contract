@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zipi.mapper.RmbInvestRepaymentMapper">
+
+    <resultMap id="BaseResultMap" type="com.zipi.entity.RmbInvestRepayment">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="current_period" property="currentPeriod"/>
+        <result column="repay_amount" property="repayAmount" jdbcType="DECIMAL"/>
+        <result column="repay_time" property="repayTime" jdbcType="TIMESTAMP"/>
+        <result column="repay_status" property="repayStatus" jdbcType="VARCHAR"/>
+        <result column="amount_interest" property="amountInterest" jdbcType="DECIMAL"/>
+        <result column="amount_out_standing" property="amountOutStanding" jdbcType="DECIMAL"/>
+        <result column="amount_principal" property="amountPrincipal" jdbcType="DECIMAL"/>
+        <result column="due_date" property="dueDate" jdbcType="TIMESTAMP"/>
+        <result column="invest_id" property="investId" jdbcType="VARCHAR"/>
+        <result column="user_id" property="userId" jdbcType="VARCHAR"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="submit_time" property="submitTime" jdbcType="TIMESTAMP"/>
+        <result column="amount_raise" property="raiseInterest" jdbcType="DECIMAL"/>
+        <result column="repay_flag" property="repayFlag" jdbcType="TINYINT"/>
+    </resultMap>
+
+
+    <insert id="insert" parameterType="com.zipi.entity.RmbInvestRepayment">
+        <selectKey resultType="java.lang.String" order="BEFORE" keyProperty="id" keyColumn="rmbbox_income_id">
+            SELECT UPPER(UUID()) AS id
+        </selectKey>
+        insert into tb_rmbbox_invest_repayment (id, current_period, repay_amount, repay_time, repay_status,
+        amount_interest, amount_out_standing, amount_principal, due_date, invest_id, repay_flag)
+        values (#{id}, #{currentPeriod}, #{repayAmount}, #{repayTime}, #{repayStatus}, #{amountInterest},
+        #{amountOutStanding},
+        #{amountPrincipal}, #{dueDate} ,#{investId}, #{repayFlag})
+    </insert>
+    <update id="update">
+        update tb_rmbbox_invest_repayment
+        <set>
+            <if test="currentPeriod != null and currentPeriod != 0">
+                current_period = #{currentPeriod},
+            </if>
+            <if test="repayAmount != null">
+                repay_amount = #{repayAmount},
+            </if>
+            <if test="repayTime != null">
+                repay_time = #{repayTime},
+            </if>
+            <if test="repayStatus != null">
+                repay_status = #{repayStatus},
+            </if>
+            <if test="amountInterest != null">
+                amount_interest = #{amountInterest},
+            </if>
+            <if test="amountOutStanding != null">
+                amount_out_standing = #{amountOutStanding},
+            </if>
+            <if test="amountPrincipal != null">
+                amount_principal = #{amountPrincipal},
+            </if>
+            <if test="dueDate != null">
+                due_date = #{dueDate},
+            </if>
+            <if test="investId != null">
+                invest_id = #{investId},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+
+    <select id="getInterest" resultType="java.math.BigDecimal">
+        select coalesce(SUM(amount_interest),0) AS interest from tb_rmbbox_invest_repayment
+        where repay_status =#{status}
+        <if test="from != null">
+            and repay_time between #{from} and #{to}
+        </if>
+        and invest_id in (select invest_id from tb_rmbbox_invest where user_id = #{userId})
+    </select>
+    
+    <select id="getAmountPrincipal" resultType="java.math.BigDecimal">
+        select coalesce(SUM(amount_principal),0) AS interest from tb_rmbbox_invest_repayment
+        where repay_status =#{status}
+        <if test="from != null">
+            and repay_time between #{from} and #{to}
+        </if>
+        and invest_id in (select invest_id from tb_rmbbox_invest where user_id = #{userId})
+    </select>
+
+    <select id="getInterestAndPrincipal" resultType="java.math.BigDecimal">
+        select coalesce(SUM(amount_interest),0)+coalesce(SUM(amount_principal),0) AS income from tb_rmbbox_invest_repayment
+        where repay_status =#{status}
+        <if test="from != null">
+            and repay_time between #{from} and #{to}
+        </if>
+        and invest_id in (select invest_id from tb_rmbbox_invest where user_id = #{userId})
+    </select>
+
+
+    <select id="selectAccountRecordCountByUidStatus" resultType="java.lang.Integer">
+        select sum(bbtcount) from (SELECT count(*) bbtcount
+        FROM `tb_rmbbox_invest` invest ,`tb_rmbbox_invest_repayment`
+        repayment,`tb_rmbbox_loan` loan
+        WHERE invest.user_id=#{userId} AND
+        invest.`loan_id`=loan.`loan_id`
+        AND repayment.`repay_status` IN
+        <foreach collection="rmbstatusList" open="(" close=")" item="status"
+                 index="" separator=",">
+            #{status}
+        </foreach>
+        AND repayment.`invest_id`=invest.`invest_id`
+        UNION
+        SELECT
+        count(*) bbtcount
+        FROM `tb_uplan_income` uincome,`tb_uplan_invest` uinvest, `tb_uplan` uplan
+        WHERE uinvest.user_id=#{userId} AND
+        uinvest.`plan_id`=uplan.`plan_id`
+        AND uinvest.`invest_id`=uincome.`invest_id`
+        AND uincome.`status` IN
+        <foreach collection="uplanstatusList" open="(" close=")" item="status"
+                 index="" separator=",">
+            #{status}
+        </foreach>
+        AND uinvest.`status` IN
+        ('MATCHED','REPAYING','REMATCHING','REPAYED')
+        ) bbtSum
+    </select>
+
+    <select id="selectallPeriodCountByInvestId" resultType="java.lang.Integer">
+		SELECT MAX(current_period)
+		FROM `tb_rmbbox_invest_repayment`
+		WHERE invest_id=#{investId}
+	</select>
+    <select id="selectByUserAndStatusAndTime" resultMap="BaseResultMap">
+        select * 
+          from tb_rmbbox_invest_repayment 
+         where invest_id 
+            in (select invest_id from tb_rmbbox_invest where user_id = #{userId} and (submit_time between #{startDate} and #{endDate}))
+           and repay_status = #{status}
+         order by due_date desc
+         limit #{start},#{end}
+    </select>
+
+
+    <select id="countByUserAndStatusAndTime" resultType="int">
+        select count(*) 
+          from tb_rmbbox_invest_repayment 
+         where invest_id 
+            in (select invest_id from tb_rmbbox_invest where user_id = #{userId} and (submit_time between #{startDate} and #{endDate}))
+           and repay_status = #{status}
+    </select>
+
+    <select id="getByInvestId" resultMap="BaseResultMap">
+		select * from tb_rmbbox_invest_repayment where  invest_id  = #{investId} order by due_date
+	</select>
+
+    <select id="listByLoanIdAndCurrentPeriodAndStatus" resultMap="BaseResultMap">
+		SELECT *
+		from tb_rmbbox_invest_repayment ir,
+		     tb_rmbbox_invest i,
+             tb_core_binding u
+		where ir.invest_id = i.invest_id and u.user_id = i.user_id
+		and i.loan_id = #{loanId}
+		and ir.current_period = #{currentPeriod}
+		and ir.repay_status = #{status}
+        <if test="pageInfo !=null">
+            limit #{pageInfo.startRow},#{pageInfo.pageSize}
+        </if>
+	</select>
+
+    <select id="listByUserIdAndDate" resultMap="BaseResultMap">
+        select * from tb_rmbbox_invest_repayment where
+        invest_id in (select invest_id from tb_rmbbox_invest where user_id = #{userId})
+        <if test="status !=null">
+            and repay_status =#{status}
+        </if>
+        <if test="from != null">
+            and due_date between #{from} and #{to}
+        </if>
+    </select>
+    <select id="listByInvestIdForApp" resultType="java.util.Map">
+        SELECT
+           (ir1.amount_interest + ir1.amount_principal) AS amount,
+           (CASE WHEN ir1.repay_status = 'REPAYED' THEN '已收'
+            ELSE '未收' END) AS status,
+            ir1.current_period AS period,
+            DATE_FORMAT(ir1.due_date, '%Y-%m-%d') AS dueDate
+            FROM
+            tb_rmbbox_invest_repayment ir1
+            where ir1.invest_id = #{investId}
+    </select>
+
+    <select id="countInvestRepaymentByLoanRepaymentId" resultType="Integer">
+        SELECT count(*)
+        from tb_rmbbox_invest_repayment ir,
+        tb_rmbbox_invest i
+        where ir.invest_id = i.invest_id
+        and i.loan_id = #{loanId}
+        and ir.current_period = #{currentPeriod}
+        and ir.repay_status = #{status}
+    </select>
+    <!-- 存管 -->
+    <select id="queryRepaymentInfos" resultMap="BaseResultMap">
+        SELECT
+            *
+        FROM
+            tb_rmbbox_invest_repayment
+        WHERE
+            id IN
+            <foreach item="item" collection="repaymentIds" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+    </select>
+
+    <update id="updateInvestRepaymentStatus">
+        UPDATE
+            tb_rmbbox_invest_repayment
+        SET
+            repay_amount = #{repayAmount},
+            repay_status = 'REPAYED',
+            repay_time = now()
+        WHERE
+            id = #{investRepayId} and repay_status <![CDATA[<>]]> 'REPAYED'
+    </update>
+    <!-- 查询平台 -->
+    <select id="selectUserInterest" resultType="java.math.BigDecimal">
+        SELECT ifnull(SUM(amount_interest), 0)  FROM tb_rmbbox_invest_repayment WHERE repay_status = 'REPAYED'
+    </select>
+
+    <update id="updateRaiseInterest">
+        UPDATE
+            tb_rmbbox_invest_repayment
+        SET
+            amount_raise = #{amountRaise}
+        WHERE
+            id = #{investRepayId} and amount_raise is null
+    </update>
+
+    <select id="queryInvestRepayByPeriodAndInvestId" resultMap="BaseResultMap">
+        select
+            *
+        FROM
+            tb_rmbbox_invest_repayment
+        WHERE
+            invest_id = #{investId} AND current_period = #{period}
+    </select>
+    
+    <update id="updateVoidRepaymentRecord">
+        UPDATE
+            tb_rmbbox_invest_repayment
+        SET
+            invest_id = REPLACE(invest_id,'-','')
+        WHERE
+            invest_id = #{investId} AND current_period >= #{currentPeriod}
+    </update>
+
+    <select id="selectWaitRepayTotalAmount" resultType="java.math.BigDecimal">
+        SELECT
+            IFNULL(SUM(r.amount_interest + amount_principal),0) as amount
+        FROM
+            tb_rmbbox_invest_repayment r
+        INNER JOIN tb_rmbbox_invest i ON r.invest_id = i.invest_id
+        WHERE
+           i.status = 'SETTLED'
+           AND r.repay_status = 'UNDUE'
+           AND user_id = #{userId}
+    </select>
+
+    <select id="selectRepayListByInvestId" resultMap="BaseResultMap">
+        SELECT
+            *
+        FROM
+            tb_rmbbox_invest_repayment
+        WHERE
+            invest_id = #{investId}
+        ORDER BY
+            current_period DESC
+    </select>
+
+    <select id="queryInterestByInvestId" resultType="java.math.BigDecimal">
+        select coalesce(SUM(amount_interest),0)
+        from tb_rmbbox_invest_repayment
+        where  invest_id = #{investId}
+    </select>
+
+    <select id="selectListByInvestIdAndStatus" resultMap="BaseResultMap">
+        SELECT
+            *
+        FROM
+            tb_rmbbox_invest_repayment
+        WHERE
+            invest_id = #{investId} and repay_status = #{status}
+        ORDER BY
+            current_period
+    </select>
+
+    <select id="queryCountByInvestId" resultType="java.lang.Integer">
+        SELECT COUNT(id)
+        FROM
+            tb_rmbbox_invest_repayment
+        WHERE
+            invest_id = #{investId} and repay_status = 'UNDUE'
+    </select>
+
+    <select id="queryLastRepayTime" resultType="java.util.Date">
+        SELECT
+           MAX(due_date)
+        FROM
+            tb_rmbbox_invest_repayment
+        WHERE
+            invest_id = #{investId}
+    </select>
+
+    <select id="queryRepayedPrincipal" resultType="java.math.BigDecimal">
+        select coalesce(SUM(amount_principal),0)
+        from tb_rmbbox_invest_repayment
+        where  invest_id = #{investId}
+        and repay_status != 'UNDUE'
+    </select>
+
+    <select id="queryRepayInterestByInvestId" resultType="java.math.BigDecimal">
+        select coalesce(SUM(amount_interest),0)
+        from tb_rmbbox_invest_repayment
+        where  invest_id = #{investId}
+        and repay_status != 'UNDUE'
+    </select>
+
+    <select id="queryCountByInvestIdAndDueDate" resultType="java.lang.Integer">
+        select COUNT(1) from tb_rmbbox_invest_repayment
+        where  invest_id = #{investId} and due_date = #{dueDate}
+    </select>
+
+
+    <select id="queryLatelyDueDateByInvestId" resultType="java.util.Date">
+        SELECT
+            MAX(due_date)
+        FROM
+            tb_rmbbox_invest_repayment
+        WHERE
+            invest_id = #{investId} AND repay_status != 'UNDUE'
+    </select>
+
+    <select id="queryPeriodByInvestIdAndStatus" resultType="java.lang.Integer">
+        SELECT COUNT(id)
+        FROM
+            tb_rmbbox_invest_repayment
+        WHERE
+            invest_id = #{investId} and repay_status != 'UNDUE'
+    </select>
+
+    <select id="queryUndueInterestByInvestId" resultType="java.math.BigDecimal">
+        select coalesce(SUM(amount_interest),0)
+        from tb_rmbbox_invest_repayment
+        where  invest_id = #{investId} and repay_status = 'UNDUE'
+    </select>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        select * FROM tb_rmbbox_invest_repayment WHERE id = #{id}
+    </select>
+</mapper>

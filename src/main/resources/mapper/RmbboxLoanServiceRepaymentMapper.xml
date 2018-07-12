@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zipi.mapper.RmbboxLoanServiceRepaymentMapper" >
+    <resultMap id="BaseResultMap" type="com.zipi.entity.RmbboxLoanServiceRepayment" >
+            <id column="id" property="id" jdbcType="VARCHAR" />
+            <result column="current_period" property="currentPeriod" jdbcType="INTEGER" />
+            <result column="repay_amount" property="repayAmount" jdbcType="DECIMAL" />
+            <result column="loan_guarantee_fee_amount" property="loanGuaranteeFeeAmount" jdbcType="DECIMAL" />
+            <result column="loan_interest_fee_amount" property="loanInterestFeeAmount" jdbcType="DECIMAL" />
+            <result column="loan_fisk_fee_amount" property="loanFiskFeeAmount" jdbcType="DECIMAL" />
+            <result column="loan_manage_fee_amount" property="loanManageFeeAmount" jdbcType="DECIMAL" />
+            <result column="loan_service_fee_amount" property="loanServiceFeeAmount" jdbcType="DECIMAL" />
+            <result column="loan_share_fee_amount" property="loanShareFeeAmount" jdbcType="DECIMAL" />
+            <result column="flag_service_charge" property="flagServiceCharge" jdbcType="VARCHAR" />
+            <result column="due_date" property="dueDate" jdbcType="DATE" />
+            <result column="loan_id" property="loanId" jdbcType="VARCHAR" />
+            <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+    <sql id="Base_Column_List">
+    id,current_period,repay_amount,loan_guarantee_fee_amount,loan_interest_fee_amount,loan_fisk_fee_amount,loan_manage_fee_amount
+    ,loan_service_fee_amount,loan_share_fee_amount,flag_service_charge,due_date,
+		loan_id,modify_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from tb_rmbbox_loan_service_repayment
+        where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_rmbbox_loan_service_repayment
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zipi.entity.RmbboxLoanServiceRepayment">
+    insert into tb_rmbbox_loan_service_repayment (id,current_period,repay_amount,
+		loan_guarantee_fee_amount,loan_interest_fee_amount,loan_fisk_fee_amount,
+		loan_manage_fee_amount,loan_service_fee_amount,loan_share_fee_amount,flag_service_charge,
+		due_date,loan_id,modify_time
+		)
+    values (#{id,jdbcType=VARCHAR},#{currentPeriod,jdbcType=INTEGER},#{repayAmount,jdbcType=DECIMAL},
+		#{loanGuaranteeFeeAmount,jdbcType=DECIMAL},#{loanInterestFeeAmount,jdbcType=DECIMAL},#{loanFiskFeeAmount,jdbcType=DECIMAL},
+		#{loanManageFeeAmount,jdbcType=DECIMAL},#{loanServiceFeeAmount,jdbcType=DECIMAL},#{loanShareFeeAmount,jdbcType=DECIMAL},#{flagServiceCharge,jdbcType=VARCHAR},
+		#{dueDate,jdbcType=DATE},#{loanId,jdbcType=VARCHAR},#{modifyTime,jdbcType=TIMESTAMP}
+		)
+  </insert>
+  <insert id="insertSelective" parameterType="com.zipi.entity.RmbboxLoanServiceRepayment">
+    insert into tb_rmbbox_loan_service_repayment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null" >
+          id,
+      </if>
+      <if test="currentPeriod != null" >
+          current_period,
+      </if>
+      <if test="repayAmount != null" >
+          repay_amount,
+      </if>
+      <if test="loanGuaranteeFeeAmount != null" >
+          loan_guarantee_fee_amount,
+      </if>
+      <if test="loanInterestFeeAmount != null" >
+          loan_interest_fee_amount,
+      </if>
+      <if test="loanFiskFeeAmount != null" >
+          loan_fisk_fee_amount,
+      </if>
+      <if test="loanManageFeeAmount != null" >
+          loan_manage_fee_amount,
+      </if>
+      <if test="loanServiceFeeAmount != null" >
+          loan_service_fee_amount,
+      </if>
+      <if test="loanShareFeeAmount != null" >
+          loan_share_fee_amount,
+      </if>
+      <if test="flagServiceCharge != null" >
+          flag_service_charge,
+      </if>
+      <if test="dueDate != null" >
+          due_date,
+      </if>
+      <if test="loanId != null" >
+          loan_id,
+      </if>
+      <if test="modifyTime != null" >
+          modify_time
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null" >
+          #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="currentPeriod != null" >
+          #{currentPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="repayAmount != null" >
+          #{repayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="loanGuaranteeFeeAmount != null" >
+          #{loanGuaranteeFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="loanInterestFeeAmount != null" >
+          #{loanInterestFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="loanFiskFeeAmount != null" >
+          #{loanFiskFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="loanManageFeeAmount != null" >
+          #{loanManageFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="loanServiceFeeAmount != null" >
+          #{loanServiceFeeAmount,jdbcType=DECIMAL},
+      </if>
+     <if test="loanShareFeeAmount != null" >
+          #{loanShareFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="flagServiceCharge != null" >
+          #{flagServiceCharge,jdbcType=VARCHAR},
+      </if>
+      <if test="dueDate != null" >
+          #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="loanId != null" >
+          #{loanId,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+          #{modifyTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zipi.entity.RmbboxLoanServiceRepayment">
+    update tb_rmbbox_loan_service_repayment
+    <set>
+    <if test="record.currentPeriod != null">
+        current_period = #{record.currentPeriod,jdbcType=INTEGER},
+    </if>
+    <if test="record.repayAmount != null">
+        repay_amount = #{record.repayAmount,jdbcType=DECIMAL},
+    </if>
+    <if test="record.loanGuaranteeFeeAmount != null">
+        loan_guarantee_fee_amount = #{record.loanGuaranteeFeeAmount,jdbcType=DECIMAL},
+    </if>
+    <if test="record.loanInterestFeeAmount != null">
+        loan_interest_fee_amount = #{record.loanInterestFeeAmount,jdbcType=DECIMAL},
+    </if>
+    <if test="record.loanFiskFeeAmount != null">
+        loan_fisk_fee_amount = #{record.loanFiskFeeAmount,jdbcType=DECIMAL},
+    </if>
+    <if test="record.loanManageFeeAmount != null">
+        loan_manage_fee_amount = #{record.loanManageFeeAmount,jdbcType=DECIMAL},
+    </if>
+    <if test="record.loanServiceFeeAmount != null">
+        loan_service_fee_amount = #{record.loanServiceFeeAmount,jdbcType=DECIMAL},
+    </if>
+    <if test="record.loanShareFeeAmount != null">
+        loan_share_fee_amount = #{record.loanShareFeeAmount,jdbcType=DECIMAL},
+    </if>
+    <if test="record.flagServiceCharge != null">
+        flag_service_charge = #{record.flagServiceCharge,jdbcType=VARCHAR},
+    </if>
+    <if test="record.dueDate != null">
+        due_date = #{record.dueDate,jdbcType=DATE},
+    </if>
+    <if test="record.loanId != null">
+        loan_id = #{record.loanId,jdbcType=VARCHAR},
+    </if>
+    <if test="record.modifyTime != null">
+        modify_time = #{record.modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    </set>
+    where id = #{record.id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zipi.entity.RmbboxLoanServiceRepayment">
+    update tb_rmbbox_loan_service_repayment
+    set current_period = #{record.currentPeriod,jdbcType=INTEGER},
+		repay_amount = #{record.repayAmount,jdbcType=DECIMAL},
+		loan_guarantee_fee_amount = #{record.loanGuaranteeFeeAmount,jdbcType=DECIMAL},
+		loan_interest_fee_amount = #{record.loanInterestFeeAmount,jdbcType=DECIMAL},
+		loan_fisk_fee_amount = #{record.loanFiskFeeAmount,jdbcType=DECIMAL},
+		loan_manage_fee_amount = #{record.loanManageFeeAmount,jdbcType=DECIMAL},
+		loan_service_fee_amount = #{record.loanServiceFeeAmount,jdbcType=DECIMAL},
+		loan_share_fee_amount = #{record.loanShareFeeAmount,jdbcType=DECIMAL},
+		flag_service_charge = #{record.flagServiceCharge,jdbcType=VARCHAR},
+		due_date = #{record.dueDate,jdbcType=DATE},
+		loan_id = #{record.loanId,jdbcType=VARCHAR},
+		modify_time = #{record.modifyTime,jdbcType=TIMESTAMP}
+		
+    where id = #{record.id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateFeeStatus">
+        UPDATE
+            tb_rmbbox_loan_service_repayment
+        SET
+            flag_service_charge = #{targetStatus}
+        where
+            id = #{id}
+            <if test="currentStatus != null">
+                and flag_service_charge = #{currentStatus}
+            </if>
+  </update>
+
+    <select id="getSumLoanServiceAmountRepay" resultType="java.math.BigDecimal">
+
+        select coalesce(SUM(repay_amount), 0)
+
+          from
+
+          tb_rmbbox_loan_service_repayment
+
+        where id in (
+            select
+            id
+            from tb_rmbbox_loan_repayment
+            where
+            user_id = #{userId}
+            <if test="status != null">
+                and repay_status = #{status}
+            </if>
+            <if test="startDate != null and endDate != null">
+                and (due_date between #{startDate} and #{endDate})
+            </if>
+        )
+
+
+    </select>
+
+    <update id="updateVoidServiceRepaymentRecord">
+        UPDATE
+            tb_rmbbox_loan_service_repayment
+        SET
+            loan_id = REPLACE(loan_id,'-','')
+        WHERE
+            loan_id = #{loanId} AND current_period >= #{currentPeriod}
+    </update>
+
+    <select id="querySumAmountEveryFee" resultType="com.zipi.entity.RmbboxLoanServiceRepayment">
+        select
+            IFnull(SUM(repay_amount),0) as repayAmount ,
+            IFnull(SUM(loan_guarantee_fee_amount),0) as loanGuaranteeFeeAmount ,
+            IFnull(SUM(loan_interest_fee_amount),0) as loanInterestFeeAmount ,
+            IFnull(SUM(loan_fisk_fee_amount),0) as loanFiskFeeAmount ,
+            IFnull(SUM(loan_manage_fee_amount),0) as loanManageFeeAmount ,
+            IFnull(SUM(loan_service_fee_amount),0) as loanServiceFeeAmount,
+            IFnull(SUM(loan_share_fee_amount),0) as loanShareFeeAmount
+
+        FROM
+            tb_rmbbox_loan_service_repayment
+        WHERE
+            loan_id = #{loanId} AND current_period = #{currentPeriod}
+    </select>
+</mapper>

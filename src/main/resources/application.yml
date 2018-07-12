@@ -1,0 +1,60 @@
+server:
+    tomcat:
+        uri-encoding: UTF-8
+        max-threads: 100
+        min-spare-threads: 30
+        accesslog:
+          directory: logs
+          enabled: true
+          pattern: common
+          rotate: true
+          buffered: true
+          file-date-format: .yyyy-MM-dd
+          prefix: access_log
+          rename-on-rotate: false
+          request-attributes-enabled: false
+          suffix: .log
+
+    port: 7650 #tomcat端口号
+    connection-timeout: 5000 #tomcat超时时间
+#Logger
+logging:
+  config: classpath:logback-boot.xml
+
+
+spring:
+  datasource:
+    url : jdbc:mysql://10.10.9.77:3306/bbt_lending_pt?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username : root
+    password : 123456
+    driverClassName : com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    connectionProperties: druid.stat.mergeSql=true
+  redis:
+     host: localhost
+     port: 6379
+  #   password:
+     pool:
+      max-active: 8
+      min-idle: 0
+      max-idle: 8
+      max-wait: 10000
+     timeout: 10000
+  #   database: 0
+#  thymeleaf:
+#      cache: false
+      #view-names: /*
+#jpa:
+#  database : MYSQL
+#  show-sql : true
+mybatis:
+  typeAliasesPackage: com.zipi.entity
+  mapperLocations: classpath:mapper/*.xml
+  mybatis.config: classpath:mapper/config/mybatis-config.xml
+
+myProps: #自定义的属性和值
+    FDD_API_ID: 400220
+    FDD_APP_SECRET: gHHhZB1qGTJyYh7K121Jat8h
+    FDD_V: 2.0
+    FDD_API_URL: https://testapi.fadada.com:8443/api/
+    FDD_BBT_CUSTOMER_NO: D6F96955ACC1082B

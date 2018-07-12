@@ -1,0 +1,983 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zipi.mapper.RmbboxLoanAppointmentMapper" >
+    <resultMap id="BaseResultMap" type="com.zipi.entity.RmbboxLoanAppointment" >
+            <id column="appointment_id" property="appointmentId" jdbcType="VARCHAR" />
+            <result column="user_id" property="userId" jdbcType="VARCHAR" />
+            <result column="appointment_amount" property="appointmentAmount" jdbcType="DECIMAL" />
+            <result column="frozen_amount" property="frozenAmount" jdbcType="DECIMAL" />
+            <result column="release_amount" property="releaseAmount" jdbcType="DECIMAL" />
+            <result column="match_amount" property="matchAmount" jdbcType="DECIMAL" />
+            <result column="product_allow" property="productAllow" jdbcType="VARCHAR" />
+            <result column="rate_min" property="rateMin" jdbcType="DECIMAL" />
+            <result column="rate_max" property="rateMax" jdbcType="DECIMAL" />
+            <result column="status" property="status" jdbcType="VARCHAR" />
+            <result column="cancel_time" property="cancelTime" jdbcType="TIMESTAMP" />
+            <result column="match_time" property="matchTime" jdbcType="TIMESTAMP" />
+            <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+            <result column="days_min" property="daysMin" jdbcType="INTEGER" />
+            <result column="days_max" property="daysMax" jdbcType="INTEGER" />
+            <result column="match_flag" property="matchFlag" jdbcType="INTEGER" />
+            <result column="source" property="source" jdbcType="VARCHAR" />
+            <result column="project_type" property="projectType" jdbcType="VARCHAR" />
+            <result column="ip" property="ip" jdbcType="VARCHAR" />
+            <result column="channel" property="channel" jdbcType="VARCHAR" />
+            <result column="prop_id" property="propId" jdbcType="VARCHAR" />
+            <result column="prop_type" property="propType" jdbcType="VARCHAR" />
+            <result column="user_name" property="userName" jdbcType="VARCHAR" />
+            <result column="id_number" property="idNumber" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List">
+    appointment_id,user_id,appointment_amount,frozen_amount,release_amount,match_amount,product_allow,rate_min,rate_max,status,
+		cancel_time,match_time,create_time,days_min,days_max,match_flag,source,project_type,ip,channel,prop_id,prop_type
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from tb_rmbbox_loan_appointment
+        where appointment_id = #{appointmentId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_rmbbox_loan_appointment
+    where appointment_id = #{appointmentId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zipi.entity.RmbboxLoanAppointment">
+    <selectKey resultType="java.lang.String" order="BEFORE" keyProperty="appointmentId">
+        SELECT UPPER(UUID()) AS appointmentId
+    </selectKey>
+    insert into tb_rmbbox_loan_appointment (appointment_id,user_id,appointment_amount,
+		frozen_amount,release_amount,match_amount,
+		product_allow,rate_min,rate_max,
+		status,cancel_time,match_time,
+		create_time,days_min,days_max
+		)
+    values (#{appointmentId,jdbcType=VARCHAR},#{userId,jdbcType=VARCHAR},#{appointmentAmount,jdbcType=DECIMAL},
+		#{frozenAmount,jdbcType=DECIMAL},#{releaseAmount,jdbcType=DECIMAL},#{matchAmount,jdbcType=DECIMAL},
+		#{productAllow,jdbcType=VARCHAR},#{rateMin,jdbcType=DECIMAL},#{rateMax,jdbcType=DECIMAL},
+		#{status,jdbcType=VARCHAR},#{cancelTime,jdbcType=TIMESTAMP},#{matchTime,jdbcType=TIMESTAMP},
+		#{createTime,jdbcType=TIMESTAMP},#{daysMin,jdbcType=INTEGER},#{daysMax,jdbcType=INTEGER}
+		)
+  </insert>
+  <insert id="insertSelective" parameterType="com.zipi.entity.RmbboxLoanAppointment">
+        <selectKey resultType="java.lang.String" order="BEFORE" keyProperty="appointmentId">
+            SELECT UPPER(UUID()) AS appointmentId
+        </selectKey>
+    insert into tb_rmbbox_loan_appointment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appointmentId != null" >
+          appointment_id,
+      </if>
+      <if test="userId != null" >
+          user_id,
+      </if>
+      <if test="appointmentAmount != null" >
+          appointment_amount,
+      </if>
+      <if test="frozenAmount != null" >
+          frozen_amount,
+      </if>
+      <if test="releaseAmount != null" >
+          release_amount,
+      </if>
+      <if test="matchAmount != null" >
+          match_amount,
+      </if>
+      <if test="productAllow != null" >
+          product_allow,
+      </if>
+      <if test="rateMin != null" >
+          rate_min,
+      </if>
+      <if test="rateMax != null" >
+          rate_max,
+      </if>
+      <if test="status != null" >
+          status,
+      </if>
+      <if test="cancelTime != null" >
+          cancel_time,
+      </if>
+      <if test="matchTime != null" >
+          match_time,
+      </if>
+      <if test="createTime != null" >
+          create_time,
+      </if>
+      <if test="daysMin != null" >
+          days_min,
+      </if>
+      <if test="daysMax != null" >
+          days_max,
+      </if>
+      <if test="source != null" >
+          source,
+      </if>
+      <if test="channel != null" >
+          channel,
+      </if>
+      <if test="projectType != null" >
+          project_type,
+      </if>
+      <if test="ip != null" >
+          ip,
+      </if>
+      <if test="propId != null and propId != ''" >
+          prop_id,
+      </if>
+      <if test="propType != null and propType !=''" >
+          prop_type
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appointmentId != null" >
+          #{appointmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+          #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="appointmentAmount != null" >
+          #{appointmentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="frozenAmount != null" >
+          #{frozenAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="releaseAmount != null" >
+          #{releaseAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="matchAmount != null" >
+          #{matchAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="productAllow != null" >
+          #{productAllow,jdbcType=VARCHAR},
+      </if>
+      <if test="rateMin != null" >
+          #{rateMin,jdbcType=DECIMAL},
+      </if>
+      <if test="rateMax != null" >
+          #{rateMax,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+          #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelTime != null" >
+          #{cancelTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="matchTime != null" >
+          #{matchTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+          #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="daysMin != null" >
+          #{daysMin,jdbcType=INTEGER},
+      </if>
+      <if test="daysMax != null" >
+          #{daysMax,jdbcType=INTEGER},
+      </if>
+      <if test="source != null" >
+          #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="channel != null" >
+          #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="projectType != null" >
+          #{projectType,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+          #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="propId != null and propId != ''" >
+          #{propId},
+      </if>
+      <if test="propType != null and propType !=''" >
+          #{propType}
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zipi.entity.RmbboxLoanAppointment">
+    update tb_rmbbox_loan_appointment
+    <set>
+    <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+    </if>
+    <if test="record.appointmentAmount != null">
+        appointment_amount = #{record.appointmentAmount,jdbcType=DECIMAL},
+    </if>
+    <if test="record.frozenAmount != null">
+        frozen_amount = #{record.frozenAmount,jdbcType=DECIMAL},
+    </if>
+    <if test="record.releaseAmount != null">
+        release_amount = #{record.releaseAmount,jdbcType=DECIMAL},
+    </if>
+    <if test="record.matchAmount != null">
+        match_amount = #{record.matchAmount,jdbcType=DECIMAL},
+    </if>
+    <if test="record.productAllow != null">
+        product_allow = #{record.productAllow,jdbcType=VARCHAR},
+    </if>
+    <if test="record.rateMin != null">
+        rate_min = #{record.rateMin,jdbcType=DECIMAL},
+    </if>
+    <if test="record.rateMax != null">
+        rate_max = #{record.rateMax,jdbcType=DECIMAL},
+    </if>
+    <if test="record.status != null">
+        status = #{record.status,jdbcType=VARCHAR},
+    </if>
+    <if test="record.cancelTime != null">
+        cancel_time = #{record.cancelTime,jdbcType=TIMESTAMP},
+    </if>
+    <if test="record.matchTime != null">
+        match_time = #{record.matchTime,jdbcType=TIMESTAMP},
+    </if>
+    <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+    </if>
+    <if test="record.daysMin != null">
+        days_min = #{record.daysMin,jdbcType=INTEGER},
+    </if>
+    <if test="record.daysMax != null">
+        days_max = #{record.daysMax,jdbcType=INTEGER},
+    </if>
+    <if test="record.mateFlag != null">
+        match_flag = #{record.matchFlag,jdbcType=INTEGER}
+    </if>
+    </set>
+    where appointment_id = #{record.appointmentId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zipi.entity.RmbboxLoanAppointment">
+    update tb_rmbbox_loan_appointment
+    set user_id = #{record.userId,jdbcType=VARCHAR},
+		appointment_amount = #{record.appointmentAmount,jdbcType=DECIMAL},
+		frozen_amount = #{record.frozenAmount,jdbcType=DECIMAL},
+		release_amount = #{record.releaseAmount,jdbcType=DECIMAL},
+		match_amount = #{record.matchAmount,jdbcType=DECIMAL},
+		product_allow = #{record.productAllow,jdbcType=VARCHAR},
+		rate_min = #{record.rateMin,jdbcType=DECIMAL},
+		rate_max = #{record.rateMax,jdbcType=DECIMAL},
+		status = #{record.status,jdbcType=VARCHAR},
+		cancel_time = #{record.cancelTime,jdbcType=TIMESTAMP},
+		match_time = #{record.matchTime,jdbcType=TIMESTAMP},
+		create_time = #{record.createTime,jdbcType=TIMESTAMP},
+		days_min = #{record.daysMin,jdbcType=INTEGER},
+		days_max = #{record.daysMax,jdbcType=INTEGER},
+		match_flag = #{record.matchFlag,jdbcType=INTEGER}
+		
+    where appointment_id = #{record.appointmentId,jdbcType=VARCHAR}
+  </update>
+
+    <select id="queryFrozenAmountSum" resultType="java.math.BigDecimal">
+        SELECT  ifnull(sum(frozen_amount),0) from tb_rmbbox_loan_appointment;
+    </select>
+
+    <update id="updateAppointmentRecord">
+        update
+          tb_rmbbox_loan_appointment
+        SET
+          frozen_amount = frozen_amount - #{amount},
+          release_amount = release_amount + #{amount},
+          match_time = NOW()
+        WHERE appointment_id = #{appointmentId} and frozen_amount - #{amount} >= 0
+        and (status ='SUBMITTED' or status ='PARTSUCCESS')
+        <![CDATA[
+        and match_amount + #{amount} <= appointment_amount
+        ]]>
+    </update>
+
+    <select id="getLoanAppointmentListByLoanForMatching" parameterType="com.zipi.entity.RmbLoan" resultMap="BaseResultMap">
+        <![CDATA[
+        SELECT * FROM
+          tb_rmbbox_loan_appointment la
+            where la.days_min <= #{loanDays}
+            AND ((la.days_max = 0) or (la.days_max > 0 and la.days_max >= #{loanDays}))
+            and la.rate_min * 10000 <= #{loanRate}
+			and la.rate_max * 10000 >= #{loanRate}
+            and (la.status ='SUBMITTED' or la.status ='PARTSUCCESS')
+            and la.frozen_amount > 0
+            and la.match_flag = 0
+
+        ]]>
+
+        <choose>
+            <when test="loanChannel != null and loanChannel != ''">
+
+                and la.channel in (${registerChannels})
+                order by FIELD(la.channel,${registerChannels}),la.create_time
+            </when>
+            <otherwise>
+                and la.channel not in ( select value from tb_core_dict where type = 'LoanChannelItem')
+                order by la.create_time
+            </otherwise>
+        </choose>
+
+    </select>
+
+    <update id="updateReleaseAmountByPrimaryKeyForUnfreeze" >
+        update tb_rmbbox_loan_appointment
+        set
+        frozen_amount = frozen_amount - #{releaseAmount},
+        release_amount = release_amount + #{releaseAmount}
+       <![CDATA[
+       where appointment_id = #{appointmentId}
+       and frozen_amount - #{releaseAmount} >= 0
+       and release_amount + #{releaseAmount} <= frozen_amount
+       and status !='SUCCESS'
+       and match_amount + #{releaseAmount} <= appointment_amount
+       ]]>
+    </update>
+
+    <update id="updateUserAppointmentByIdWhenAutoInvestHandle" >
+        update tb_rmbbox_loan_appointment
+        set
+        match_amount = match_amount + #{matchAmount},
+        release_amount = release_amount - #{matchAmount},
+        status = 'PARTSUCCESS',
+        status = if (match_amount + release_amount = appointment_amount, 'SUCCESS', status),
+        match_time = if (match_amount + release_amount = appointment_amount, now(), match_time)
+      <![CDATA[
+       where appointment_id = #{appointmentId}
+       and status !='SUCCESS'
+       and match_amount  + #{matchAmount} <= appointment_amount
+       ]]>
+    </update>
+
+    <select id="listByStatus" resultMap="BaseResultMap">
+        SELECT * from tb_rmbbox_loan_appointment WHERE user_id = #{userId}
+        <if test="stats != null">
+            and status in
+            <foreach collection="stats" item="stat" open="(" close=")" separator=",">
+                #{stat}
+            </foreach>
+        </if>
+        ORDER BY create_time DESC
+        <if test="pageInfo != null">
+            limit #{pageInfo.startRow}, #{pageInfo.pageSize}
+        </if>
+    </select>
+
+    <select id="countByStatusAndUserId" resultType="int">
+        SELECT COUNT(*) from tb_rmbbox_loan_appointment WHERE user_id = #{userId}
+        <if test="stats != null">
+            and status in
+            <foreach collection="stats" item="stat" open="(" close=")" separator=",">
+                #{stat}
+            </foreach>
+        </if>
+    </select>
+    <select id="queryAppointmentCount" resultType="java.lang.Integer">
+        select
+        COUNT(1)
+        from tb_rmbbox_loan_appointment la
+        LEFT JOIN tb_core_user u
+        ON la.user_id = u.user_id
+        <where>
+            <if test="startDate !=null">
+                AND create_time >= #{startDate}
+            </if>
+            <if test="endDate !=null">
+                <![CDATA[AND create_time <= #{endDate}]]>
+            </if>
+            <if test="status == 'SUBMITTED'">
+                AND status != 'SUCCESS' AND status != 'CANCEL'
+            </if>
+            <if test="status != 'SUBMITTED'">
+                AND status = #{status}
+            </if>
+            <if test="period !=null and period !=''">
+                AND project_type = #{period}
+            </if>
+            <if test="search != null and search != ''">
+                AND (u.user_name like CONCAT('%',#{search},'%')
+                or u.login_name like CONCAT('%',#{search},'%')
+                )
+            </if>
+
+            <if test="flagChannel == 1 ">
+                and la.channel  in ( select value from tb_core_dict where type = 'LoanChannelItem')
+            </if>
+            <if test="flagChannel == 0 ">
+                and la.channel not in ( select value from tb_core_dict where type = 'LoanChannelItem')
+            </if>
+            <if test="loanChannel !=null and loanChannel != '' ">
+                and la.channel  in (
+                select value from tb_core_dict
+                where parent_id = (
+                select id from tb_core_dict where type = 'LoanChannel' and value = #{loanChannel})
+                )
+            </if>
+        </where>
+    </select>
+
+    <select id="queryAppointmentList" resultType="java.util.Map">
+        select
+        la.appointment_id,
+        la.appointment_amount,
+        la.match_amount,
+        la.create_time,
+        la.days_max,
+        la.cancel_time,
+        la.match_time,
+        u.user_id,
+        u.user_name,
+        u.login_name
+        from tb_rmbbox_loan_appointment la
+        LEFT JOIN tb_core_user u
+        ON la.user_id = u.user_id
+        <where>
+            <if test="startDate !=null">
+                AND create_time >= #{startDate}
+            </if>
+            <if test="endDate !=null">
+                <![CDATA[AND create_time <= #{endDate}]]>
+            </if>
+            <if test="status == 'SUBMITTED'">
+                AND status != 'SUCCESS' AND status != 'CANCEL'
+            </if>
+            <if test="status != 'SUBMITTED'">
+                AND status = #{status}
+            </if>
+            <if test="period !=null and period !=''">
+                AND project_type = #{period}
+            </if>
+            <if test="type == 1 ">
+                AND match_amount > 0
+            </if>
+            <if test="type == 2">
+                AND match_amount = 0
+            </if>
+            <if test="search != null and search != ''">
+                AND (u.user_name like CONCAT('%',#{search},'%')
+                or u.login_name like CONCAT('%',#{search},'%')
+                )
+            </if>
+
+            <if test="flagChannel == 1 ">
+                and la.channel  in ( select value from tb_core_dict where type = 'LoanChannelItem')
+            </if>
+            <if test="flagChannel == 0 ">
+                and la.channel not in ( select value from tb_core_dict where type = 'LoanChannelItem')
+            </if>
+            <if test="loanChannel !=null and loanChannel != '' ">
+                and la.channel  in (
+                select value from tb_core_dict
+                where parent_id = (
+                select id from tb_core_dict where type = 'LoanChannel' and value = #{loanChannel})
+                )
+            </if>
+
+        </where>
+        ORDER by la.create_time DESC
+        <if test="pageSize > 0">
+            limit #{startRow}, #{pageSize}
+        </if>
+
+    </select>
+
+    <select id="queryCountByUserIdAndSuccess" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM  tb_rmbbox_loan_appointment
+        where user_id = #{userId,jdbcType=VARCHAR} and status = 'SUCCESS'
+        <if test="period != null and period !=''">
+            and project_type = #{period}
+        </if>
+        <if test="startDate !=null">
+            AND create_time >= #{startDate}
+        </if>
+        <if test="endDate !=null">
+            <![CDATA[AND create_time <= #{endDate}]]>
+        </if>
+        <if test="flagChannel == 1 ">
+            and channel  in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="flagChannel == 0 ">
+            and channel not in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="loanChannel !=null and loanChannel != '' ">
+            and channel  in (
+            select value from tb_core_dict
+            where parent_id = (
+            select id from tb_core_dict where type = 'LoanChannel' and value = #{loanChannel})
+            )
+        </if>
+
+    </select>
+
+    <select id="queryMatchAmountCountByUserIdAndDate" resultType="java.math.BigDecimal">
+        SELECT ifnull(SUM(match_amount),0.00) FROM  tb_rmbbox_loan_appointment
+        where user_id = #{userId,jdbcType=VARCHAR}
+        <if test="period != null and period !=''">
+            AND project_type = #{period}
+        </if>
+        <if test="startDate !=null">
+            AND create_time >= #{startDate}
+        </if>
+        <if test="endDate !=null">
+            <![CDATA[AND create_time <= #{endDate}]]>
+        </if>
+
+        <if test="flagChannel == 1 ">
+            and channel  in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="flagChannel == 0 ">
+            and channel not in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="loanChannel !=null and loanChannel != '' ">
+            and channel  in (
+            select value from tb_core_dict
+            where parent_id = (
+            select id from tb_core_dict where type = 'LoanChannel' and value = #{loanChannel})
+            )
+        </if>
+    </select>
+
+    <update id="cancelAppointment">
+        update
+           tb_core_order o INNER JOIN tb_rmbbox_loan_appointment a ON a.appointment_id = o.business_id
+        SET
+           o.amount = a.frozen_amount,
+           o.update_time = NOW(),
+           a.release_amount = a.release_amount + a.frozen_amount,
+           a.frozen_amount = a.frozen_amount - a.frozen_amount,
+           a.cancel_time = NOW(),
+           a.status = 'CANCELLING'
+        WHERE
+            a.appointment_id = #{id} AND o.order_id = #{releaseOrderId} AND a.frozen_amount > 0
+    </update>
+
+    <update id="incrFreezeAmount">
+        update
+            tb_rmbbox_loan_appointment
+        SET
+            release_amount = release_amount - #{freezeAmount},
+            frozen_amount = frozen_amount + #{freezeAmount},
+            status =
+            case when frozen_amount = appointment_amount then 'SUBMITTED'
+                 else 'PARTSUCCESS'
+                 end
+
+        WHERE
+            appointment_id = #{id} AND release_amount - #{freezeAmount} >= 0 AND appointment_amount >= frozen_amount + #{freezeAmount}
+    </update>
+
+    <select id="appointmentRank"  resultType="java.util.Map">
+        select
+            la.user_id,
+            Sum(la.appointment_amount) as sumAmount,
+            COUNT(appointment_id) as countRank,
+            ll.lastTime
+        from tb_rmbbox_loan_appointment la,
+            (SELECT MAX(create_time) lastTime ,user_id from tb_rmbbox_loan_appointment  GROUP BY user_id ) ll
+        where
+            create_time >= #{startDate}
+            and #{endDate} >= create_time
+            and la.user_id = ll.user_id
+            <if test="type !=null and type !=''">
+                and la.project_type = #{type}
+            </if>
+        GROUP BY la.user_id
+        ORDER BY sumAmount desc ,lastTime
+        limit 0,#{limit}
+    </select>
+
+    <update id="updateStatusFrozenAmountReleaseAmount">
+        update
+            tb_rmbbox_loan_appointment
+        SET
+            release_amount = release_amount + #{amount},
+            frozen_amount = frozen_amount - #{amount},
+            status = #{targetStatus}
+        WHERE
+            appointment_id = #{appointmentId} AND frozen_amount - #{amount} => 0 AND status = #{currentStatus}
+    </update>
+
+    <update id="updateStatus">
+        update
+            tb_rmbbox_loan_appointment
+        SET
+            status = #{targetStatus}
+        WHERE
+            appointment_id = #{appointmentId} AND status = #{currentStatus}
+    </update>
+
+    <update id="matchUpdate">
+        UPDATE
+            tb_rmbbox_loan_appointment
+        SET
+            match_flag = 1
+        WHERE
+            appointment_id = #{id} AND match_flag = 0
+        <if test="statusList != null">
+            AND status in
+            <foreach collection="statusList" item="status" open="(" close=")" separator=",">
+                #{status}
+            </foreach>
+        </if>
+    </update>
+
+    <update id="updateAppointStatus">
+        UPDATE
+            tb_rmbbox_loan_appointment
+        SET
+            <if test="targetStatus != null">
+                status = #{targetStatus},
+            </if>
+            match_flag = 0,
+            cancel_time = now()
+        WHERE
+            appointment_id = #{id}
+            <if test="originStatus != null">
+                AND status = #{originStatus}
+            </if>
+    </update>
+
+    <update id="updateMatchFlagEqualTrueByAppointmentId">
+        UPDATE
+        tb_rmbbox_loan_appointment
+        SET
+        match_flag = 1
+        WHERE
+        appointment_id = #{id} AND match_flag = 0
+    </update>
+    <update id="updateMatchFlagEqualFalseByAppointmentId">
+        UPDATE
+        tb_rmbbox_loan_appointment
+        SET
+        match_flag = 0
+        WHERE
+        appointment_id = #{id} AND match_flag = 1
+    </update>
+
+    <select id="getSumAmountByStatus" resultType="java.lang.Integer">
+        select sum(appointment_amount) from  tb_rmbbox_loan_appointment
+        where 1 = 1
+        <if test="period!=null and period !=''">
+            AND project_type = #{period}
+        </if>
+        <if test="flagChannel == 1 ">
+            and channel  in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="flagChannel == 0 ">
+            and channel not in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="loanChannel !=null and loanChannel != '' ">
+            and channel  in (
+            select value from tb_core_dict
+            where parent_id = (
+            select id from tb_core_dict where type = 'LoanChannel' and value = #{loanChannel})
+            )
+        </if>
+    </select>
+
+    <select id="getSumFrozenAmountByStatus" resultType="java.lang.Integer">
+        select sum(frozen_amount) from  tb_rmbbox_loan_appointment
+        where 1 = 1
+        <if test="period!=null and period !=''">
+            AND project_type = #{period}
+        </if>
+        <if test="flagChannel == 1 ">
+            and channel  in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="flagChannel == 0 ">
+            and channel not in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="loanChannel !=null and loanChannel != '' ">
+            and channel  in (
+            select value from tb_core_dict
+            where parent_id = (
+            select id from tb_core_dict where type = 'LoanChannel' and value = #{loanChannel})
+            )
+        </if>
+    </select>
+
+    <select id="getSumMatchAmountByStatus" resultType="java.lang.Integer">
+        select sum(match_amount) from  tb_rmbbox_loan_appointment
+        where 1 = 1
+        <if test="period!=null and period !=''">
+            AND project_type = #{period}
+        </if>
+        <if test="flagChannel == 1 ">
+            and channel  in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="flagChannel == 0 ">
+            and channel not in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="loanChannel !=null and loanChannel != '' ">
+            and channel  in (
+            select value from tb_core_dict
+            where parent_id = (
+            select id from tb_core_dict where type = 'LoanChannel' and value = #{loanChannel})
+            )
+        </if>
+    </select>
+
+    <select id="getSumCancelAmountByStatus" resultType="java.lang.Integer">
+        select ifnull(sum(appointment_amount-match_amount),0) from  tb_rmbbox_loan_appointment
+        where status = 'CANCEL'
+        <if test="period!=null and period !=''">
+            AND project_type = #{period}
+        </if>
+        <if test="flagChannel == 1 ">
+            and channel  in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="flagChannel == 0 ">
+            and channel not in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="loanChannel !=null and loanChannel != '' ">
+            and channel  in (
+            select value from tb_core_dict
+            where parent_id = (
+            select id from tb_core_dict where type = 'LoanChannel' and value = #{loanChannel})
+            )
+        </if>
+    </select>
+
+    <select id="getPassengersUserByStatus" resultType="java.lang.Integer">
+        select  count(user_id) from  tb_rmbbox_loan_appointment
+        where 1= 1
+        <if test="period!=null and period !=''">
+            AND project_type = #{period}
+        </if>
+        <if test="status == 'SUBMITTED' ">
+            and frozen_amount > 0
+        </if>
+        <if test="status == 'SUCCESS' ">
+            and match_amount > 0
+        </if>
+        <if test="status == 'CANCEL' ">
+            and status = 'CANCEL'
+        </if>
+        <if test="flagChannel == 1 ">
+            and channel  in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="flagChannel == 0 ">
+            and channel not in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="loanChannel !=null and loanChannel != '' ">
+            and channel  in (
+            select value from tb_core_dict
+            where parent_id = (
+            select id from tb_core_dict where type = 'LoanChannel' and value = #{loanChannel})
+            )
+        </if>
+    </select>
+
+    <select id="getCountUserByStatus" resultType="java.lang.Integer">
+        select  count(DISTINCT(user_id)) from  tb_rmbbox_loan_appointment
+        where 1 = 1
+        <if test="period!=null and period !=''">
+            and project_type = #{period}
+        </if>
+        <if test="status == 'SUBMITTED' ">
+            and frozen_amount > 0
+        </if>
+        <if test="status == 'SUCCESS' ">
+            and match_amount > 0
+        </if>
+        <if test="status == 'CANCEL' ">
+            and status = 'CANCEL'
+        </if>
+        <if test="flagChannel == 1 ">
+            and channel  in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="flagChannel == 0 ">
+            and channel not in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="loanChannel !=null and loanChannel != '' ">
+            and channel  in (
+            select value from tb_core_dict
+            where parent_id = (
+                      select id from tb_core_dict where type = 'LoanChannel' and value = #{loanChannel})
+            )
+        </if>
+    </select>
+
+    <update id="updateAppointmentRecordWhenFreeze">
+        update
+        tb_rmbbox_loan_appointment
+        SET
+        release_amount = release_amount - #{freezeAmount},
+        frozen_amount = frozen_amount + #{freezeAmount}
+        WHERE
+        appointment_id = #{appointmentId}
+        AND release_amount - #{freezeAmount} >= 0
+        AND appointment_amount >= frozen_amount + #{freezeAmount}
+    </update>
+
+    <update id="updateUserAppointmentByIdWhenAutoInvestFail" >
+        update tb_rmbbox_loan_appointment
+        set
+        match_amount = match_amount - #{matchAmount},
+        release_amount = release_amount + #{matchAmount},
+        status = 'PARTSUCCESS',
+        status = if (match_amount  = 0, 'SUBMITTED', status)
+        <![CDATA[
+           where appointment_id = #{appointmentId}
+           and match_amount  - #{matchAmount} >= 0
+           and release_amount + #{matchAmount} <= appointment_amount
+       ]]>
+    </update>
+
+
+    <select id="queryAppointmentAll" resultType="java.util.Map">
+        select
+        la.appointment_id,
+        la.user_id,
+        Sum(la.appointment_amount) as sumAppointmentAmount,
+        Sum(la.match_amount) as sumMatchAmount,
+        max(la.create_time) as lastTime,
+        u.user_name,
+        u.user_mobile
+        from tb_rmbbox_loan_appointment la,tb_core_user u
+        where la.user_id = u.user_id
+        <if test="startDate !=null">
+            AND create_time >= #{startDate}
+        </if>
+        <if test="endDate !=null">
+            <![CDATA[AND create_time <= #{endDate}]]>
+        </if>
+        <if test="period !=null and period !=''">
+            AND project_type = #{period}
+        </if>
+        <if test="search != null and search != ''">
+            AND (u.user_name like CONCAT('%',#{search},'%')
+            or u.user_mobile like CONCAT('%',#{search},'%')
+            )
+        </if>
+
+        <if test="flagChannel == 1 ">
+            and la.channel  in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="flagChannel == 0 ">
+            and la.channel not in ( select value from tb_core_dict where type = 'LoanChannelItem')
+        </if>
+        <if test="loanChannel !=null and loanChannel != '' ">
+            and la.channel  in (
+            select value from tb_core_dict
+            where parent_id = (
+            select id from tb_core_dict where type = 'LoanChannel' and value = #{loanChannel})
+            )
+        </if>
+
+        GROUP BY la.user_id
+        ORDER BY sumAppointmentAmount desc ,lastTime
+        <if test="pageSize > 0">
+            limit #{startRow}, #{pageSize}
+        </if>
+    </select>
+
+    <select id="queryAppointmentAllCount" resultType="java.lang.Integer">
+        select
+        COUNT(DISTINCT(la.user_id))
+        from tb_rmbbox_loan_appointment la
+        LEFT JOIN tb_core_user u
+        ON la.user_id = u.user_id
+        <where>
+            <if test="startDate !=null">
+                AND create_time >= #{startDate}
+            </if>
+            <if test="endDate !=null">
+                <![CDATA[AND create_time <= #{endDate}]]>
+            </if>
+            <if test="period !=null and period !=''">
+                AND project_type = #{period}
+            </if>
+            <if test="search != null and search != ''">
+                AND (u.user_name like CONCAT('%',#{search},'%')
+                or u.login_name like CONCAT('%',#{search},'%')
+                )
+            </if>
+            <if test="flagChannel == 1 ">
+                and la.channel  in ( select value from tb_core_dict where type = 'LoanChannelItem')
+            </if>
+            <if test="flagChannel == 0 ">
+                and la.channel not in ( select value from tb_core_dict where type = 'LoanChannelItem')
+            </if>
+            <if test="loanChannel !=null and loanChannel != '' ">
+                and la.channel  in (
+                select value from tb_core_dict
+                where parent_id = (
+                select id from tb_core_dict where type = 'LoanChannel' and value = #{loanChannel})
+                )
+            </if>
+        </where>
+    </select>
+
+    <select id="queryDayrankingList" resultType="java.util.Map">
+        SELECT
+           concat(left(u.user_mobile, 3),'****',RIGHT(u.user_mobile,4)) as mobile,
+           top.sumAmount
+        FROM (
+            select
+                user_id,
+                sum(temp.amount) as sumAmount,
+                max(temp.time) as maxTime
+            FROM (
+                select
+                    user_id ,
+                    invest_amount as amount,
+                    submit_time as time
+                FROM
+                    tb_rmbbox_invest
+                WHERE
+                    invest_way != 1
+                AND submit_time BETWEEN #{startTime} AND #{endTime}
+
+                union ALL
+
+                SELECT
+                    user_id,
+                    appointment_amount as amount,
+                    create_time as time
+                FROM
+                    tb_rmbbox_loan_appointment
+                WHERE
+                    STATUS != 'CANCEL' AND create_time BETWEEN #{startTime} AND #{endTime}
+            ) temp GROUP BY user_id order by sumAmount DESC, maxTime ASC limit 10
+        ) top
+        INNER JOIN tb_core_user u ON top.user_id = u.user_id
+    </select>
+
+    <select id="sumAppointmentAmount" resultType="java.math.BigDecimal">
+        select
+            IFNULL(sum(frozen_amount + match_amount), 0.00)
+        FROM
+            tb_rmbbox_loan_appointment
+    </select>
+
+    <select id="queryFrozenAmountSumByUserId" resultType="java.math.BigDecimal">
+        SELECT  ifnull(sum(frozen_amount),0) from tb_rmbbox_loan_appointment
+        where user_id = #{userId}
+    </select>
+
+    <select id="queryCountByUserIdAndMatchFlag" resultType="java.lang.Integer">
+        SELECT count(0) from tb_rmbbox_loan_appointment
+        where user_id = #{userId} and match_flag = #{matchFlag}
+    </select>
+
+    <select id="getAppointmentInfoByIdAndUserId" resultMap="BaseResultMap">
+        SELECT
+            a.appointment_id,a.appointment_amount,a.days_min,a.days_max,u.user_name,u.id_number,a.create_time
+        FROM
+            tb_rmbbox_loan_appointment a,
+            tb_core_user u
+        WHERE
+            a.user_id = u.user_id
+        AND a.appointment_id = #{appointmentId}
+        AND u.user_id = #{userId}
+        limit 1
+    </select>
+
+    <select id="queryEnterpriseInfoByAppointmentId" resultType="com.zipi.entity.CoreUser">
+        SELECT
+        u.user_name AS userName,
+        u.enterprise,
+        u.company_name AS companyName,
+        u.customer_no AS customerNo,
+        u.user_mobile AS userMobile,
+        u.id_number AS idNumber,
+        u.user_id as userId
+        FROM tb_rmbbox_loan_appointment a,tb_core_user u
+        WHERE a.user_id=u.user_id
+        AND a.appointment_id = #{appointmentId}
+        limit 1
+    </select>
+</mapper>

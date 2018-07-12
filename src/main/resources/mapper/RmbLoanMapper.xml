@@ -1,0 +1,1079 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zipi.mapper.RmbLoanMapper">
+    <resultMap id="BaseResultMap" type="com.zipi.entity.RmbLoan">
+        <id column="loan_id" property="loanId" jdbcType="VARCHAR"/>
+        <result column="loan_amount" property="loanAmount" jdbcType="DECIMAL"/>
+        <result column="invested_amount" property="investedAmount" jdbcType="DECIMAL"/>
+        <result column="invested_number" property="investedNumber" jdbcType="INTEGER"/>
+        <result column="repay_method" property="repayMethod" jdbcType="VARCHAR"/>
+        <result column="mortgaged" property="mortgaged" jdbcType="BIT"/>
+        <result column="rate" property="rate" jdbcType="INTEGER"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+        <result column="cleared_time" property="clearedTime" jdbcType="TIMESTAMP"/>
+        <result column="finished_time" property="finishedTime" jdbcType="TIMESTAMP"/>
+        <result column="open_time" property="openTime" jdbcType="TIMESTAMP"/>
+        <result column="out_times" property="outTimes" jdbcType="INTEGER"/>
+        <result column="settled_time" property="settledTime" jdbcType="TIMESTAMP"/>
+        <result column="loan_title" property="loanTitle" jdbcType="VARCHAR"/>
+        <result column="days" property="days" jdbcType="INTEGER"/>
+        <result column="months" property="months" jdbcType="INTEGER"/>
+        <result column="years" property="years" jdbcType="INTEGER"/>
+        <result column="request_id" property="requestId" jdbcType="VARCHAR"/>
+        <result column="submit_time" property="submitTime" jdbcType="TIMESTAMP"/>
+        <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP"/>
+        <result column="loan_days" property="loanDays" jdbcType="INTEGER"/>
+        <result column="request_type" property="requestType" jdbcType="INTEGER"/>
+    </resultMap>
+    <resultMap id="BaseResultMapExt" type="com.zipi.entity.RmbLoan">
+        <id column="loan_id" property="loanId" jdbcType="VARCHAR"/>
+        <result column="loan_amount" property="loanAmount" jdbcType="DECIMAL"/>
+        <result column="invested_amount" property="investedAmount" jdbcType="DECIMAL"/>
+        <result column="invested_number" property="investedNumber" jdbcType="INTEGER"/>
+        <result column="repay_method" property="repayMethod" jdbcType="VARCHAR"/>
+        <result column="mortgaged" property="mortgaged" jdbcType="BIT"/>
+        <result column="rate" property="rate" jdbcType="INTEGER"/>
+        <result column="rate" property="decimalRate" jdbcType="DECIMAL"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+        <result column="cleared_time" property="clearedTime" jdbcType="TIMESTAMP"/>
+        <result column="finished_time" property="finishedTime" jdbcType="TIMESTAMP"/>
+        <result column="open_time" property="openTime" jdbcType="TIMESTAMP"/>
+        <result column="out_times" property="outTimes" jdbcType="INTEGER"/>
+        <result column="settled_time" property="settledTime" jdbcType="TIMESTAMP"/>
+        <result column="loan_title" property="loanTitle" jdbcType="VARCHAR"/>
+        <result column="days" property="days" jdbcType="INTEGER"/>
+        <result column="loan_days" property="loanDays" jdbcType="INTEGER"/>
+        <result column="months" property="months" jdbcType="INTEGER"/>
+        <result column="years" property="years" jdbcType="INTEGER"/>
+        <result column="request_id" property="requestId" jdbcType="VARCHAR"/>
+        <result column="submit_time" property="investTime" jdbcType="TIMESTAMP"/>
+        <result column="invest_amount" property="investAmount" jdbcType="DECIMAL"/>
+        <result column="frozen_amount" property="frozenAmount" jdbcType="DECIMAL"/>
+        <result column="interest_amount" property="interestAmount" jdbcType="DECIMAL"/>
+        <association property="rmbLoanRequest" column="request_id" javaType="com.zipi.entity.RmbLoanRequest">
+            <result column="lr_request_id" property="requestId" jdbcType="VARCHAR"/>
+            <result column="lr_amount" property="amount" jdbcType="DECIMAL"/>
+            <result column="lr_request_des" property="requestDes" jdbcType="VARCHAR"/>
+            <result column="lr_emp_id" property="empId" jdbcType="VARCHAR"/>
+            <result column="lr_guarantee_info" property="guaranteeInfo" jdbcType="VARCHAR"/>
+            <result column="lr_request_method" property="requestMethod" jdbcType="VARCHAR"/>
+            <result column="lr_mortgaged_info" property="mortgagedInfo" jdbcType="VARCHAR"/>
+            <result column="lr_mortgaged" property="mortgaged" jdbcType="BIT"/>
+            <result column="lr_purpose" property="purpose" jdbcType="VARCHAR"/>
+            <result column="lr_rate" property="rate" jdbcType="INTEGER"/>
+            <result column="lr_risk_info" property="riskInfo" jdbcType="VARCHAR"/>
+            <result column="lr_status" property="status" jdbcType="VARCHAR"/>
+            <result column="lr_submit_time" property="submitTime" jdbcType="TIMESTAMP"/>
+            <result column="lr_request_title" property="requestTitle" jdbcType="VARCHAR"/>
+            <result column="lr_user_id" property="userId" jdbcType="VARCHAR"/>
+            <result column="lr_days" property="days" jdbcType="INTEGER"/>
+            <result column="lr_months" property="months" jdbcType="INTEGER"/>
+            <result column="lr_years" property="years" jdbcType="INTEGER"/>
+            <result column="lr_max_amount" property="maxAmount" jdbcType="INTEGER"/>
+            <result column="lr_min_amount" property="minAmount" jdbcType="INTEGER"/>
+            <result column="lr_step_amount" property="stepAmount" jdbcType="INTEGER"/>
+            <result column="lr_loan_name" property="loanName" jdbcType="VARCHAR"/>
+            <result column="lr_id_number" property="idNumber" jdbcType="VARCHAR"/>
+            <result column="lr_request_type" property="requestType" jdbcType="VARCHAR"/>
+            <result column="lr_rate_add" property="rateAdd" jdbcType="INTEGER"/>
+            <result column="lr_guarantee_type" property="guaranteeType" jdbcType="VARCHAR"/>
+            <result column="lr_tmp_id" property="templateId" jdbcType="VARCHAR" />
+            <result column="lr_loan_property" property="loanProperty" jdbcType="TINYINT"></result>
+            <result column="lr_loan_repay" property="loanRepay" jdbcType="TINYINT"></result>
+            <result column="lr_flag_hidden" property="flagHidden" jdbcType="TINYINT" />
+            <result column="lr_compensatory_id" property="compensatoryId" jdbcType="VARCHAR" />
+            <result column="lr_loan_channel" property="loanChannel" jdbcType="VARCHAR" />
+            <association property="coreUser" column="lr_user_id" javaType="com.zipi.entity.CoreUser">
+                <result column="u_user_id" property="userId" jdbcType="VARCHAR"/>
+                <result column="u_id_number" property="idNumber" jdbcType="VARCHAR"/>
+                <result column="u_user_name" property="userName" jdbcType="VARCHAR"/>
+                <result column="u_login_name" property="loginName" jdbcType="VARCHAR"/>
+                <result column="u_userMobile" property="userMobile" jdbcType="VARCHAR"/>
+                <result column="u_company_name" property="companyName" jdbcType="VARCHAR"/>
+                <result column="u_unified_code" property="unifiedCode" jdbcType="VARCHAR"/>
+                <result column="u_enterprise" property="enterprise"/>
+                <result column="en_license_no" property="enLicenseNo"/>
+                <result column="tax_registration_number" property="taxRegistrationNumber"/>
+                <result column="organization_code" property="organizationCode"/>
+            </association>
+        </association>
+    </resultMap>
+    
+    <resultMap id="newLoanResult" type="com.zipi.entity.RmbLoan">
+        <id column="loan_id" property="loanId" jdbcType="VARCHAR"/>
+        <result column="loan_amount" property="loanAmount" jdbcType="DECIMAL"/>
+        <result column="invested_amount" property="investedAmount" jdbcType="DECIMAL"/>
+        <result column="invested_number" property="investedNumber" jdbcType="INTEGER"/>
+        <result column="repay_method" property="repayMethod" jdbcType="VARCHAR"/>
+        <result column="mortgaged" property="mortgaged" jdbcType="BIT"/>
+        <result column="rate" property="rate" jdbcType="INTEGER"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+        <result column="cleared_time" property="clearedTime" jdbcType="TIMESTAMP"/>
+        <result column="finished_time" property="finishedTime" jdbcType="TIMESTAMP"/>
+        <result column="open_time" property="openTime" jdbcType="TIMESTAMP"/>
+        <result column="out_times" property="outTimes" jdbcType="INTEGER"/>
+        <result column="settled_time" property="settledTime" jdbcType="TIMESTAMP"/>
+        <result column="loan_title" property="loanTitle" jdbcType="VARCHAR"/>
+        <result column="days" property="days" jdbcType="INTEGER"/>
+        <result column="months" property="months" jdbcType="INTEGER"/>
+        <result column="years" property="years" jdbcType="INTEGER"/>
+        <result property="loanRecommendType" column="loanRecommendType"/>
+        <association property="rmbLoanRequest" column="request_id" javaType="com.zipi.entity.RmbLoanRequest">
+			<result property="requestId" column="request_id" />
+			<result property="requestType" column="request_type" />
+			<result property="rateAdd" column="rate_add" />
+		</association>
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+    loan_id, loan_amount, invested_amount, invested_number, repay_method, mortgaged,
+    rate, status, cleared_time, finished_time, open_time, out_times, settled_time, loan_title,
+    days, months, years, request_id
+  </sql>
+    <sql id="rmbLoan_Column_List">
+
+    L.loan_id, L.loan_amount, L.invested_amount, L.invested_number, L.repay_method, L.mortgaged,
+    L.rate, L.status, L.cleared_time, L.finished_time, L.open_time, L.out_times, L.settled_time, L.loan_title,
+    L.days, L.months, L.years, L.request_id,L.loan_days,L.frozen_amount
+  </sql>
+    <sql id="rmbLoanRequest_Column_List">
+    LR.request_id as lr_request_id, LR.request_des as lr_request_des, LR.emp_id as lr_emp_id, LR.guarantee_info as lr_guarantee_info, LR.request_method as lr_request_method, LR.mortgaged_info as lr_mortgaged_info,
+    LR.mortgaged as lr_mortgaged, LR.purpose as lr_purpose, LR.rate as lr_rate, LR.risk_info as lr_risk_info, LR.status as lr_status, LR.submit_time as lr_submit_time, LR.request_title as lr_request_title, LR.user_id as lr_user_id,
+    LR.days as lr_days, LR.months as lr_months, LR.years as lr_years,LR.max_amount as  lr_max_amount, LR.min_amount as lr_min_amount,LR.step_amount as lr_step_amount, LR.loan_name as lr_loan_name, LR.id_number as lr_id_number, LR.request_type as lr_request_type,
+    LR.rate_add as lr_rate_add,LR.guarantee_type as lr_guarantee_type,LR.tmp_id as lr_tmp_id,LR.loan_property as lr_loan_property,LR.loan_repay as lr_loan_repay,LR.flag_hidden as lr_flag_hidden,LR.top_time AS top_time,
+    LR.compensatory_id AS lr_compensatory_id,LR.loan_channel AS lr_loan_channel
+  </sql>
+    <sql id="rmbLoanRequest_Column_List_No_User_Info">
+        LR.request_id as lr_request_id, LR.request_des as lr_request_des, LR.guarantee_info as lr_guarantee_info, LR.request_method as lr_request_method, LR.mortgaged_info as lr_mortgaged_info,
+        LR.mortgaged as lr_mortgaged, LR.purpose as lr_purpose, LR.rate as lr_rate, LR.risk_info as lr_risk_info, LR.status as lr_status, LR.submit_time as lr_submit_time, LR.request_title as lr_request_title,
+        LR.days as lr_days, LR.months as lr_months, LR.years as lr_years,LR.max_amount as  lr_max_amount, LR.min_amount as lr_min_amount,LR.step_amount as lr_step_amount, LR.loan_name as lr_loan_name,  LR.request_type as lr_request_type,
+        LR.rate_add as lr_rate_add,LR.guarantee_type as lr_guarantee_type,LR.tmp_id as lr_tmp_id,LR.loan_property as lr_loan_property,LR.loan_repay as lr_loan_repay,LR.flag_hidden as lr_flag_hidden,LR.top_time AS top_time
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+
+        select
+        <include refid="Base_Column_List"/>
+        from tb_rmbbox_loan
+        where loan_id = #{loanId,jdbcType=VARCHAR}
+    </select>
+
+    <insert id="insert" parameterType="com.zipi.entity.RmbLoan">
+        <selectKey resultType="java.lang.String" order="BEFORE" keyProperty="loanId" keyColumn="loan_id">
+            SELECT UPPER(UUID()) AS loanId
+        </selectKey>
+        insert into tb_rmbbox_loan (loan_id, loan_amount, invested_amount,
+        invested_number, repay_method, mortgaged,
+        rate, status, cleared_time,
+        finished_time, open_time, out_times,
+        settled_time, loan_title, days,
+        months, years, request_id,loan_days
+        )
+        values (#{loanId}, #{loanAmount,jdbcType=DECIMAL}, #{investedAmount,jdbcType=DECIMAL},
+        #{investedNumber,jdbcType=INTEGER}, #{repayMethod,jdbcType=VARCHAR}, #{mortgaged},
+        #{rate,jdbcType=INTEGER}, #{status,jdbcType=VARCHAR}, #{clearedTime,jdbcType=TIMESTAMP},
+        #{finishedTime,jdbcType=TIMESTAMP}, #{openTime,jdbcType=TIMESTAMP}, #{outTimes,jdbcType=INTEGER},
+        #{settledTime,jdbcType=TIMESTAMP}, #{loanTitle,jdbcType=VARCHAR}, #{days,jdbcType=INTEGER},
+        #{months,jdbcType=INTEGER}, #{years,jdbcType=INTEGER}, #{requestId,jdbcType=VARCHAR},#{loanDays,jdbcType=INTEGER}
+        )
+    </insert>
+    <select id="getRmbLoanByRequestId" resultMap="BaseResultMap">
+    SELECT * FROM tb_rmbbox_loan WHERE request_id = #{requestId,jdbcType=VARCHAR}
+  </select>
+    <select id="getLoanList" resultMap="BaseResultMapExt" parameterType="java.util.HashMap">
+        SELECT
+        <include refid="rmbLoan_Column_List"/>
+        ,
+        <include refid="rmbLoanRequest_Column_List"/>
+        ,
+        u.user_id AS u_user_id,
+        e.emp_id AS e_emp_id,
+        e.user_name AS e_user_name,
+        u.user_name AS u_user_name,
+        u.id_number AS u_id_number
+        FROM
+        tb_rmbbox_loan l
+        LEFT JOIN tb_rmbbox_loan_request LR ON L.request_id = LR.request_id
+        LEFT JOIN
+        tb_core_employee e ON lr.emp_id = e.emp_id
+        LEFT JOIN
+        tb_core_user u ON u.user_id = lr.user_id
+        LEFT JOIN
+        tb_core_user_extension_info ei on lr.user_id = ei.user_id
+        WHERE l.STATUS = #{loanStatus}
+        <if test="startDate != null and endDate != null">
+            and (l.finished_time between #{startDate} and #{endDate})
+        </if>
+        <if test="loanProperty != null" >
+            AND LR.loan_property = #{loanProperty,jdbcType=VARCHAR}
+        </if>
+        <if test="userSource!=null and userSource!=''">
+            and ei.register_source_type = #{userSource}
+        </if>
+        AND ( l.loan_title LIKE binary concat('%',#{search},'%')
+        OR U.user_name LIKE binary concat('%',#{search})
+        OR U.user_name LIKE binary concat(#{search},'%')
+        OR l.loan_amount LIKE concat('%',#{search},'%')
+        )
+        order by ${sortCol} ${direction}
+        <if test="page!=null">
+        limit #{page.startRow},#{page.pageSize}
+        </if>
+    </select>
+    <select id="getLoanListWithDownload" resultMap="BaseResultMapExt" parameterType="java.util.HashMap">
+        SELECT
+        <include refid="rmbLoan_Column_List"/>
+        ,
+        <include refid="rmbLoanRequest_Column_List"/>
+        ,
+        u.user_id AS u_user_id,
+        e.emp_id AS e_emp_id,
+        e.user_name AS e_user_name,
+        u.user_name AS u_user_name,
+        u.id_number AS u_id_number
+        FROM
+        tb_rmbbox_loan l
+        LEFT JOIN tb_rmbbox_loan_request LR ON L.request_id = LR.request_id
+        LEFT JOIN
+        tb_core_employee e ON lr.emp_id = e.emp_id
+        LEFT JOIN
+        tb_core_user u ON u.user_id = lr.user_id
+        WHERE l.STATUS = #{loanStatus}
+        <if test="loanProperty != null" >
+            AND LR.loan_property = #{loanProperty,jdbcType=VARCHAR}
+        </if>
+        AND ( l.loan_title LIKE binary concat('%',#{search},'%')
+        OR U.user_name LIKE binary concat('%',#{search})
+        OR U.user_name LIKE binary concat(#{search},'%')
+        OR l.loan_amount LIKE concat('%',#{search},'%')
+        )
+        order by ${sortCol} ${direction}
+    </select>
+    <select id="getLoanListCount" resultType="java.lang.Integer">
+    SELECT
+    COUNT(1)
+    FROM
+    tb_rmbbox_loan l
+    LEFT JOIN tb_rmbbox_loan_request LR ON L.request_id = LR.request_id
+    LEFT JOIN tb_core_user_extension_info ei on lr.user_id = ei.user_id
+    WHERE  l.STATUS = #{loanStatus}
+        <if test="startDate != null and endDate != null">
+            and (l.finished_time between #{startDate} and #{endDate})
+        </if>
+        <if test="loanProperty != null" >
+            AND LR.loan_property = #{loanProperty,jdbcType=VARCHAR}
+        </if>
+        <if test="userSource!=null and userSource!=''">
+            and ei.register_source_type = #{userSource}
+        </if>
+    AND  ( l.loan_title LIKE binary concat('%',#{search},'%')
+    OR LR.loan_name LIKE binary concat('%',#{search})
+    OR LR.loan_name LIKE binary concat(#{search},'%')
+    OR l.loan_amount LIKE concat('%',#{search},'%')
+    )
+  </select>
+    <select id="getEditLoanList" resultMap="BaseResultMapExt">
+        SELECT
+        <include refid="rmbLoan_Column_List"/>
+        ,
+        <include refid="rmbLoanRequest_Column_List"/>
+        FROM
+        tb_rmbbox_loan L
+        LEFT JOIN tb_rmbbox_loan_request LR ON L.request_id = LR.request_id
+    </select>
+    <select id="getLoanInfoByLoanId" resultMap="BaseResultMapExt" parameterType="java.lang.String">
+        SELECT
+        <include refid="rmbLoan_Column_List"/>
+        ,
+        <include refid="rmbLoanRequest_Column_List"/>
+        ,
+        u.user_id AS u_user_id,
+        e.emp_id AS e_emp_id,
+        e.user_name AS e_user_name,
+        u.user_name AS u_user_name,
+        u.login_name AS u_login_name,
+        u.id_number AS u_id_number,
+        u.user_mobile AS u_userMobile,
+        u.company_name as u_company_name,
+        REPLACE(u.unified_code,left(right(u.unified_code,5),3),'***') as u_unified_code,
+        u.enterprise as u_enterprise,
+        u.en_license_no as en_license_no,
+        u.tax_registration_number as tax_registration_number,
+        u.organization_code as organization_code
+        FROM
+        tb_rmbbox_loan L
+        LEFT JOIN tb_rmbbox_loan_request LR ON L.request_id = LR.request_id
+        LEFT JOIN
+        tb_core_employee e ON lr.emp_id = e.emp_id
+        LEFT JOIN
+        tb_core_user u ON u.user_id = lr.user_id
+        WHERE L.loan_id = #{loanId}
+    </select>
+    <select id="getLoanListByLoanStatus" resultMap="BaseResultMapExt" parameterType="com.zipi.enums.loan.LoanStatus">
+        SELECT
+        <include refid="rmbLoan_Column_List"/>
+        ,
+        <include refid="rmbLoanRequest_Column_List"/>
+        FROM
+        tb_rmbbox_loan L
+        LEFT JOIN tb_rmbbox_loan_request LR ON L.request_id = LR.request_id
+        WHERE L.status = #{loanStatus}
+    </select>
+    <select id="listByLoanStatusForPagger" resultMap="BaseResultMapExt">
+        SELECT
+        <include refid="rmbLoan_Column_List"/>
+        ,
+        <include refid="rmbLoanRequest_Column_List"/>
+        FROM
+        tb_rmbbox_loan L
+        LEFT JOIN tb_rmbbox_loan_request LR ON
+        L.request_id = LR.request_id
+        WHERE L.status in
+        <foreach collection="statusList" open="(" close=")" item="status"
+                 index="" separator=",">
+            #{status}
+        </foreach>
+        LIMIT #{pageInfo.startRow},#{pageInfo.pageSize}
+    </select>
+    <select id="listCountByLoanStatusForPagger" resultType="int">
+        SELECT count(*)
+        FROM
+        tb_rmbbox_loan l
+        where l.status in
+        <foreach collection="statusList" open="(" close=")" item="status"
+                 index="" separator=",">
+            #{status}
+        </foreach>
+    </select>
+
+
+    <select id="getLoanInfoByLoanIdAndStatus" resultMap="BaseResultMapExt">
+        SELECT
+        <include refid="rmbLoan_Column_List"/>
+        ,
+        <include refid="rmbLoanRequest_Column_List"/>
+        FROM
+        tb_rmbbox_loan L
+        LEFT JOIN tb_rmbbox_loan_request LR ON L.request_id = LR.request_id
+        WHERE L.loan_id = #{loanId}
+        and L.status = #{status}
+    </select>
+    <update id="markLoanStatus">
+        UPDATE tb_rmbbox_loan
+        SET status=#{loanStatus}
+        WHERE loan_id =#{loanId}
+    </update>
+    <update id="update" parameterType="com.zipi.entity.RmbLoan">
+        update tb_rmbbox_loan
+        <set>
+            <if test="loanAmount != null">
+                loan_amount = #{loanAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="investedAmount != null">
+                invested_amount = #{investedAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="investedNumber != null">
+                invested_number = #{investedNumber,jdbcType=INTEGER},
+            </if>
+            <if test="repayMethod != null">
+                repay_method = #{repayMethod,jdbcType=VARCHAR},
+            </if>
+            <if test="mortgaged != null">
+                mortgaged = #{mortgaged,jdbcType=BIT},
+            </if>
+            <if test="rate != null">
+                rate = #{rate,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="clearedTime != null">
+                cleared_time = #{clearedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="finishedTime != null">
+                finished_time = #{finishedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="openTime != null">
+                open_time = #{openTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="outTimes != null">
+                out_times = #{outTimes,jdbcType=INTEGER},
+            </if>
+            <if test="settledTime != null">
+                settled_time = #{settledTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="loanTitle != null">
+                loan_title = #{loanTitle,jdbcType=VARCHAR},
+            </if>
+            <if test="days != null">
+                days = #{days,jdbcType=INTEGER},
+            </if>
+            <if test="months != null">
+                months = #{months,jdbcType=INTEGER},
+            </if>
+            <if test="years != null">
+                years = #{years,jdbcType=INTEGER},
+            </if>
+            <if test="requestId != null">
+                request_id = #{requestId,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where loan_id = #{loanId,jdbcType=VARCHAR}
+    </update>
+
+    <update id="updateByFinish">
+        update tb_rmbbox_loan
+        set status = 'FINISHED',
+            finished_time = now()
+        where loan_id = #{loanId,jdbcType=VARCHAR} and status = 'OPENED' and loan_amount = invested_amount and frozen_amount = 0
+    </update>
+
+    <select id="getLoanByUser" resultMap="BaseResultMap">
+        select * from tb_rmbbox_loan, tb_rmbbox_loan_request where tb_rmbbox_loan.request_id = tb_rmbbox_loan_request.request_id
+        and tb_rmbbox_loan_request.user_id = #{userId}
+        order by tb_rmbbox_loan_request.submit_time desc
+        limit #{start},#{end}
+    </select>
+
+    <select id="getRmbLoanList" resultMap="BaseResultMap">
+        select * from tb_rmbbox_loan, tb_rmbbox_loan_request where tb_rmbbox_loan.request_id = tb_rmbbox_loan_request.request_id
+        and tb_rmbbox_loan_request.user_id = #{userId} and tb_rmbbox_loan.status != 'FAILED'
+        <if test="status!=null">
+            and tb_rmbbox_loan.status IN
+            <foreach collection="status" item="stat" open="(" close=")" separator=",">
+                #{stat}
+            </foreach>
+        </if>
+        <if test="startDate != null and endDate != null">
+            and (tb_rmbbox_loan_request.submit_time between #{startDate} and #{endDate})
+        </if>
+        <if test="submitTime != null">
+            and tb_rmbbox_loan_request.submit_time <![CDATA[<]]> #{submitTime}
+        </if>
+        order by tb_rmbbox_loan.status = 'CLEARED',tb_rmbbox_loan.status = 'SETTLED', tb_rmbbox_loan_request.submit_time desc
+        <if test="limitStart != null and limitCount != null">
+            limit #{limitStart},#{limitCount}
+        </if>
+    </select>
+
+    <select id="getRmbLoanTotalCount" resultType="int">
+        select COALESCE (count(*),0)
+        from tb_rmbbox_loan, tb_rmbbox_loan_request
+        where tb_rmbbox_loan.request_id = tb_rmbbox_loan_request.request_id
+        and tb_rmbbox_loan_request.user_id = #{userId}
+        <if test="startDate != null and endDate != null">
+            and (tb_rmbbox_loan_request.submit_time between #{startDate} and #{endDate})
+        </if>
+        <if test="status!=null">
+            and tb_rmbbox_loan.status IN
+            <foreach collection="status" item="stat" open="(" close=")" separator=",">
+                #{stat}
+            </foreach>
+        </if>
+    </select>
+
+    <select id="countByUser" resultType="int">
+        select count(*) from tb_rmbbox_loan, tb_rmbbox_loan_request where tb_rmbbox_loan.request_id = tb_rmbbox_loan_request.request_id
+        and tb_rmbbox_loan_request.user_id = #{userId}
+    </select>
+
+	<select id="listRecomLoanByRecomTypeAndLoanStatus" resultMap="BaseResultMapExt">
+		select
+		<include refid="rmbLoan_Column_List" />
+		,
+		<include refid="rmbLoanRequest_Column_List" />
+		from tb_rmbbox_loan L, tb_rmbbox_loan_request
+		LR,tb_rmbbox_loan_recommend
+		recommend
+		where L.request_id = LR.request_id
+		and recommend.loan_id=L.loan_id
+            AND recommend.enable = 1
+			and recommend.type in
+			<foreach collection="loanRecommendType" open="(" close=")"
+				item="status" index="" separator=",">
+				#{status}
+			</foreach>
+			and L.status in
+			<foreach collection="loanStatus" open="(" close=")" item="status"
+				index="" separator=",">
+				#{status}
+			</foreach>
+	</select>
+    <select id="listLoanByLoanStatusAndExceptLoans" resultMap="BaseResultMapExt">
+        select
+        <include refid="rmbLoan_Column_List" />
+        ,
+        <include refid="rmbLoanRequest_Column_List" />
+        from tb_rmbbox_loan L, tb_rmbbox_loan_request
+        LR
+        where L.request_id = LR.request_id
+            and L.status in
+            <foreach collection="loanStatus" open="(" close=")" item="status"
+                index="" separator=",">
+                #{status}
+            </foreach>
+    <if test="exceptLoans!=null">
+        AND L.loan_id NOT IN
+        <foreach collection="exceptLoans" open="(" close=")" item="loanid"
+            index="" separator=",">
+            #{loanid}
+        </foreach>
+    </if>
+    </select>
+
+    <select id="staLoanInfoAndPage" resultMap="BaseResultMapExt">
+        SELECT
+        <include refid="rmbLoan_Column_List"/>
+        ,
+        <include refid="rmbLoanRequest_Column_List"/>
+        ,
+        u.user_id AS u_user_id,
+        e.emp_id AS e_emp_id,
+        e.user_name AS e_user_name,
+        u.user_name AS u_user_name,
+        u.id_number AS u_id_number
+        FROM
+        tb_rmbbox_loan l
+        LEFT JOIN
+        tb_rmbbox_loan_request lr ON l.request_id = lr.request_id
+        LEFT JOIN
+        tb_core_employee e ON lr.emp_id = e.emp_id or lr.emp_id = e.emp_id
+        LEFT JOIN
+        tb_core_user u ON u.user_id = lr.user_id
+        <where>
+            <if test="startDate!=null and endDate!=null">
+                and l.open_time between #{startDate} and #{endDate}
+            </if>
+            <if test="search!=null">
+                AND ( l.loan_title LIKE binary concat('%',#{search},'%')
+                OR U.user_name LIKE binary concat('%',#{search})
+                OR U.user_name LIKE binary concat(#{search},'%')
+                OR l.loan_amount LIKE concat('%',#{search},'%')
+                )
+            </if>
+        </where>
+        order by l.open_time DESC
+        LIMIT #{pageInfo.startRow},#{pageInfo.pageSize}
+    </select>
+
+    <select id="staLoanInfoAndDown" resultMap="BaseResultMapExt">
+        SELECT
+        <include refid="rmbLoan_Column_List"/>
+        ,
+        <include refid="rmbLoanRequest_Column_List"/>
+        ,
+        u.user_id AS u_user_id,
+        e.emp_id AS e_emp_id,
+        e.user_name AS e_user_name,
+        u.user_name AS u_user_name,
+        u.id_number AS u_id_number
+        FROM
+        tb_rmbbox_loan l
+        LEFT JOIN
+        tb_rmbbox_loan_request lr ON l.request_id = lr.request_id
+        LEFT JOIN
+        tb_core_employee e ON lr.emp_id = e.emp_id or lr.emp_id = e.emp_id
+        LEFT JOIN
+        tb_core_user u ON u.user_id = lr.user_id
+        <where>
+            <if test="startDate!=null and endDate!=null">
+                and l.open_time between #{startDate} and #{endDate}
+            </if>
+            <if test="search!=null">
+                AND ( l.loan_title LIKE binary concat('%',#{search},'%')
+                OR U.user_name LIKE binary concat('%',#{search})
+                OR U.user_name LIKE binary concat(#{search},'%')
+                OR l.loan_amount LIKE concat('%',#{search},'%')
+                )
+            </if>
+        </where>
+        order by l.open_time DESC
+    </select>
+
+    <select id="countLoanInfos" resultType="java.lang.Integer">
+        SELECT
+        Count(1)
+        FROM
+        tb_rmbbox_loan l
+        LEFT JOIN
+        tb_rmbbox_loan_request lr ON l.request_id = lr.request_id
+        LEFT JOIN
+        tb_core_employee e ON lr.emp_id = e.emp_id or lr.emp_id = e.emp_id
+        LEFT JOIN
+        tb_core_user u ON u.user_id = lr.user_id
+        <where>
+            <if test="startDate!=null and endDate!=null">
+                and l.open_time between #{startDate} and #{endDate}
+            </if>
+            <if test="search!=null">
+                AND ( l.loan_title LIKE binary concat('%',#{search},'%')
+                OR U.user_name LIKE binary concat('%',#{search})
+                OR U.user_name LIKE binary concat(#{search},'%')
+                OR l.loan_amount LIKE concat('%',#{search},'%')
+                )
+            </if>
+        </where>
+    </select>
+    
+    <select id="listByStatus" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+		SELECT l.*
+		FROM tb_rmbbox_loan l,
+		tb_rmbbox_loan_request lr
+		WHERE l.REQUEST_ID = lr.request_id
+		AND l.status IN
+		<foreach collection="statusList" open="(" close=")" item="status"
+			index="" separator=",">
+			#{status}
+		</foreach>
+		ORDER BY l.open_time DESC
+	</select>
+    <select id="listRmbLoanListForMarket" resultMap="BaseResultMapExt">
+        select
+        <include refid="rmbLoan_Column_List"/>
+        ,
+        <include refid="rmbLoanRequest_Column_List_No_User_Info"/>
+        from tb_rmbbox_loan L, tb_rmbbox_loan_request LR
+        where
+            L.request_id = LR.request_id and LR.flag_hidden = 0 and LR.flag_channel = 0
+            <if test="rateStart != null">
+                <![CDATA[and L.rate > #{rateStart}]]>
+            </if>
+            <if test="rateEnd != null">
+                <![CDATA[and L.rate <= #{rateEnd}]]>
+            </if>
+            <if test="monthStart != null and monthEnd != null">
+            	and L.months <![CDATA[<=]]> #{monthEnd}
+                and L.months <![CDATA[>]]> #{monthStart}
+                and L.years <![CDATA[<]]> 1
+            </if>
+            <if test="monthStart != null and monthStart != 0 and monthEnd == null">
+                and L.years <![CDATA[>=]]> 1
+            </if>
+            <if test="statusList != null">
+                and L.status in
+                <foreach collection="statusList" open="(" close=")" index="" item="status" separator=",">
+                    #{status}
+                </foreach>
+            </if>
+            <if test="requestType != null and requestType != ''">
+
+                <choose>
+                    <when test="requestType=='X_D_B'">
+                        and LR.request_type in ('X_D_B','P_X_D_B')
+                    </when>
+                    <when test="requestType=='P_J_B'">
+                        and LR.request_type in ('P_J_B','S_P_J_B')
+                    </when>
+                    <otherwise>
+                        and LR.request_type = #{requestType}
+                    </otherwise>
+                </choose>
+
+
+                and LR.loan_property <![CDATA[!=]]> 1
+            </if>
+            <if test="loanDaysStart != null and loanDaysStart != 0">
+                and L.loan_days <![CDATA[>=]]> #{loanDaysStart}
+            </if>
+            <if test="loanDaysEnd != null and loanDaysEnd != 0">
+                and L.loan_days <![CDATA[<=]]> #{loanDaysEnd}
+            </if>
+        order by FIELD(L.status,'SCHEDULED','OPENED','FINISHED','SETTLED','CLEARED'),
+        L.finished_time desc,FIELD(LR.loan_property,1,3,2,0),L.open_time
+        <if test="pageInfo != null">
+            LIMIT #{pageInfo.startRow},#{pageInfo.pageSize}
+        </if>
+    </select>
+    
+    <select id="countRmbLoanListForMarket" resultType="int">
+        select
+        count(*)
+        from tb_rmbbox_loan L, tb_rmbbox_loan_request LR
+        where
+            L.request_id = LR.request_id and LR.flag_hidden = 0 and LR.flag_channel = 0
+            <if test="rateStart != null">
+                <![CDATA[and L.rate > #{rateStart}]]>
+            </if>
+            <if test="rateEnd != null">
+                <![CDATA[and L.rate <= #{rateEnd}]]>
+            </if>
+            <if test="monthStart != null and monthEnd != null">
+            	and L.months <![CDATA[<=]]> #{monthEnd}
+                and L.months <![CDATA[>]]> #{monthStart}
+                and L.years <![CDATA[<]]> 1
+            </if>
+            <if test="monthStart != null and monthStart != 0 and monthEnd == null">
+                and L.years <![CDATA[>=]]> 1
+            </if>
+            <if test="statusList != null">
+                and L.status in
+                <foreach collection="statusList" open="(" close=")" index="" item="status" separator=",">
+                    #{status}
+                </foreach>
+            </if>
+            <if test="requestType != null and requestType != ''">
+
+                <choose>
+                    <when test="requestType=='X_D_B'">
+                        and LR.request_type in ('X_D_B','P_X_D_B')
+                    </when>
+                    <when test="requestType=='P_J_B'">
+                        and LR.request_type in ('P_J_B','S_P_J_B')
+                    </when>
+                    <otherwise>
+                        and LR.request_type = #{requestType}
+                    </otherwise>
+                </choose>
+
+                and LR.loan_property <![CDATA[!=]]> 1
+            </if>
+            <if test="loanDaysStart != null and loanDaysStart != 0">
+                and L.loan_days <![CDATA[>=]]> #{loanDaysStart}
+            </if>
+            <if test="loanDaysEnd != null and loanDaysEnd != 0">
+                and L.loan_days <![CDATA[<=]]> #{loanDaysEnd}
+            </if>
+    </select>
+
+    <update id="updateRequestTitle" parameterType="com.zipi.entity.RmbLoan">
+        update tb_rmbbox_loan set loan_title = #{loanTitle,jdbcType=VARCHAR} WHERE loan_id = #{loanId,jdbcType=VARCHAR}
+    </update>
+    
+    <select id="listByStatusForPager" resultMap="newLoanResult">
+		SELECT l.*,
+			   lr.request_type,
+			   lr.rate_add,
+			   ld.type as loanRecommendType
+		  FROM tb_rmbbox_loan l
+          LEFT JOIN tb_rmbbox_loan_recommend ld ON l.loan_id = ld.loan_id and ld.ENABLE = 1,tb_rmbbox_loan_request lr
+		WHERE l.REQUEST_ID = lr.request_id
+		<if test="exceptLoans!=null">
+			AND l.loan_id NOT IN
+			<foreach collection="exceptLoans" open="(" close=")" item="loanid"
+				index="" separator=",">
+				#{loanid}
+			</foreach>
+		</if>
+		AND l.status IN
+		<foreach collection="statusList" open="(" close=")" item="status"
+			index="" separator=",">
+			#{status}
+		</foreach>
+		ORDER BY  l.status='SCHEDULED' desc, l.status='OPENED' desc,
+			l.open_time DESC,
+			l.settled_time DESC
+		LIMIT #{page.startRow},#{page.pageSize}
+	</select>
+	
+	<select id="listByStatusForCount" resultType="int">
+		SELECT count(*)
+		FROM tb_rmbbox_loan l,
+		tb_rmbbox_loan_request lr
+		WHERE l.REQUEST_ID = lr.request_id AND lr.flag_hidden = FALSE
+		<if test="exceptLoans!=null">
+			AND l.loan_id NOT IN
+			<foreach collection="exceptLoans" open="(" close=")" item="loanid"
+				index="" separator=",">
+				#{loanid}
+			</foreach>
+		</if>
+        <if test="requestType != null and requestType != ''">
+            <choose>
+                <when test="requestType=='X_D_B'">
+                    and LR.request_type in ('X_D_B','P_X_D_B')
+                </when>
+                <when test="requestType=='P_J_B'">
+                    and LR.request_type in ('P_J_B','S_P_J_B')
+                </when>
+                <otherwise>
+                    and LR.request_type = #{requestType}
+                </otherwise>
+            </choose>
+            AND lr.loan_property <![CDATA[!=]]> 1
+        </if>
+        and l.status in
+		<foreach collection="statusList" open="(" close=")" item="status"
+			index="" separator=",">
+			#{status}
+		</foreach>
+	</select>
+	
+	<update id="modifyAmountAndInvestNum">
+		update tb_rmbbox_loan
+		   set invested_amount = invested_amount + #{amount},
+        <if test=" flagAppointment != null and flagAppointment == 1 ">
+            frozen_amount = frozen_amount - #{amount},
+        </if>
+		   	   invested_number = invested_number + 1
+		 where loan_id = #{loanId}
+
+        <if test=" flagAppointment != null and flagAppointment == 1 ">
+            and invested_amount + frozen_amount  <![CDATA[<=]]> loan_amount
+        </if>
+        <if test=" flagAppointment != null and flagAppointment == 0 ">
+            and invested_amount + frozen_amount + #{amount} <![CDATA[<=]]> loan_amount
+        </if>
+
+	</update>
+
+
+	<select id="listByStatusAndPeriod" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		SELECT *
+		FROM tb_rmbbox_loan WHERE 1=1
+		AND status IN
+		<foreach collection="loanStatuses" open="(" separator=","
+			close=")" index="" item="status">
+			#{status}
+		</foreach>
+		<if test="startRow!=null and pageSize!=null">
+			LIMIT #{startRow},#{pageSize}
+		</if>
+	</select>
+<!-- 	fhj 直投列表查询 根据产品配置 进行对应排序 -->
+	<select id="listRmbLoanListForMarketByIndex" resultMap="BaseResultMapExt">
+        select * from (
+        	select
+        <include refid="rmbLoan_Column_List"/>
+        ,
+        <include refid="rmbLoanRequest_Column_List"/>
+
+        from tb_rmbbox_loan L, tb_rmbbox_loan_request LR
+        where
+            L.request_id = LR.request_id and LR.flag_hidden = 0 and LR.flag_channel = 0
+            <if test="requestType != null and requestType != ''">
+
+                <choose>
+                    <when test="requestType=='X_D_B'">
+                        and LR.request_type in ('X_D_B','P_X_D_B')
+                    </when>
+                    <when test="requestType=='P_J_B'">
+                        and LR.request_type in ('P_J_B','S_P_J_B')
+                    </when>
+                    <otherwise>
+                        and LR.request_type = #{requestType}
+                    </otherwise>
+                </choose>
+
+                and LR.loan_property <![CDATA[!=]]> 1
+            </if>
+            <if test="rateStart != null">
+                <![CDATA[and L.rate > #{rateStart}]]>
+            </if>
+            <if test="rateEnd != null">
+                <![CDATA[and L.rate <= #{rateEnd}]]>
+            </if>
+            <if test="monthStart != null and monthEnd != null">
+            	and L.months <![CDATA[<=]]> #{monthEnd}
+                and L.months <![CDATA[>]]> #{monthStart}
+                and L.years <![CDATA[<]]> 1
+            </if>
+            <if test="monthStart != null and monthStart != 0 and monthEnd == null">
+                and L.years <![CDATA[>=]]> 1
+            </if>
+
+            <if test="statusList != null">
+                and L.status in
+                <foreach collection="statusList" open="(" close=")" index="" item="status" separator=",">
+                    #{status}
+                </foreach>
+            </if>
+        ) a
+        order by FIELD(a.status,'SCHEDULED','OPENED','FINISHED','SETTLED','CLEARED'),
+        a.finished_time desc,FIELD(a.lr_loan_property,1,3,2,0),a.open_time
+        <if test="pageInfo != null">
+            LIMIT #{pageInfo.startRow},#{pageInfo.pageSize}
+        </if>
+    </select>
+
+    <update id="updateLoanStatusWhenLastPeriods">
+        UPDATE
+            tb_rmbbox_loan
+        SET
+            cleared_time = now(), status = 'CLEARED'
+        WHERE
+            loan_id = #{loanId} and status <![CDATA[<>]]> 'CLEARED'
+    </update>
+
+    <!--查询新手标一个-->
+    <select id="rmbLoanByProperty" resultMap="BaseResultMapExt" parameterType="java.util.HashMap">
+        select
+        <include refid="rmbLoan_Column_List"/>
+        ,
+        <include refid="rmbLoanRequest_Column_List"/>
+        from tb_rmbbox_loan L, tb_rmbbox_loan_request LR
+        where
+        L.request_id = LR.request_id
+        and LR.loan_property = 1
+        <if test="statusList != null">
+            and L.status in
+            <foreach collection="statusList" open="(" close=")" index="" item="status" separator=",">
+                #{status}
+            </foreach>
+        </if>
+        order by L.status='SCHEDULED' desc, L.status='OPENED' desc, L.status='FINISHED' desc , L.status='SETTLED' desc,L.status='CLEARED' desc,
+        L.open_time desc
+        <if test="startRow != null and pageSize != null">
+            LIMIT #{startRow},#{pageSize}
+        </if>
+    </select>
+
+    <!--查询推荐标两个-->
+    <select id="rmbLoanListByProperty" resultMap="BaseResultMapExt" parameterType="java.util.HashMap">
+        select
+        <include refid="rmbLoan_Column_List"/>
+        ,
+        <include refid="rmbLoanRequest_Column_List"/>
+        from tb_rmbbox_loan L, tb_rmbbox_loan_request LR
+        where
+        L.request_id = LR.request_id
+        and LR.loan_property = 2
+        <if test="statusList != null">
+            and L.status in
+            <foreach collection="statusList" open="(" close=")" index="" item="status" separator=",">
+                #{status}
+            </foreach>
+        </if>
+        order by L.status='SCHEDULED' desc, L.status='OPENED' desc, L.status='FINISHED' desc , L.status='SETTLED' desc,L.status='CLEARED' desc,
+        L.open_time DESC
+        <if test="startRow != null and pageSize != null">
+            LIMIT #{startRow},#{pageSize}
+        </if>
+    </select>
+
+
+    <select id="getLoanByLoanId" resultType="com.zipi.entity.RmbLoan">
+        SELECT
+        rl.loan_amount AS loanAmount,
+        rl.rate,
+        rl.settled_time AS settledTime,
+        rl.open_time AS openTime,
+        rlr.purpose,
+        rl.months,
+        rl.years,
+        rl.repay_method AS repayMethod,
+        rl.request_id AS requestId
+        FROM tb_rmbbox_loan_request rlr,tb_rmbbox_loan rl
+        WHERE rlr.request_id=rl.request_id
+        AND rl.loan_id=#{loanId}
+    </select>
+    <select id="getLoanByLoanIdAndUserId" resultMap="BaseResultMap">
+        SELECT rlr.request_type
+        FROM tb_rmbbox_loan rl,tb_rmbbox_loan_request rlr
+        WHERE rlr.request_id=rl.request_id
+        AND rl.loan_id=#{loanId}
+        AND rlr.user_id=#{userId}
+    </select>
+
+    <select id="getIntelligentLoansForMatching" resultMap="BaseResultMapExt" parameterType="java.lang.String">
+        SELECT
+        <include refid="rmbLoan_Column_List"/>
+        ,
+        <include refid="rmbLoanRequest_Column_List"/>
+
+        FROM
+        tb_rmbbox_loan_request LR,
+        tb_rmbbox_loan L
+        WHERE
+        L.request_id = LR.request_id
+        AND LR.loan_property = 3
+        AND LR.flag_hidden = 1
+        AND L.status = 'OPENED'
+        AND LR.processing_level = 1
+        ORDER BY L.open_time
+
+
+    </select>
+
+    <update id="updateLoanFrozenAmountByLoanId">
+        UPDATE
+          tb_rmbbox_loan
+        SET
+          frozen_amount = frozen_amount + #{frozenAmount}
+        WHERE
+          loan_id = #{loanId} and status <![CDATA[=]]> 'OPENED'
+          and invested_amount  + #{frozenAmount} <![CDATA[<=]]> loan_amount
+          and frozen_amount <![CDATA[<=]]> loan_amount
+    </update>
+
+    <select id="queryMatchLoanInfo" resultMap="BaseResultMapExt">
+        SELECT l.*,i.submit_time AS submit_time,i.invest_amount AS invest_amount,r.request_type AS lr_request_type,ifnull(i.interest_amount, 0) AS interest_amount
+        from tb_rmbbox_invest i,tb_rmbbox_loan l,tb_rmbbox_loan_request r
+        WHERE i.loan_id = l.loan_id and l.request_id = r.request_id
+        and i.rule_id = #{appointmentId}
+        and i.user_id = #{userId}
+        ORDER BY i.submit_time DESC
+        <if test="pageInfo != null">
+            limit #{pageInfo.startRow}, #{pageInfo.pageSize}
+        </if>
+    </select>
+    <select id="countMatchLoanInfo" resultType="Integer">
+        SELECT count(*) from tb_rmbbox_invest i,tb_rmbbox_loan l,tb_rmbbox_loan_request r
+        WHERE i.loan_id = l.loan_id and l.request_id = r.request_id
+        and i.rule_id = #{appointmentId}
+        and i.user_id = #{userId}
+    </select>
+
+    <update id="subLoanFrozenAmountByLoanId">
+        UPDATE
+        tb_rmbbox_loan
+        SET
+        frozen_amount = frozen_amount - #{frozenAmount}
+        WHERE
+        loan_id = #{loanId} and status <![CDATA[=]]> 'OPENED'
+        and frozen_amount <![CDATA[>=]]> 0
+    </update>
+
+    <select id="getLoanListByLoanStatusAndflag" resultMap="BaseResultMapExt">
+        select
+        <include refid="rmbLoan_Column_List" />
+        ,
+        <include refid="rmbLoanRequest_Column_List" />
+        from tb_rmbbox_loan L, tb_rmbbox_loan_request
+        LR
+        where L.request_id = LR.request_id
+        and LR.flag_hidden = 0
+        and L.status in
+        <foreach collection="loanStatus" open="(" close=")" item="status"
+                 index="" separator=",">
+            #{status}
+        </foreach>
+
+    </select>
+
+    <select id="selectByRequestId" resultMap="BaseResultMap" >
+
+        select
+        <include refid="Base_Column_List"/>
+        from tb_rmbbox_loan
+        where request_id = #{requestId}
+    </select>
+
+    <select id="listRmbLoanListForChannelByStatusAndChannel" resultMap="BaseResultMapExt">
+        select
+        <include refid="rmbLoan_Column_List"/>
+        ,
+        <include refid="rmbLoanRequest_Column_List_No_User_Info"/>
+        from tb_rmbbox_loan L, tb_rmbbox_loan_request LR
+        where
+        L.request_id = LR.request_id and LR.flag_hidden = 0 and LR.flag_channel = 1
+        and LR.loan_channel = #{loanChannel}
+        <if test="statusList != null">
+            and L.status in
+            <foreach collection="statusList" open="(" close=")" index="" item="status" separator=",">
+                #{status}
+            </foreach>
+        </if>
+        order by FIELD(LR.loan_property,1,3,2,0),L.open_time
+    </select>
+
+    <select id="queryCountByUserIdOrCompensatoryId" resultType="java.lang.Integer">
+        SELECT count(l.loan_id) FROM
+          tb_rmbbox_loan l,tb_rmbbox_loan_request r
+        WHERE
+          l.request_id = r.request_id
+        and
+          (r.user_id = #{userId} or r.compensatory_id = #{userId})
+        and
+          l.status not in ('FAILED','CLEARED','CANCELED')
+    </select>
+</mapper>

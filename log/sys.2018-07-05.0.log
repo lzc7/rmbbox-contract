@@ -1,0 +1,41 @@
+2018-07-05 11:40:27,056 INFO (StartupInfoLogger.java:48)- Starting App on note-zp-0001 with PID 9188 (E:\gittest\pushmsg\helloworld\rmbbox-contract-server\target\classes started by Administrator in E:\gittest\pushmsg\helloworld\rmbbox-contract-server)
+2018-07-05 11:40:27,141 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-07-05 11:40:28,124 INFO (Version.java:30)- HV000001: Hibernate Validator 5.3.6.Final
+2018-07-05 11:40:28,719 INFO (AbstractApplicationContext.java:583)- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@797cf65c: startup date [Thu Jul 05 11:40:28 CST 2018]; root of context hierarchy
+2018-07-05 11:40:34,523 INFO (TomcatEmbeddedServletContainer.java:89)- Tomcat initialized with port(s): 7650 (http)
+2018-07-05 11:40:34,599 INFO (DirectJDKLog.java:179)- Starting service [Tomcat]
+2018-07-05 11:40:34,619 INFO (DirectJDKLog.java:179)- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-07-05 11:40:35,027 INFO (DirectJDKLog.java:179)- Initializing Spring embedded WebApplicationContext
+2018-07-05 11:40:35,027 INFO (EmbeddedWebApplicationContext.java:276)- Root WebApplicationContext: initialization completed in 6308 ms
+2018-07-05 11:40:35,420 INFO (ServletRegistrationBean.java:190)- Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-05 11:40:35,425 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-05 11:40:35,426 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-05 11:40:35,426 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-05 11:40:35,426 INFO (AbstractFilterRegistrationBean.java:258)- Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-05 11:40:38,420 INFO (RequestMappingHandlerAdapter.java:534)- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@797cf65c: startup date [Thu Jul 05 11:40:28 CST 2018]; root of context hierarchy
+2018-07-05 11:40:38,688 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/appointment/contract/{appointmentId}]}" onto public void com.zipi.controller.ContractController.getAppointmentAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-05 11:40:38,689 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/forCompensator/{repaymentId}]}" onto public void com.zipi.controller.ContractController.getCompensatorAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-05 11:40:38,690 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/assignSale/contract/{assignmentId}]}" onto public void com.zipi.controller.ContractController.getAssignSaleAgreement(int,javax.servlet.http.HttpServletResponse)
+2018-07-05 11:40:38,690 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/creditSale/contract/{creditId}]}" onto public void com.zipi.controller.ContractController.getCreditSaleAgreement(long,javax.servlet.http.HttpServletResponse)
+2018-07-05 11:40:38,691 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/invest/contract/{investId}]}" onto public void com.zipi.controller.ContractController.getInvestAgreement(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-05 11:40:38,691 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/loan/contract/{loanId}]}" onto public void com.zipi.controller.ContractController.getLoanAgreementForMG(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-07-05 11:40:38,695 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-05 11:40:38,695 INFO (AbstractHandlerMethodMapping.java:543)- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-05 11:40:38,741 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-05 11:40:38,741 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-05 11:40:38,793 INFO (AbstractUrlHandlerMapping.java:362)- Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-05 11:40:38,828 WARN (AbstractTemplateResolverConfiguration.java:60)- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-07-05 11:40:39,314 INFO (WebMvcAutoConfiguration.java:549)- Adding welcome page: class path resource [static/index.html]
+2018-07-05 11:40:39,796 INFO (MBeanExporter.java:431)- Registering beans for JMX exposure on startup
+2018-07-05 11:40:39,807 INFO (MBeanExporter.java:916)- Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-05 11:40:39,813 INFO (MBeanExporter.java:671)- Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-07-05 11:40:39,855 INFO (ScheduledAnnotationBeanPostProcessor.java:267)- No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-07-05 11:40:40,009 INFO (DirectJDKLog.java:179)- Initializing ProtocolHandler ["http-nio-7650"]
+2018-07-05 11:40:40,051 INFO (DirectJDKLog.java:179)- Starting ProtocolHandler ["http-nio-7650"]
+2018-07-05 11:40:40,064 INFO (DirectJDKLog.java:179)- Using a shared selector for servlet write/read
+2018-07-05 11:40:40,168 INFO (TomcatEmbeddedServletContainer.java:201)- Tomcat started on port(s): 7650 (http)
+2018-07-05 11:40:40,175 INFO (StartupInfoLogger.java:57)- Started App in 15.553 seconds (JVM running for 23.699)
+2018-07-05 11:41:10,603 INFO (DirectJDKLog.java:179)- A cookie header was received [1529910458,1530013901,1530064543; _qzja=1.1647278683.1525845002073.1530013901294.1530064543846.1530015221203.1530064543846..0.0.234.41; zg_31f03a4d142948ae9a3a435fe41f7f27=%7B%22sid%22%3A%201530076183427%2C%22updated%22%3A%201530076183427%2C%22info%22%3A%201529644945126%2C%22superProperty%22%3A%20%22%7B%7D%22%2C%22platform%22%3A%20%22%7B%7D%22%2C%22utm%22%3A%20%22%7B%7D%22%2C%22referrerDomain%22%3A%20%22%22%2C%22landHref%22%3A%20%22http%3A%2F%2Flocalhost%3A8087%2F%22%7D] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-07-05 11:41:10,611 INFO (DirectJDKLog.java:179)- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-05 11:41:10,612 INFO (FrameworkServlet.java:489)- FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-05 11:41:10,660 INFO (FrameworkServlet.java:508)- FrameworkServlet 'dispatcherServlet': initialization completed in 48 ms

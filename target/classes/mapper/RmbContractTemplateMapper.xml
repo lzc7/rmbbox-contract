@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zipi.mapper.RmbContractTemplateMapper">
+
+
+	<resultMap type="com.zipi.entity.RmbContractTemplate" id="RmbContractTemplate">
+		<result property="id" column="tmp_id" />
+		<result property="name" column="tmp_name" />
+		<result property="type" column="tmp_type" />
+		<result property="timeCreated" column="tmp_create_time" />
+		<result property="isDefault" column="tmp_isDefault" />
+		<result property="content" column="tmp_content" />
+		<result property="tmpKeyWord" column="tmp_key_word" />
+	</resultMap>
+
+    <insert id="create" parameterType="com.zipi.entity.RmbContractTemplate">
+        <selectKey resultType="java.lang.String" order="BEFORE" keyProperty="id">
+            SELECT UPPER(UUID()) AS id
+        </selectKey>
+        INSERT INTO tb_rmbbox_contract_template(tmp_id,tmp_content, tmp_isDefault,tmp_name,tmp_create_time,tmp_type) VALUES (
+        #{id},#{content}, #{isDefault}, #{name}, #{timeCreated},#{type});
+    </insert>
+		<!-- fhj  查询所有合同 -->
+	<select id="listAllTemplates" resultMap="RmbContractTemplate">
+        SELECT tct.tmp_id,tct.tmp_name,tct.tmp_isDefault,tct.tmp_create_time,tct.tmp_type
+        FROM    tb_rmbbox_contract_template tct
+    </select>
+	<!--fhj 查询制定类型的默认模板 -->
+ 	<select id="getDefaultByType" parameterType="com.zipi.enums.contract.ContractType" resultMap="RmbContractTemplate">
+        select * from tb_rmbbox_contract_template tct  where tct.tmp_isDefault = true and tct.tmp_type = #{type}
+    </select>
+	<!--fhj 查询制定模板名称的默认模板 -->
+ 	<select id="getTheSepcifiedTempByName" parameterType="java.lang.String" resultMap="RmbContractTemplate">
+        select * from tb_rmbbox_contract_template tct  where tct.tmp_name = #{templateName}
+    </select>
+
+ 	<select id="countByType"  resultType="java.lang.Integer">
+        select count(*) from tb_rmbbox_contract_template where tmp_type in
+        <foreach collection="typeList" open="(" close=")" index="" item="item">
+            #{item}
+        </foreach>
+    </select>
+     <select id="count" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select count(*) from tb_rmbbox_contract_template
+    </select>
+    
+    <select id="listByType"  resultMap="RmbContractTemplate">
+        SELECT  tct.tmp_type ,tct.tmp_id,tct.tmp_name,tct.tmp_isDefault,tct.tmp_create_time  FROM tb_rmbbox_contract_template tct WHERE tct.tmp_type in
+        <foreach collection="typeList" open="(" close=")" index="" item="item">
+            #{item}
+        </foreach>	
+        order by tct.tmp_create_time
+    </select>
+     <update id="setDefault" parameterType="java.lang.String">
+        update tb_rmbbox_contract_template tct set tct.tmp_isDefault = (case when tct.tmp_id = #{id} then TRUE else FALSE end) where tct.tmp_type = #{type}
+    </update>
+    
+    <update id="edit" parameterType="com.zipi.entity.RmbContractTemplate">
+        update tb_rmbbox_contract_template SET 
+        <if test="content!=null">tmp_content = #{content},</if>
+        <if test="isDefault !=null">tmp_isDefault = #{isDefault},</if>
+        <if test="name !=null">tmp_name = #{name},</if>
+        <if test="timeCreated !=null">tmp_create_time = #{timeCreated},</if>
+        <if test="type !=null">tmp_type = #{type}</if>
+        WHERE tmp_id = #{id}
+    </update>
+    
+    <select id="getById" parameterType="java.lang.String" resultMap="RmbContractTemplate">
+         SELECT *  FROM tb_rmbbox_contract_template WHERE  tmp_id = #{id}
+    </select>
+    
+    <select id="getWithoutContentById" resultMap="RmbContractTemplate">
+        SELECT tct.tmp_type ,tct.tmp_id,tct.tmp_name,tct.tmp_isDefault,tct.tmp_create_time,tct.tmp_key_word
+        FROM    tb_rmbbox_contract_template
+        WHERE   tmp_id=#{id}
+    </select>
+     <delete id="removeById" parameterType="java.lang.String">
+        delete from tb_rmbbox_contract_template where tmp_id = #{id}
+    </delete>
+
+    <select id="getByType" parameterType="java.lang.String" resultMap="RmbContractTemplate">
+        SELECT *  FROM tb_rmbbox_contract_template WHERE  tmp_type = #{type} limit 1
+    </select>
+</mapper>
+
+
