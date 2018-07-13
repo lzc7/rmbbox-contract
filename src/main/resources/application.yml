@@ -41,18 +41,12 @@ spring:
       max-wait: 10000
      timeout: 10000
   #   database: 0
-#  thymeleaf:
-#      cache: false
-      #view-names: /*
-#jpa:
-#  database : MYSQL
-#  show-sql : true
 mybatis:
   typeAliasesPackage: com.zipi.entity
   mapperLocations: classpath:mapper/*.xml
   mybatis.config: classpath:mapper/config/mybatis-config.xml
 
-myProps: #自定义的属性和值
+myProps: #
     FDD_API_ID: 400220
     FDD_APP_SECRET: gHHhZB1qGTJyYh7K121Jat8h
     FDD_V: 2.0

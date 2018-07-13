@@ -7,6 +7,10 @@ import org.springframework.context.annotation.Configuration;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
+/**
+ * author linzhicheng
+ * 2018年7月13日13:47:36
+ */
 @Configuration
 @EnableCaching
 public class JedisConfiguration {

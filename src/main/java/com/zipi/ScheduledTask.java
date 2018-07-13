@@ -7,7 +7,10 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
-
+/**
+ * author linzhicheng
+ * 2018年6月16日16:36:36
+ */
 @Lazy(false)
 @Configuration
 @EnableScheduling

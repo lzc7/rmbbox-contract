@@ -264,22 +264,22 @@ public class SignatureFacadeServiceImpl implements SignatureFacadeService {
                 ||SealFileType.CarLoanAgreementForLoan.name().equals(coreSealFlie.getFileType())
                 ||SealFileType.CreditLoanAgreementForLoan.name().equals(coreSealFlie.getFileType())
                 ||SealFileType.AssignorAgreement.name().equals(coreSealFlie.getFileType())){
-            CoreUser user;
-            if (SealFileType.AssignorAgreement.name().equals(coreSealFlie.getFileType())){
-                user=rmbboxCreditSaleService.queryEnterpriseInfoByCreditId(Long.valueOf(coreSealFlie.getInvestId()));
-            }else {
-                user=rmbInvestService.selectEnterpriseInfoByLoanId(coreSealFlie.getInvestId());
-            }
-            signKeywords = new String[]{"邦帮堂盖章处","借款公司盖章处"};
-            if(user.isEnterprise()){//企业用户
-                costomerNo = new String[]{FddConstantCommon.BBT_CUSTOMER_NO.getValue(),user.getCustomerNo()};
-                clientType = new String[]{"2","2"};
-            }else {//个人用户
-                //个人借款人的签章
-                String loanerId=registerCA(user.getUserName(),user.getIdNumber(),user.getUserMobile(),user.getUserId());
-                costomerNo = new String[]{FddConstantCommon.BBT_CUSTOMER_NO.getValue(),loanerId};
-                clientType = new String[]{"2","1"};
-            }
+//            CoreUser user;
+//            if (SealFileType.AssignorAgreement.name().equals(coreSealFlie.getFileType())){
+//                user=rmbboxCreditSaleService.queryEnterpriseInfoByCreditId(Long.valueOf(coreSealFlie.getInvestId()));
+//            }else {
+//                user=rmbInvestService.selectEnterpriseInfoByLoanId(coreSealFlie.getInvestId());
+//            }
+//            signKeywords = new String[]{"邦帮堂盖章处","借款公司盖章处"};
+//            if(user.isEnterprise()){//企业用户
+//                costomerNo = new String[]{FddConstantCommon.BBT_CUSTOMER_NO.getValue(),user.getCustomerNo()};
+//                clientType = new String[]{"2","2"};
+//            }else {//个人用户
+//                //个人借款人的签章
+//                String loanerId=registerCA(user.getUserName(),user.getIdNumber(),user.getUserMobile(),user.getUserId());
+//                costomerNo = new String[]{FddConstantCommon.BBT_CUSTOMER_NO.getValue(),loanerId};
+//                clientType = new String[]{"2","1"};
+//            }
         }else if (SealFileType.BillLoanAgreementForLend.name().equals(coreSealFlie.getFileType())||SealFileType.CarLoanAgreementForLend.name().equals(coreSealFlie.getFileType())){
 //            CoreUser user=rmbInvestService.selectEnterpriseInfoByInvestId(coreSealFlie.getInvestId());
 //            customerId = registerCA(coreSealFlie.getInvestId(),user.getUserId());
@@ -315,23 +315,23 @@ public class SignatureFacadeServiceImpl implements SignatureFacadeService {
             }
         }else if (SealFileType.CreditLoanAgreementForLend.name().equals(coreSealFlie.getFileType())||
                 SealFileType.AssigneeAgreement.name().equals(coreSealFlie.getFileType())){
-            CoreUser user;
-            if (SealFileType.CreditLoanAgreementForLend.name().equals(coreSealFlie.getFileType())){
-                user=rmbInvestService.selectEnterpriseInfoByInvestId(coreSealFlie.getInvestId());
-            }else {
-                user = rmbboxCreditAssignmentService.queryEnterpriseInfoByAssignmentId(Integer.valueOf(coreSealFlie.getInvestId()));
-            }
-            customerId = registerCA(coreSealFlie.getInvestId(),user.getUserId());
-            signKeywords = new String[]{"棒棒糖签章处","乙方签章处","甲方签章处"};
-            if(user.isEnterprise()){//企业用户
-                costomerNo = new String[]{FddConstantCommon.BBT_CUSTOMER_NO.getValue(),user.getCustomerNo(),customerId};
-                clientType = new String[]{"2","2","1"};
-            }else {//个人用户
-                //个人借款人的签章
-                String loanerId=registerCA(user.getUserName(),user.getIdNumber(),user.getUserMobile(),user.getUserId());
-                costomerNo = new String[]{FddConstantCommon.BBT_CUSTOMER_NO.getValue(),loanerId,customerId};
-                clientType = new String[]{"2","1","1"};
-            }
+//            CoreUser user;
+//            if (SealFileType.CreditLoanAgreementForLend.name().equals(coreSealFlie.getFileType())){
+//                user=rmbInvestService.selectEnterpriseInfoByInvestId(coreSealFlie.getInvestId());
+//            }else {
+//                user = rmbboxCreditAssignmentService.queryEnterpriseInfoByAssignmentId(Integer.valueOf(coreSealFlie.getInvestId()));
+//            }
+//            customerId = registerCA(coreSealFlie.getInvestId(),user.getUserId());
+//            signKeywords = new String[]{"棒棒糖签章处","乙方签章处","甲方签章处"};
+//            if(user.isEnterprise()){//企业用户
+//                costomerNo = new String[]{FddConstantCommon.BBT_CUSTOMER_NO.getValue(),user.getCustomerNo(),customerId};
+//                clientType = new String[]{"2","2","1"};
+//            }else {//个人用户
+//                //个人借款人的签章
+//                String loanerId=registerCA(user.getUserName(),user.getIdNumber(),user.getUserMobile(),user.getUserId());
+//                costomerNo = new String[]{FddConstantCommon.BBT_CUSTOMER_NO.getValue(),loanerId,customerId};
+//                clientType = new String[]{"2","1","1"};
+//            }
         }else if (SealFileType.AgreementForGuarantor.name().equals(coreSealFlie.getFileType())){
 //            RmbLoanRequest request=rmbLoanRequestService.getRmbLoanRequestByLoanId(coreSealFlie.getInvestId());
 //            CoreUser loaner = request.getCoreUser();

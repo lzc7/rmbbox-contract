@@ -3,7 +3,10 @@ package com.zipi;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+/**
+ * author linzhicheng
+ * 2018年6月13日13:16:36
+ */
 @SpringBootApplication
 @MapperScan("com.zipi.mapper")
 public class App {

@@ -2,7 +2,10 @@ package com.zipi.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-
+/**
+ * author linzhicheng
+ * 2018年7月13日13:47:36
+ */
 @Configuration
 public class DefinedProperties {
 
