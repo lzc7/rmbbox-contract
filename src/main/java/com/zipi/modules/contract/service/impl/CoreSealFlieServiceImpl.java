@@ -8,7 +8,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.io.File;
+import java.util.Date;
 import java.util.List;
 @Slf4j
 @Service
@@ -55,6 +58,30 @@ public class CoreSealFlieServiceImpl implements CoreSealFlieService {
 		return coreSealFlieMapper.updateAgreementStatus(fileId);
 	}
 
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public void testTransaction() {
+		CoreSealFlie csf = new CoreSealFlie();
+		csf.setInvestId("10000");
+		csf.setCreateTime(new Date());
+		csf.setFilePath("NET_LOAN"+ File.separator);
+		csf.setFilePeriod(0);
+		csf.setFileName("test");
+		csf.setFileType("test");
+		coreSealFlieMapper.insert(csf);
 
+		CoreSealFlie coreSealFlie = coreSealFlieMapper.selectByPrimaryKey(csf.getFileId());
 
+		CoreSealFlie csf2 = new CoreSealFlie();
+		csf2.setInvestId("100002");
+		csf2.setCreateTime(new Date());
+		csf2.setFilePath("NET_LOAN2"+ File.separator);
+		csf2.setFilePeriod(0);
+		csf2.setFileName("test2");
+		csf2.setFileType("test2");
+		coreSealFlieMapper.insert(csf2);
+
+//		int a = 1/0;
+		System.out.println("done");
+	}
 }

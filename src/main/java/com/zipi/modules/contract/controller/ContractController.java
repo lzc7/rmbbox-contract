@@ -1,10 +1,8 @@
 package com.zipi.modules.contract.controller;
 
 import com.zipi.core.util.FileUtils;
-import com.zipi.modules.contract.entity.RmbInvest;
-import com.zipi.modules.contract.entity.RmbboxCreditAssignment;
-import com.zipi.modules.contract.entity.RmbboxCreditSale;
-import com.zipi.modules.contract.entity.RmbboxLoanAppointment;
+import com.zipi.modules.contract.entity.*;
+import com.zipi.modules.contract.enums.ContractType;
 import com.zipi.modules.contract.enums.LoanRequestTypes;
 import com.zipi.modules.contract.enums.SealFileType;
 import com.zipi.modules.contract.service.*;
@@ -17,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
+import java.util.Date;
 
 @Slf4j
 @RestController
@@ -217,9 +216,19 @@ public class ContractController {
 
     @Autowired
     private CacheManagerService cacheManagerService;
+    @Autowired
+    private ContractTemplateService contractTemplateService;
+    @Autowired
+    private CoreSealFlieService coreSealFlieService;
     @RequestMapping("test")
     public void test(){
 
+
+        coreSealFlieService.testTransaction();
+
+// 获取template模板
+        String contractType = ContractType.TEMPLET4COMPENSATORY.name();
+        RmbContractTemplate template = contractTemplateService.getByType(contractType);
         cacheManagerService.set("test1","20180710",600);
         String tes1 = cacheManagerService.get("test1");
         System.out.println(tes1);

@@ -42,4 +42,5 @@ public interface CoreSealFlieService {
 	int updateAgreementStatus(String fileId);
 
 
+	void testTransaction();
 }
