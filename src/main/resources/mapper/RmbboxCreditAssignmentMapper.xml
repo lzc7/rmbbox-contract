@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zipi.mapper.RmbboxCreditAssignmentMapper">
-    <resultMap id="BaseResultMap" type="com.zipi.entity.RmbboxCreditAssignment">
+<mapper namespace="com.zipi.modules.contract.mapper.RmbboxCreditAssignmentMapper">
+    <resultMap id="BaseResultMap" type="com.zipi.modules.contract.entity.RmbboxCreditAssignment">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="credit_id" property="creditId" jdbcType="INTEGER"/>
         <result column="amount" property="amount" jdbcType="DECIMAL"/>
@@ -30,7 +30,7 @@
         where id = #{id,jdbcType=INTEGER}
     </select>
 
-    <insert id="insertSelective" parameterType="com.zipi.entity.RmbboxCreditAssignment" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insertSelective" parameterType="com.zipi.modules.contract.entity.RmbboxCreditAssignment" useGeneratedKeys="true" keyProperty="id">
         insert into tb_rmbbox_credit_assignment
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -127,7 +127,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.zipi.entity.RmbboxCreditAssignment">
+    <update id="updateByPrimaryKeySelective" parameterType="com.zipi.modules.contract.entity.RmbboxCreditAssignment">
         update tb_rmbbox_credit_assignment
         <set>
             <if test="record.creditId != null">
@@ -423,7 +423,7 @@
             id = #{id} AND raise_amount = #{raiseAmount}
     </update>
 
-    <select id="queryByIdWithUserInfo" resultType="com.zipi.entity.RmbboxCreditAssignment">
+    <select id="queryByIdWithUserInfo" resultType="com.zipi.modules.contract.entity.RmbboxCreditAssignment">
         SELECT
             a.order_id orderId, u.user_name userName,u.id_number idNumber,a.amount amount,a.credit_interest creditInterest
         FROM
@@ -435,7 +435,7 @@
         limit 1
     </select>
 
-    <select id="queryEnterpriseInfoByAssignmentId" resultType="com.zipi.entity.CoreUser">
+    <select id="queryEnterpriseInfoByAssignmentId" resultType="com.zipi.modules.contract.entity.CoreUser">
         SELECT
                 t.user_id AS userId,
                 u.user_name AS userName,

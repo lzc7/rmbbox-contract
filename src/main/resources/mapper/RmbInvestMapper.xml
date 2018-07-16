@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zipi.mapper.RmbInvestMapper">
+<mapper namespace="com.zipi.modules.contract.mapper.RmbInvestMapper">
 
-    <resultMap id="BaseResultMap" type="com.zipi.entity.RmbInvest">
+    <resultMap id="BaseResultMap" type="com.zipi.modules.contract.entity.RmbInvest">
         <id column="invest_id" property="investId" jdbcType="VARCHAR"/>
         <result column="invest_amount" property="investAmount" jdbcType="DECIMAL"/>
         <result column="loan_id" property="loanId" jdbcType="VARCHAR"/>
@@ -24,7 +24,7 @@
     </resultMap>
 
 
-    <resultMap id="TopInvestMap" type="com.zipi.entity.RmbInvest">
+    <resultMap id="TopInvestMap" type="com.zipi.modules.contract.entity.RmbInvest">
         <id column="invest_id" property="investId"/>
         <result column="invest_amount" property="investAmount"/>
         <result column="submit_time" property="submitTime"/>
@@ -37,7 +37,7 @@
         <result column="loanPeriod" property="loanPeriod"/>
         <result column="amount_interest"  property="amountInterest"/>
         <result column="repay_method" property="repayMethod"/>
-        <association property="user" column="user_id" javaType="CoreUser">
+        <association property="user" column="user_id" javaType="com.zipi.modules.contract.entity.CoreUser">
             <id property="userId" column="user_id"/>
             <result property="userName" column="user_name"/>
             <result property="loginName" column="login_name"/>
@@ -60,7 +60,7 @@
         where loan_id = #{loanId,jdbcType=VARCHAR}
       </select>
 
-    <insert id="insert" parameterType="com.zipi.entity.RmbInvest">
+    <insert id="insert" parameterType="com.zipi.modules.contract.entity.RmbInvest">
         <selectKey resultType="java.lang.String" order="BEFORE" keyProperty="investId" keyColumn="invest_id">
             SELECT UPPER(UUID()) AS investId
         </selectKey>
@@ -78,7 +78,7 @@
     </insert>
 
 
-    <update id="update" parameterType="com.zipi.entity.RmbInvest">
+    <update id="update" parameterType="com.zipi.modules.contract.entity.RmbInvest">
         update tb_rmbbox_invest
         <set>
             <if test="investAmount != null">
@@ -1118,7 +1118,7 @@ union all
     </select>
     
     <!--=======================-->
-    <select id="getInvestInfoByInvetId" resultType="com.zipi.entity.RmbInvest">
+    <select id="getInvestInfoByInvetId" resultType="com.zipi.modules.contract.entity.RmbInvest">
         SELECT ri.loan_id loanId,rlr.request_type requestType,ri.user_id userId
         FROM tb_rmbbox_invest ri,tb_rmbbox_loan rl,tb_rmbbox_loan_request rlr
         WHERE ri.loan_id=rl.loan_id
@@ -1150,7 +1150,7 @@ union all
         AND ri.invest_id=#{investId}
     </select>
 
-    <select id="selectInvestByLoanId" resultType="com.zipi.entity.RmbInvest">
+    <select id="selectInvestByLoanId" resultType="com.zipi.modules.contract.entity.RmbInvest">
         SELECT
         cu.user_name userName,
         cu.id_number idNumber,
@@ -1161,7 +1161,7 @@ union all
         AND ri.loan_id=#{loanId}
     </select>
 
-    <select id="selectEnterpriseInfoByLoanId" resultType="com.zipi.entity.CoreUser">
+    <select id="selectEnterpriseInfoByLoanId" resultType="com.zipi.modules.contract.entity.CoreUser">
         SELECT
         cu.user_name AS userName,
         cu.enterprise,

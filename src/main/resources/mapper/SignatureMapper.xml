@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zipi.mapper.SignatureMapper" >
-    <resultMap id="BaseResultMap" type="com.zipi.entity.Signature" >
+<mapper namespace="com.zipi.modules.contract.mapper.SignatureMapper" >
+    <resultMap id="BaseResultMap" type="com.zipi.modules.contract.entity.Signature" >
         <result column="transaction_id" property="transactionId" jdbcType="VARCHAR" />
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
         <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
@@ -20,7 +20,7 @@
         description,trade_status,invest_id,contract_id,file_id,doc_title,
         sign_keyword,sealNo
     </sql>
-    <insert id="insert" parameterType="com.zipi.entity.Signature">
+    <insert id="insert" parameterType="com.zipi.modules.contract.entity.Signature">
         <selectKey resultType="java.lang.String" order="BEFORE" keyProperty="transactionId">
             SELECT UPPER(UUID()) AS transactionId
         </selectKey>

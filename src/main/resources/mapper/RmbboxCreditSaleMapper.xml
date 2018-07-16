@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zipi.mapper.RmbboxCreditSaleMapper">
-    <resultMap id="BaseResultMap" type="com.zipi.entity.RmbboxCreditSale">
+<mapper namespace="com.zipi.modules.contract.mapper.RmbboxCreditSaleMapper">
+    <resultMap id="BaseResultMap" type="com.zipi.modules.contract.entity.RmbboxCreditSale">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="loan_id" property="loanId" jdbcType="VARCHAR"/>
         <result column="amount" property="amount" jdbcType="DECIMAL"/>
@@ -44,7 +44,7 @@
         where id = #{id}
     </select>
 
-    <insert id="insertSelective" parameterType="com.zipi.entity.RmbboxCreditSale">
+    <insert id="insertSelective" parameterType="com.zipi.modules.contract.entity.RmbboxCreditSale">
         <selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">
             SELECT LAST_INSERT_ID()
         </selectKey>
@@ -557,7 +557,7 @@
         and invest_id = #{investId}
     </select>
 
-    <select id="queryByIdWithUserInfo" resultType="com.zipi.entity.RmbboxCreditSale">
+    <select id="queryByIdWithUserInfo" resultType="com.zipi.modules.contract.entity.RmbboxCreditSale">
         SELECT
         u.user_name userName,u.id_number idNumber,s.loan_id loanId,s.settled_time settledTime,
         s.credit_interest creditInterest,
@@ -569,7 +569,7 @@
         limit 1
     </select>
 
-    <select id="queryEnterpriseInfoByCreditId" resultType="com.zipi.entity.CoreUser">
+    <select id="queryEnterpriseInfoByCreditId" resultType="com.zipi.modules.contract.entity.CoreUser">
         SELECT
         u.user_name AS userName,
         u.enterprise,

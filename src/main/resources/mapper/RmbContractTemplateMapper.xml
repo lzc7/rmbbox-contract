@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zipi.mapper.RmbContractTemplateMapper">
+<mapper namespace="com.zipi.modules.contract.mapper.RmbContractTemplateMapper">
 
 
-	<resultMap type="com.zipi.entity.RmbContractTemplate" id="RmbContractTemplate">
+	<resultMap type="com.zipi.modules.contract.entity.RmbContractTemplate" id="RmbContractTemplate">
 		<result property="id" column="tmp_id" />
 		<result property="name" column="tmp_name" />
 		<result property="type" column="tmp_type" />
@@ -13,7 +13,7 @@
 		<result property="tmpKeyWord" column="tmp_key_word" />
 	</resultMap>
 
-    <insert id="create" parameterType="com.zipi.entity.RmbContractTemplate">
+    <insert id="create" parameterType="com.zipi.modules.contract.entity.RmbContractTemplate">
         <selectKey resultType="java.lang.String" order="BEFORE" keyProperty="id">
             SELECT UPPER(UUID()) AS id
         </selectKey>
@@ -26,7 +26,7 @@
         FROM    tb_rmbbox_contract_template tct
     </select>
 	<!--fhj 查询制定类型的默认模板 -->
- 	<select id="getDefaultByType" parameterType="com.zipi.enums.contract.ContractType" resultMap="RmbContractTemplate">
+ 	<select id="getDefaultByType" parameterType="com.zipi.modules.contract.enums.ContractType" resultMap="RmbContractTemplate">
         select * from tb_rmbbox_contract_template tct  where tct.tmp_isDefault = true and tct.tmp_type = #{type}
     </select>
 	<!--fhj 查询制定模板名称的默认模板 -->
@@ -55,7 +55,7 @@
         update tb_rmbbox_contract_template tct set tct.tmp_isDefault = (case when tct.tmp_id = #{id} then TRUE else FALSE end) where tct.tmp_type = #{type}
     </update>
     
-    <update id="edit" parameterType="com.zipi.entity.RmbContractTemplate">
+    <update id="edit" parameterType="com.zipi.modules.contract.entity.RmbContractTemplate">
         update tb_rmbbox_contract_template SET 
         <if test="content!=null">tmp_content = #{content},</if>
         <if test="isDefault !=null">tmp_isDefault = #{isDefault},</if>

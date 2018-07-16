@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zipi.mapper.RmbInvestRepaymentMapper">
+<mapper namespace="com.zipi.modules.contract.mapper.RmbInvestRepaymentMapper">
 
-    <resultMap id="BaseResultMap" type="com.zipi.entity.RmbInvestRepayment">
+    <resultMap id="BaseResultMap" type="com.zipi.modules.contract.entity.RmbInvestRepayment">
         <id column="id" property="id" jdbcType="VARCHAR"/>
         <result column="current_period" property="currentPeriod"/>
         <result column="repay_amount" property="repayAmount" jdbcType="DECIMAL"/>
@@ -21,7 +21,7 @@
     </resultMap>
 
 
-    <insert id="insert" parameterType="com.zipi.entity.RmbInvestRepayment">
+    <insert id="insert" parameterType="com.zipi.modules.contract.entity.RmbInvestRepayment">
         <selectKey resultType="java.lang.String" order="BEFORE" keyProperty="id" keyColumn="rmbbox_income_id">
             SELECT UPPER(UUID()) AS id
         </selectKey>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zipi.mapper.RmbLoanRequestMapper" >
-  <resultMap id="BaseResultMap" type="com.zipi.entity.RmbLoanRequest" >
+<mapper namespace="com.zipi.modules.contract.mapper.RmbLoanRequestMapper" >
+  <resultMap id="BaseResultMap" type="com.zipi.modules.contract.entity.RmbLoanRequest" >
     <id column="request_id" property="requestId" jdbcType="VARCHAR" />
     <result column="amount" property="amount" jdbcType="DECIMAL" />
     <result column="request_des" property="requestDes" jdbcType="VARCHAR" />
@@ -40,7 +40,7 @@
     <result column="loan_service_fee" property="loanServiceFee" jdbcType="TINYINT" />
 
   </resultMap>
-  <resultMap id="BaseResultMapExt" type="com.zipi.entity.RmbLoanRequest" >
+  <resultMap id="BaseResultMapExt" type="com.zipi.modules.contract.entity.RmbLoanRequest" >
     <id column="lr_request_id" property="requestId" jdbcType="VARCHAR" />
     <result column="lr_amount" property="amount" jdbcType="DECIMAL" />
     <result column="lr_request_des" property="requestDes" jdbcType="VARCHAR" />
@@ -78,7 +78,7 @@
     <result column="lr_flag_hidden" property="flagHidden" jdbcType="TINYINT" />
     <result column="lr_flag_channel" property="flagChannel" jdbcType="TINYINT" />
     <result column="lr_loan_channel" property="loanChannel" jdbcType="VARCHAR" />
-    <association property="coreUser" column="lr_user_id" javaType="com.zipi.entity.CoreUser">
+    <association property="coreUser" column="lr_user_id" javaType="com.zipi.modules.contract.entity.CoreUser">
       <result column="u_user_id" property="userId" jdbcType="VARCHAR"/>
       <result column="u_id_number" property="idNumber" jdbcType="VARCHAR"/>
       <result column="u_user_name" property="userName" jdbcType="VARCHAR"/>
@@ -91,7 +91,7 @@
       <result column="u_enterprise" property="enterprise" jdbcType="TINYINT"/>
       <result column="u_unified_code" property="unifiedCode" jdbcType="VARCHAR"/>
     </association>
-    <association property="rmbLoanRequestFee" column="lr_request_id" javaType="com.zipi.entity.RmbLoanRequestFee">
+    <association property="rmbLoanRequestFee" column="lr_request_id" javaType="com.zipi.modules.contract.entity.RmbLoanRequestFee">
       <result column="rf_loan_service_fee" property="loanServiceFee" jdbcType="DECIMAL" />
     </association>
   </resultMap>
@@ -110,7 +110,7 @@
     lr.supplier as lr_supplier,lr.flag_hidden as lr_flag_hidden,lr.loan_channel as lr_loan_channel,lr.flag_channel as lr_flag_channel
   </sql>
 
-  <insert id="insert" parameterType="com.zipi.entity.RmbLoanRequest" >
+  <insert id="insert" parameterType="com.zipi.modules.contract.entity.RmbLoanRequest" >
     <selectKey resultType="java.lang.String" order="BEFORE" keyProperty="requestId" keyColumn="request_id">
       SELECT UPPER(UUID()) AS requestId
     </selectKey>
@@ -221,7 +221,7 @@
   </select>
   
   
-  <update id="updateByPrimaryKeySelective" parameterType="com.zipi.entity.RmbLoanRequest" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.zipi.modules.contract.entity.RmbLoanRequest" >
     update tb_rmbbox_loan_request
     <set >
       <if test="amount != null" >
@@ -335,7 +335,7 @@
   </update>
   
   
-  <update id="updateRequestTitle" parameterType="com.zipi.entity.RmbLoanRequest">
+  <update id="updateRequestTitle" parameterType="com.zipi.modules.contract.entity.RmbLoanRequest">
     update tb_rmbbox_loan_request set request_title = #{requestTitle,jdbcType=VARCHAR} WHERE request_id = #{requestId,jdbcType=VARCHAR}
   </update>
   
@@ -366,7 +366,7 @@
     </if>
   </select>
 
-  <select id="getLoanRequestTypesByLoanId" resultType="com.zipi.enums.bbt.LoanRequestTypes">
+  <select id="getLoanRequestTypesByLoanId" resultType="com.zipi.modules.contract.enums.LoanRequestTypes">
     SELECT  rlr.request_type  FROM tb_rmbbox_loan rl,tb_rmbbox_loan_request rlr
     WHERE rl.request_id=rlr.request_id
     AND rl.loan_id=#{loanId}

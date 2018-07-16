@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zipi.mapper.RmbLoanMapper">
-    <resultMap id="BaseResultMap" type="com.zipi.entity.RmbLoan">
+<mapper namespace="com.zipi.modules.contract.mapper.RmbLoanMapper">
+    <resultMap id="BaseResultMap" type="com.zipi.modules.contract.entity.RmbLoan">
         <id column="loan_id" property="loanId" jdbcType="VARCHAR"/>
         <result column="loan_amount" property="loanAmount" jdbcType="DECIMAL"/>
         <result column="invested_amount" property="investedAmount" jdbcType="DECIMAL"/>
@@ -25,7 +25,7 @@
         <result column="loan_days" property="loanDays" jdbcType="INTEGER"/>
         <result column="request_type" property="requestType" jdbcType="INTEGER"/>
     </resultMap>
-    <resultMap id="BaseResultMapExt" type="com.zipi.entity.RmbLoan">
+    <resultMap id="BaseResultMapExt" type="com.zipi.modules.contract.entity.RmbLoan">
         <id column="loan_id" property="loanId" jdbcType="VARCHAR"/>
         <result column="loan_amount" property="loanAmount" jdbcType="DECIMAL"/>
         <result column="invested_amount" property="investedAmount" jdbcType="DECIMAL"/>
@@ -50,7 +50,7 @@
         <result column="invest_amount" property="investAmount" jdbcType="DECIMAL"/>
         <result column="frozen_amount" property="frozenAmount" jdbcType="DECIMAL"/>
         <result column="interest_amount" property="interestAmount" jdbcType="DECIMAL"/>
-        <association property="rmbLoanRequest" column="request_id" javaType="com.zipi.entity.RmbLoanRequest">
+        <association property="rmbLoanRequest" column="request_id" javaType="com.zipi.modules.contract.entity.RmbLoanRequest">
             <result column="lr_request_id" property="requestId" jdbcType="VARCHAR"/>
             <result column="lr_amount" property="amount" jdbcType="DECIMAL"/>
             <result column="lr_request_des" property="requestDes" jdbcType="VARCHAR"/>
@@ -83,7 +83,7 @@
             <result column="lr_flag_hidden" property="flagHidden" jdbcType="TINYINT" />
             <result column="lr_compensatory_id" property="compensatoryId" jdbcType="VARCHAR" />
             <result column="lr_loan_channel" property="loanChannel" jdbcType="VARCHAR" />
-            <association property="coreUser" column="lr_user_id" javaType="com.zipi.entity.CoreUser">
+            <association property="coreUser" column="lr_user_id" javaType="com.zipi.modules.contract.entity.CoreUser">
                 <result column="u_user_id" property="userId" jdbcType="VARCHAR"/>
                 <result column="u_id_number" property="idNumber" jdbcType="VARCHAR"/>
                 <result column="u_user_name" property="userName" jdbcType="VARCHAR"/>
@@ -99,7 +99,7 @@
         </association>
     </resultMap>
     
-    <resultMap id="newLoanResult" type="com.zipi.entity.RmbLoan">
+    <resultMap id="newLoanResult" type="com.zipi.modules.contract.entity.RmbLoan">
         <id column="loan_id" property="loanId" jdbcType="VARCHAR"/>
         <result column="loan_amount" property="loanAmount" jdbcType="DECIMAL"/>
         <result column="invested_amount" property="investedAmount" jdbcType="DECIMAL"/>
@@ -118,7 +118,7 @@
         <result column="months" property="months" jdbcType="INTEGER"/>
         <result column="years" property="years" jdbcType="INTEGER"/>
         <result property="loanRecommendType" column="loanRecommendType"/>
-        <association property="rmbLoanRequest" column="request_id" javaType="com.zipi.entity.RmbLoanRequest">
+        <association property="rmbLoanRequest" column="request_id" javaType="com.zipi.modules.contract.entity.RmbLoanRequest">
 			<result property="requestId" column="request_id" />
 			<result property="requestType" column="request_type" />
 			<result property="rateAdd" column="rate_add" />
@@ -157,7 +157,7 @@
         where loan_id = #{loanId,jdbcType=VARCHAR}
     </select>
 
-    <insert id="insert" parameterType="com.zipi.entity.RmbLoan">
+    <insert id="insert" parameterType="com.zipi.modules.contract.entity.RmbLoan">
         <selectKey resultType="java.lang.String" order="BEFORE" keyProperty="loanId" keyColumn="loan_id">
             SELECT UPPER(UUID()) AS loanId
         </selectKey>
@@ -308,7 +308,7 @@
         tb_core_user u ON u.user_id = lr.user_id
         WHERE L.loan_id = #{loanId}
     </select>
-    <select id="getLoanListByLoanStatus" resultMap="BaseResultMapExt" parameterType="com.zipi.enums.loan.LoanStatus">
+    <select id="getLoanListByLoanStatus" resultMap="BaseResultMapExt" parameterType="com.zipi.modules.contract.enums.LoanStatus">
         SELECT
         <include refid="rmbLoan_Column_List"/>
         ,
@@ -362,7 +362,7 @@
         SET status=#{loanStatus}
         WHERE loan_id =#{loanId}
     </update>
-    <update id="update" parameterType="com.zipi.entity.RmbLoan">
+    <update id="update" parameterType="com.zipi.modules.contract.entity.RmbLoan">
         update tb_rmbbox_loan
         <set>
             <if test="loanAmount != null">
@@ -734,7 +734,7 @@
             </if>
     </select>
 
-    <update id="updateRequestTitle" parameterType="com.zipi.entity.RmbLoan">
+    <update id="updateRequestTitle" parameterType="com.zipi.modules.contract.entity.RmbLoan">
         update tb_rmbbox_loan set loan_title = #{loanTitle,jdbcType=VARCHAR} WHERE loan_id = #{loanId,jdbcType=VARCHAR}
     </update>
     
@@ -941,7 +941,7 @@
     </select>
 
 
-    <select id="getLoanByLoanId" resultType="com.zipi.entity.RmbLoan">
+    <select id="getLoanByLoanId" resultType="com.zipi.modules.contract.entity.RmbLoan">
         SELECT
         rl.loan_amount AS loanAmount,
         rl.rate,

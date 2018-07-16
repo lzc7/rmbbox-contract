@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zipi.mapper.RmbboxLoanServiceRepaymentMapper" >
-    <resultMap id="BaseResultMap" type="com.zipi.entity.RmbboxLoanServiceRepayment" >
+<mapper namespace="com.zipi.modules.contract.mapper.RmbboxLoanServiceRepaymentMapper" >
+    <resultMap id="BaseResultMap" type="com.zipi.modules.contract.entity.RmbboxLoanServiceRepayment" >
             <id column="id" property="id" jdbcType="VARCHAR" />
             <result column="current_period" property="currentPeriod" jdbcType="INTEGER" />
             <result column="repay_amount" property="repayAmount" jdbcType="DECIMAL" />
@@ -31,7 +31,7 @@
     delete from tb_rmbbox_loan_service_repayment
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.zipi.entity.RmbboxLoanServiceRepayment">
+  <insert id="insert" parameterType="com.zipi.modules.contract.entity.RmbboxLoanServiceRepayment">
     insert into tb_rmbbox_loan_service_repayment (id,current_period,repay_amount,
 		loan_guarantee_fee_amount,loan_interest_fee_amount,loan_fisk_fee_amount,
 		loan_manage_fee_amount,loan_service_fee_amount,loan_share_fee_amount,flag_service_charge,
@@ -43,7 +43,7 @@
 		#{dueDate,jdbcType=DATE},#{loanId,jdbcType=VARCHAR},#{modifyTime,jdbcType=TIMESTAMP}
 		)
   </insert>
-  <insert id="insertSelective" parameterType="com.zipi.entity.RmbboxLoanServiceRepayment">
+  <insert id="insertSelective" parameterType="com.zipi.modules.contract.entity.RmbboxLoanServiceRepayment">
     insert into tb_rmbbox_loan_service_repayment
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null" >
@@ -128,7 +128,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zipi.entity.RmbboxLoanServiceRepayment">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zipi.modules.contract.entity.RmbboxLoanServiceRepayment">
     update tb_rmbbox_loan_service_repayment
     <set>
     <if test="record.currentPeriod != null">
@@ -170,7 +170,7 @@
     </set>
     where id = #{record.id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zipi.entity.RmbboxLoanServiceRepayment">
+  <update id="updateByPrimaryKey" parameterType="com.zipi.modules.contract.entity.RmbboxLoanServiceRepayment">
     update tb_rmbbox_loan_service_repayment
     set current_period = #{record.currentPeriod,jdbcType=INTEGER},
 		repay_amount = #{record.repayAmount,jdbcType=DECIMAL},
@@ -233,7 +233,7 @@
             loan_id = #{loanId} AND current_period >= #{currentPeriod}
     </update>
 
-    <select id="querySumAmountEveryFee" resultType="com.zipi.entity.RmbboxLoanServiceRepayment">
+    <select id="querySumAmountEveryFee" resultType="com.zipi.modules.contract.entity.RmbboxLoanServiceRepayment">
         select
             IFnull(SUM(repay_amount),0) as repayAmount ,
             IFnull(SUM(loan_guarantee_fee_amount),0) as loanGuaranteeFeeAmount ,

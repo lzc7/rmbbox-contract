@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zipi.mapper.RmbboxLoanApplyMapper">
-    <resultMap id="BaseResultMap" type="com.zipi.entity.RmbboxLoanApply">
+<mapper namespace="com.zipi.modules.contract.mapper.RmbboxLoanApplyMapper">
+    <resultMap id="BaseResultMap" type="com.zipi.modules.contract.entity.RmbboxLoanApply">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
         <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
@@ -33,7 +33,7 @@
 		audit_emp_id_sen,audit_opinion_fir,audit_opinion__sen,borrow_partner_source
     </sql>
 
-    <insert id="insert" parameterType="com.zipi.entity.RmbboxLoanApply">
+    <insert id="insert" parameterType="com.zipi.modules.contract.entity.RmbboxLoanApply">
         insert into tb_rmbbox_loan_apply
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="updateId != null and updateId != ''">
@@ -218,7 +218,7 @@
     </select>
 
 
-    <update id="updateByPrimaryKeySelective" parameterType="com.zipi.entity.RmbboxLoanApply">
+    <update id="updateByPrimaryKeySelective" parameterType="com.zipi.modules.contract.entity.RmbboxLoanApply">
         update tb_rmbbox_loan_apply
         <set>
             <if test="record.createTime != null">

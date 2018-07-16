@@ -12,8 +12,6 @@ import java.util.Date;
  * 2018年6月16日16:36:36
  */
 @Lazy(false)
-@Configuration
-@EnableScheduling
 @Component
 public class ScheduledTask {
 
