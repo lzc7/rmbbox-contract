@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 
-@Mapper
+@Repository
 public interface SignatureMapper {
 
     void insert(Signature signature);

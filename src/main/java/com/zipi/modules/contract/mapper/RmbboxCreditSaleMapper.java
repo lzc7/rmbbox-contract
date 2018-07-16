@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-@Mapper
+@Repository
 public interface RmbboxCreditSaleMapper {
 
     RmbboxCreditSale queryByIdWithUserInfo(@Param("id") Long id);

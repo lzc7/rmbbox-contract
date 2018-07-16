@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface RmbInvestRepaymentMapper {
 
     List<RmbInvestRepayment> getByInvestId(@Param("investId") String investId);

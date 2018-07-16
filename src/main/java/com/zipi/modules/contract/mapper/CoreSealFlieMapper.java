@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface CoreSealFlieMapper {
 
     int insert(CoreSealFlie record);

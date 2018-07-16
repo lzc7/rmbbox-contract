@@ -4,15 +4,15 @@ import com.zipi.modules.contract.entity.CoreUser;
 import com.zipi.modules.contract.entity.RmbInvest;
 import com.zipi.modules.contract.enums.InvestStatus;
 import com.zipi.modules.contract.enums.LoanStatus;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-@Mapper
+@Repository
 public interface RmbInvestMapper {
 
     int insert(RmbInvest record);

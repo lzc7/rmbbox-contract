@@ -38,7 +38,7 @@ public class CreditLoanAgreementUtil extends BasePdfUtil {
     @Autowired
     private RmbboxLoanApplyService rmbboxLoanApplyService;
 
-    @Resource
+    @Autowired
     private RmbboxLoanServiceRepaymentService rmbboxLoanServiceRepaymentService;
 
     public byte[] createFile(String investId, String loanId, String userId, SealFileType fileType) {

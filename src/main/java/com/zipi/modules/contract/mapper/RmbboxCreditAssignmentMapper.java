@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Mapper
+@Repository
 public interface RmbboxCreditAssignmentMapper {
 
     RmbboxCreditAssignment selectByPrimaryKey(Integer key);
