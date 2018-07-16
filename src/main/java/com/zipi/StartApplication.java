@@ -4,6 +4,7 @@ import com.zipi.core.config.EnvConfigBanner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * author linzhicheng
@@ -11,6 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @SpringBootApplication
 @EnableScheduling
+@EnableTransactionManagement
 public class StartApplication {
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(StartApplication.class);
