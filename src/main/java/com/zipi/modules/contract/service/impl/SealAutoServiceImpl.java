@@ -116,7 +116,7 @@ public class SealAutoServiceImpl implements SealAutoService {
 			CoreSealFlie csf = fileList.get(0);
 			//如果文件没盖章   先去盖章
 			if(!csf.isFlagSeal()){
-				signatureFacadeService.signatureComposite(csf);//盖章
+//				signatureFacadeService.signatureComposite(csf);//盖章
 			}
 		}else{//如果服务器上不存在  则生成
 			dirFile=createLoanAgreement(investId,loanId,userId,fileType);

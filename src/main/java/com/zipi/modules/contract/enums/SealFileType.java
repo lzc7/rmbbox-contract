@@ -23,7 +23,6 @@ public enum SealFileType implements BaseEnum {
 	AgreementForCompensator("借款代偿协议");
 	@Override
 	public String getKey() {
-		// TODO Auto-generated method stub
 		return key;
 	}
 
