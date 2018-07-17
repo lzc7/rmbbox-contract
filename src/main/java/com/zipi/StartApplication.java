@@ -4,7 +4,9 @@ import com.zipi.core.config.EnvConfigBanner;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
@@ -21,4 +23,11 @@ public class StartApplication {
         application.setBanner(new EnvConfigBanner());
         application.run(args);
     }
+
+    @Bean
+    public Object testBean(PlatformTransactionManager platformTransactionManager){
+        System.out.println("事务管理器>>>>>>>>>>" + platformTransactionManager.getClass().getName());
+        return new Object();
+    }
+
 }
